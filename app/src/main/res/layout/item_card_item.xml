@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent">
+    <!-- 卡片-->
+    <ImageView
+        android:id="@+id/search_card_green"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/search_card_green"
+        android:visibility="visible" />
+
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/search_card_blue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/search_card_blue" />
+
+    <!--标题栏 + 星星-->
+    <LinearLayout
+        android:id="@+id/part_18"
+        android:layout_marginTop="17dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5" />
+
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:id="@+id/textViewCardName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="30"
+            android:text="小衣柜"
+            android:textColor="#525252"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/star_btn"
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/set_into_star_btn"
+                android:visibility="visible"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/star_null" />
+
+            <ImageView
+                android:id="@+id/set_into_star_btn_green"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/star_green" />
+            <ImageView
+                android:id="@+id/set_into_star_btn_blue"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/star_blue" />
+
+        </RelativeLayout>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="6" />
+
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:visibility="visible"
+        android:id="@+id/display"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_below="@id/part_18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/linear_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+</RelativeLayout>
+

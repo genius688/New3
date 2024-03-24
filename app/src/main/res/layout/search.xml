@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/part_test"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F6F6">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+<!--背景图-->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/search_bgr"/>
+
+
+            <ImageView
+                android:layout_marginTop="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/return_btn"/>
+
+            <LinearLayout
+                android:id="@+id/part_19"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/search_return_btn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="7"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
+
+
+            <!--标题栏-->
+            <ImageView
+                android:layout_below="@id/part_19"
+                android:id="@+id/search_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/search_title"
+                android:layout_marginTop="10dp"/>
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               android:layout_marginTop="50dp">
+
+               <Button
+                   android:layout_width="0dp"
+                   android:layout_height="match_parent"
+                   android:layout_weight="52"
+                   android:background="#00000000"/>
+
+               <TextView
+                   android:layout_marginBottom="9dp"
+                   android:gravity="center_vertical"
+                   android:layout_width="0dp"
+                   android:layout_weight="120"
+                   android:layout_height="match_parent"
+                   android:text="竹园四幢529"
+                   android:textSize="14sp"
+                   android:textStyle="bold"
+                   android:textColor="#404141"/>
+
+               <Button
+                   android:layout_width="0dp"
+                   android:layout_height="match_parent"
+                   android:layout_weight="20"
+                   android:background="#00000000"/>
+
+               <Button
+                   android:layout_width="0dp"
+                   android:layout_height="match_parent"
+                   android:layout_weight="20"
+                   android:layout_marginLeft="10dp"
+                   android:layout_marginRight="20dp"
+                   android:background="#00000000"/>
+
+           </LinearLayout>
+
+<!--搜索框-->
+            <ImageView
+                android:id="@+id/search_bar"
+                android:layout_marginTop="30dp"
+                android:layout_below="@id/search_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/search_bar"/>
+
+            <TextView
+                android:id="@+id/search_tips"
+                android:layout_marginTop="2dp"
+                android:layout_below="@id/search_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="搜索框快速搜索"
+                android:textSize="10sp"
+                android:textColor="#cc000000"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/search_tips"
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent">
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <TextView
+                android:layout_below="@id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="- 没有更多了 -"
+                android:textSize="10sp"
+                android:gravity="center"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>

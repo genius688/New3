@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <shape xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:ignore="ExtraText">
+        <solid android:color="#C7F2E8" />
+        <stroke android:width="0.5dip" android:color="#ffffff" />
+        <size
+            android:width="60dp"
+            android:height="30dp"
+            />
+        <corners android:radius="180dp" />属性就是设置圆角
+
+    </shape>
+

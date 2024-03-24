@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#F5F6F6">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+<!--背景 - 上-->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitStart"
+                android:src="@drawable/minebgr" />
+
+<!--设置与联系人按钮-->
+            <LinearLayout
+                android:id="@+id/part_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="30dp"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="7"
+                    android:layout_height="wrap_content"
+                    android:background="#00000000"
+                    />
+
+                <Button
+                    android:id="@+id/setting_btn"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:background="#00000000"/>
+
+                <Button
+                    android:id="@+id/contact_btn"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:background="#00000000"/>
+
+            </LinearLayout>
+
+<!--头像 + id + 昵称 + 帮助-->
+            <LinearLayout
+                android:id="@+id/part_9"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="9dp"
+                android:layout_below="@id/part_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                <com.example.smartstore.Circle
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/x"
+                   />
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="薛定谔的猪"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:textColor="#444643"/>
+
+                    <LinearLayout
+                        android:layout_marginTop="2dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_gravity="center_vertical"
+                            android:layout_width="23dp"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/id"
+                            />
+
+                        <TextView
+                            android:layout_marginLeft="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="123456789"
+                            android:textColor="#959F99"
+                            android:textSize="12sp"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    >
+                    <ImageView
+                        android:layout_marginLeft="7dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_width="0dp"
+                        android:layout_weight="7"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/honor"/>
+                    <Button
+                        android:gravity="center_vertical"
+                        android:layout_width="0dp"
+                        android:layout_weight="5"
+                        android:layout_height="match_parent"
+                        android:background="#00000000"/>
+                    <Button
+                        android:gravity="center_vertical"
+                        android:id="@+id/Help_btn"
+                        android:layout_width="0dp"
+                        android:layout_weight="7"
+                        android:layout_height="match_parent"
+                        android:background="#00000000"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+<!--自我介绍-->
+            <LinearLayout
+                android:id="@+id/part_10"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/part_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="25dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/shallow2"
+                    android:layout_marginLeft="21dp" />
+                <TextView
+                    android:layout_marginLeft="-8dp"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:text="好的自我介绍让别人认识你"
+                    android:textColor="#757C77"/>
+
+            </LinearLayout>
+
+<!--背景 - 下-->
+            <ImageView
+                android:id="@+id/part_11"
+                android:layout_marginTop="-18dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/minebgr_2"
+                android:layout_below="@id/part_10"/>
+
+<!--作品 - 获赞 - 粉丝数据展示-->
+            <LinearLayout
+                android:id="@+id/part_12"
+                android:layout_alignTop="@id/part_11"
+                android:layout_marginTop="40dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_weight="10"
+                    android:layout_height="wrap_content"
+                    android:background="#00000000"/>
+
+                <TextView
+                    android:gravity="center_horizontal"
+                    android:layout_width="0dp"
+                    android:layout_weight="20"
+                    android:layout_height="wrap_content"
+                    android:text="16"
+                    android:textSize="19sp"
+                    android:textColor="#FFffffff"
+                    android:background="#00000000"/>
+                <TextView
+                    android:gravity="center_horizontal"
+                    android:layout_width="0dp"
+                    android:layout_weight="20"
+                    android:layout_height="wrap_content"
+                    android:text="138"
+                    android:textSize="19sp"
+                    android:textColor="#FFffffff"
+                    android:background="#00000000"/>
+                <TextView
+                    android:gravity="center_horizontal"
+                    android:layout_width="0dp"
+                    android:layout_weight="20"
+                    android:layout_height="wrap_content"
+                    android:text="1979"
+                    android:textSize="19sp"
+                    android:textColor="#FFffffff"
+                    android:background="#00000000"/>
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_weight="33"
+                    android:layout_height="wrap_content"
+                    android:background="#00000000"/>
+
+            </LinearLayout>
+
+<!--我的经验-->
+            <LinearLayout
+                android:id="@+id/part_13"
+                android:layout_marginTop="45dp"
+                android:layout_below="@id/part_12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/myexp"/>
+
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:background="#00000000"/>
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="0dp"
+                        android:layout_weight="16"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/_honor"/>
+
+                        <TextView
+                            android:layout_marginLeft="31dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="下一级：收纳玩家"
+                            android:textSize="11sp"
+                            android:textColor="#757C77"/>
+
+                        <ProgressBar
+                            android:id="@+id/exp_progress"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_marginTop="7dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="6dp"
+                            android:max="100"
+                            android:progressDrawable="@drawable/progress_bgr"
+                            />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/user_exp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="40"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:textColor="#24C6AF"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" / 100"
+                                android:textSize="14dp"
+                                android:textStyle="bold"
+                                android:textColor="#324946"
+                                />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="12"
+                        android:layout_height="95dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/expball"/>
+
+                        <TextView
+                            android:id="@+id/user_rank"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textSize="27dp"
+                            android:text="99"
+                            android:textColor="#009581"
+                            android:textStyle="bold"
+                            android:gravity="center_horizontal|center_vertical"/>
+
+                    </RelativeLayout>
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:background="#00000000"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+<!--我的系列-->
+            <ImageView
+                android:layout_marginTop="15dp"
+                android:id="@+id/my_record_btn"
+                android:layout_below="@id/part_13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/my_record"/>
+            <ImageView
+                android:layout_marginTop="5dp"
+                android:id="@+id/my_hitory_btn"
+                android:layout_below="@id/my_record_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/my_history"/>
+            <ImageView
+                android:layout_marginTop="5dp"
+                android:id="@+id/my_like_btn"
+                android:layout_below="@id/my_hitory_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/my_like"/>
+            <ImageView
+                android:layout_marginTop="5dp"
+                android:id="@+id/my_peo_manage_btn"
+                android:layout_below="@id/my_like_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/my_peo_manage"/>
+            <ImageView
+                android:layout_marginTop="5dp"
+                android:id="@+id/my_feedback_btn"
+                android:layout_below="@id/my_peo_manage_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/my_feedback"/>
+            <ImageView
+                android:layout_marginTop="5dp"
+                android:id="@+id/my_invite_btn"
+                android:layout_below="@id/my_feedback_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/my_invite"/>
+            <ImageView
+                android:layout_below="@id/my_invite_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/my_implement"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</ScrollView>

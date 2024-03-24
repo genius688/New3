@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SmartStore</string>
+    <style name="Base.Theme.SmartStore" parent="Theme.MaterialComponents.DayNight.DarkActionBar.Bridge">
+        
+        
+    </style>
+    <style name="BottomToTopAnim" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/bottom_out</item>
+    </style>
+    <style name="Theme.SmartStore" parent="Base.Theme.SmartStore"/>
+    <style name="style_dialog" parent="android:style/Theme.Dialog">
+    <item name="android:windowBackground">@android:color/transparent</item>
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowIsFloating">true</item>
+    <item name="android:windowContentOverlay">@null</item>
+    <item name="android:scrollHorizontally">true</item>
+    
+    <item name="android:windowAnimationStyle">@style/BottomToTopAnim</item>
+        //方法在下面 ↓
+</style>
+</resources>

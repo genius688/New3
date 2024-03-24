@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    >
+
+    <ImageView
+        android:id="@+id/discription_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:adjustViewBounds="true"
+        android:src="@drawable/discription_input" />
+
+    <EditText
+        android:id="@+id/discription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/discription_dialog"
+        android:layout_above="@id/part_7"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="20dp"
+        android:textSize="17sp"
+        android:text="描述我的空间"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:background="#00000000"
+         />
+
+    <LinearLayout
+        android:id="@+id/part_7"
+        android:layout_alignBottom="@id/discription_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <Button
+        android:layout_marginRight="45dp"
+        android:layout_marginLeft="80dp"
+        android:id="@+id/discription_btn_confirm"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:background="#00000000"
+        />
+
+    <Button
+        android:layout_marginRight="70dp"
+        android:layout_marginLeft="3dp"
+        android:id="@+id/discription_btn_cancel"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:background="#00000000"
+        />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
