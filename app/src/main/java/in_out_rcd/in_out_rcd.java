@@ -5,44 +5,75 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.smartstore.R;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class in_out_rcd extends AppCompatActivity {
 
-    public static List<String> test_information = new ArrayList<>(7);  //用于点击各个 “日” 显示的文本
+    public static Map<Boolean, ArrayList<inoutClass>> info = new HashMap<>();
     public List<String> day = new ArrayList<>(7);  //用于记录日历中每一块要显示的“日”
     public List<String> month = new ArrayList<>(7);//用于记录日历中每一块要显示的“月”
+    private LinearLayout inoutInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.in_out_rcd);
 
+        inoutInfo = findViewById(R.id.INOUT_info);
+
+        {
+//            Thread t1 = new Thread(this::updateDataTime);
+////            Thread t2 = new Thread(this::getInOutInfo);
+//
+//            t1.start();
+//            try {
+//                t1.join();
+//            } catch (InterruptedException e) {
+//                throw new RuntimeException(e);
+//            }
+//            t2.start();
+//            try {
+//                t2.join();
+//            } catch (InterruptedException e) {
+//                throw new RuntimeException(e);
+//            }
+        }
+
 //****创建日历*****
         {
-            //获取过去一周内的出入库记录
-            test_information.add("Click 1");
-            test_information.add("Click 2");
-            test_information.add("Click 3");
-            test_information.add("Click 4");
-            test_information.add("Click 5");
-            test_information.add("Click 6");
-            test_information.add("Click 7");  //用于点击各个 “日” 显示的文本
+//            //获取过去一周内的出入库记录
+//            test_information.add("Click 1");
+//            test_information.add("Click 2");
+//            test_information.add("Click 3");
+//            test_information.add("Click 4");
+//            test_information.add("Click 5");
+//            test_information.add("Click 6");
+//            test_information.add("Click 7");  //用于点击各个 “日” 显示的文本
 
             get_post_days();  //函数定义在下面，用于将今天以前的七天对应的月和日存入上面的day和month链表中
 
             //at是一个类，里面有一种函数add_date_item，可以动态地在日历中添加每一天
             //findViewById(R.id.date_time_bar表示要添加入的位置，findViewById(R.id.test）表示点击要显示的位置
 
-            add_time at = new add_time(this, findViewById(R.id.date_time_bar), findViewById(R.id.test));
+            add_time at = new add_time(this, findViewById(R.id.date_time_bar), inoutInfo);
             at.add_date_item(0, day, month);//触发添加函数
         }
 
@@ -118,21 +149,81 @@ public class in_out_rcd extends AppCompatActivity {
             });
         }
 
-// *******返回上一个界面********
-        {
-            findViewById(R.id.rcd_dark_return_btn).setOnClickListener(v -> {
-                test_information.clear();
-                day.clear();
-                month.clear();
-                add_time.date_index_list.clear();
-                finish();
-            });
-        }
+
+//        {
+//            findViewById(R.id.rcd_dark_return_btn).setOnClickListener(v -> {
+//                test_information.clear();
+//                day.clear();
+//                month.clear();
+//                add_time.date_index_list.clear();
+//                finish();
+//            });
+//        }
     }
 
-    // *******点击手机的返回键********
+
+//    public void getInOutInfo(){
+//        OkHttpClient client = new OkHttpClient().newBuilder().build();
+//        MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+//
+////        String queryParams = String.valueOf(uid);
+//
+//        RequestBody body = RequestBody.create(JSON, "");
+//        String url = "http://120.26.248.74:8080/getLayoutId?uid=" + queryParams;
+//
+//        try {
+//            Request request = new Request.Builder()
+//                    .url(url)
+//                    .post(body)
+//                    .build();
+//
+//            Response response = client.newCall(request).execute();
+//            if (response.isSuccessful()) {
+//                String js = response.body().string();
+//                JSONArray jsonArray = new JSONArray(js);
+//                for (int k = 0; k < jsonArray.length(); k++) {
+//                    JSONObject jsonObject = jsonArray.getJSONObject(k);
+//
+//                    String lnm = jsonObject.getString("layout_name");
+//                    String lid = jsonObject.getString("layout_id");
+//                    user_layout.put(lnm,Integer.parseInt(lid));  //获取所有布局
+//
+//                }
+//            } else {
+//                System.out.println("响应码: " + response.code());
+//                String responseBody = response.body().string();
+//                System.out.println("响应体: " + responseBody);
+//            }
+//            response.body().close();
+//        } catch (IOException | JSONException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
+
+    public void updateDataTime(){
+        OkHttpClient client = new OkHttpClient().newBuilder().build();
+        MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+        RequestBody body = RequestBody.create(JSON, "");
+        String url = "http://120.26.248.74:8080/delete7DAgo?";
+        try {
+            Request request = new Request.Builder()
+                    .url(url)
+                    .post(body)
+                    .build();
+
+            Response response = client.newCall(request).execute();
+            if (!response.isSuccessful()) {
+                System.out.println("响应码: " + response.code());
+                String responseBody = response.body().string();
+                System.out.println("响应体: " + responseBody);
+            }
+            response.body().close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
     public void onBackPressed() {
-        test_information.clear();
+//        test_information.clear();
         day.clear();
         month.clear();
         add_time.date_index_list.clear();

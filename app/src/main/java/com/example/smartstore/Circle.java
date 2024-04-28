@@ -1,12 +1,10 @@
 package com.example.smartstore;
 
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Shader;
@@ -37,6 +35,12 @@ public class Circle extends androidx.appcompat.widget.AppCompatImageView {
         super(context, attrs, defStyleAttr);
     }
 
+    // 设置图片资源方法
+    public void setImageBitmap(Bitmap bitmap) {
+        super.setImageBitmap(bitmap);
+        invalidate(); // 通知视图重新绘制
+    }
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
@@ -49,7 +53,7 @@ public class Circle extends androidx.appcompat.widget.AppCompatImageView {
 
     @SuppressLint("DrawAllocation")
     @Override
-    protected void onDraw(Canvas canvas) {
+    public void onDraw(Canvas canvas) {
         // 初始化画笔用于绘制边框
         Paint borderPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         borderPaint.setColor(0xff65C9B9); // 设置边框颜色
@@ -60,10 +64,8 @@ public class Circle extends androidx.appcompat.widget.AppCompatImageView {
         Paint circlePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         circlePaint.setStyle(Paint.Style.FILL); // 设置为填充模式
 
-        Drawable drawable = getDrawable();
-        if (null != drawable) {
-            Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
-
+        Bitmap bitmap = getBitmapFromDrawable(getDrawable());
+        if (null != bitmap) {
             // 计算缩放比例，确保图片完全填充圆形
             float scale = Math.min(1.0f * mRadius * 2 / bitmap.getWidth(), 1.0f * mRadius * 2 / bitmap.getHeight());
 
@@ -80,10 +82,16 @@ public class Circle extends androidx.appcompat.widget.AppCompatImageView {
 
             // 再绘制圆形图片
             canvas.drawCircle(mRadius, mRadius, mRadius - borderPaint.getStrokeWidth() / 2, circlePaint);
-
-
         } else {
             super.onDraw(canvas);
         }
+    }
+
+    // 从 Drawable 中获取 Bitmap
+    private Bitmap getBitmapFromDrawable(Drawable drawable) {
+        if (drawable instanceof BitmapDrawable) {
+            return ((BitmapDrawable) drawable).getBitmap();
+        }
+        return null;
     }
 }

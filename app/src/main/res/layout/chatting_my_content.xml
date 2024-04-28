@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="20dp"
+    android:background="@color/smssdk_transparent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="20dp">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/layout_line_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/layout_line_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <TextView
+        android:id="@+id/chatting_my_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.15"
+        tools:ignore="MissingConstraints" />
+
+
+    <ImageView
+        android:id="@+id/chatting_my_single_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/chatting_my_single_card"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:outlineSpotShadowColor="#5506A05B"
+        app:cardBackgroundColor="#C6EEE4"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="6dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/chatting_my_single_card"
+        app:layout_constraintDimensionRatio="1,1"
+        app:layout_constraintEnd_toStartOf="@+id/layout_line_5"
+        app:layout_constraintStart_toStartOf="@+id/chatting_my_single_card"
+        app:layout_constraintTop_toTopOf="@+id/chatting_my_single_card">
+
+        <ImageView
+            android:scaleType="fitXY"
+            android:id="@+id/postmedia"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/layout_line_5"
+            android:src="@drawable/search_bgr"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/postname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="7dp"
+        android:layout_weight="2.5"
+        android:maxLength="30"
+        android:text="你说得对"
+        android:textColor="#65DACA"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:typeface="serif"
+        app:layout_constraintEnd_toEndOf="@+id/layout_line_6"
+        app:layout_constraintStart_toStartOf="@+id/layout_line_5"
+        app:layout_constraintTop_toTopOf="@+id/cardView" />
+
+    <TextView
+        android:layout_marginBottom="7dp"
+        android:id="@+id/postrlstime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:text="2024.01.01"
+        android:textColor="#A1A1A1"
+        app:layout_constraintBottom_toBottomOf="@+id/chatting_my_single_card"
+        app:layout_constraintStart_toStartOf="@+id/postname" />
+
+    <TextView
+        android:id="@+id/postlikes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="199"
+        android:textColor="#bb000000"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/postrlstime"
+        app:layout_constraintEnd_toStartOf="@+id/layout_line_6" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

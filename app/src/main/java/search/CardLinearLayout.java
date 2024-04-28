@@ -17,7 +17,7 @@ public class CardLinearLayout extends LinearLayout {
 
     private int expandIndex = -1;
     private HashMap<Integer, Bounds> boundsHashMap;
-    private float carEvPercnet = 0.5f;//每个卡片的错开距离是一张卡片高度的百分比
+    private float carEvPercnet = 0.7f;//每个卡片的错开距离是一张卡片高度的百分比
     private float animationPercent = 0;
     private int animationDuration = 300;
     private OnAnimationListen onAnimationListen;
@@ -47,12 +47,12 @@ public class CardLinearLayout extends LinearLayout {
     }
 
 
-    boolean mesured = false;
+    public static boolean mesured = false;
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        if (mesured == true) {//只需要测量一次
+        if (mesured) {//只需要测量一次
             return;
         }
         mesured = true;
@@ -69,6 +69,8 @@ public class CardLinearLayout extends LinearLayout {
             for (int i = 0; i < childCount; i++) {
                 int top = (int) (i * (sizeHeight * 0.3));
                 getBunds(i).setTop(top);
+                System.out.println("--------" + top);
+                System.out.println("---------------");
                 getBunds(i).setCurrentTop(top);
                 getBunds(i).setLastCurrentTop(top);
                 getBunds(i).setHeight(sizeHeight);
@@ -85,7 +87,6 @@ public class CardLinearLayout extends LinearLayout {
                 int mWidth = view.getMeasuredWidth();
                 int mw = MeasureSpec.getSize(mWidth);
                 int l = 0, r = l + mw;//左右边界
-                //设置子视图边界
                 view.layout(l, getBunds(i).getCurrentTop(), r, getBunds(i).getCurrentTop() + getBunds(i).getHeight());
             }
         }

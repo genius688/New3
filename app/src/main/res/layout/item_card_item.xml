@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@android:color/transparent">
@@ -11,93 +12,83 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:src="@drawable/search_card_green"
-        android:visibility="visible" />
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:visibility="gone"
         android:id="@+id/search_card_blue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
-        android:src="@drawable/search_card_blue" />
+        android:src="@drawable/search_card_blue"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!--标题栏 + 星星-->
-    <LinearLayout
-        android:id="@+id/part_18"
-        android:layout_marginTop="17dp"
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/part28"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.07" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="5" />
 
-        <TextView
-            android:layout_gravity="center_vertical"
-            android:id="@+id/textViewCardName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="30"
-            android:text="小衣柜"
-            android:textColor="#525252"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/part29"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.07" />
 
-        <RelativeLayout
-            android:id="@+id/star_btn"
-            android:layout_width="0dp"
-            android:layout_weight="4"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:id="@+id/set_into_star_btn"
-                android:visibility="visible"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:src="@drawable/star_null" />
 
-            <ImageView
-                android:id="@+id/set_into_star_btn_green"
-                android:visibility="gone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:src="@drawable/star_green" />
-            <ImageView
-                android:id="@+id/set_into_star_btn_blue"
-                android:visibility="gone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:src="@drawable/star_blue" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/part30"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.92" />
 
-        </RelativeLayout>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="6" />
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:id="@+id/textViewCardName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="30"
+        android:text="小衣柜"
+        android:textColor="#525252"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/part29"
+        app:layout_constraintTop_toTopOf="@+id/part28" />
 
-    </LinearLayout>
 
     <HorizontalScrollView
-        android:visibility="visible"
         android:id="@+id/display"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_below="@id/part_18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/part30"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/part29"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCardName"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:id="@+id/linear_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
         </LinearLayout>
 
     </HorizontalScrollView>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 

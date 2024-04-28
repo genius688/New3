@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:layout_marginTop="10dp"
+    tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:id="@+id/chose_layout"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/search_arrow_green"
+            android:layout_marginEnd="15dp"/>
+
+        <TextView
+            android:id="@+id/my_layout_single"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="温暖的家"
+            android:textColor="#37D9C6"
+            android:textStyle="bold"/>
+
+
+    </LinearLayout>
+

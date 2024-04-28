@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="20dp">
+    <ImageView
+        android:id="@+id/stg_img"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/guizi" />
+    <TextView
+        android:id="@+id/stg_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="#aa000000"
+        android:text="柜子"
+        android:layout_below="@id/stg_img"
+        android:layout_alignStart="@id/stg_img"
+        android:layout_alignEnd="@id/stg_img"
+        android:gravity="center" />
+
+</RelativeLayout>

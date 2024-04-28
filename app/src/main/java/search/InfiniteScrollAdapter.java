@@ -1,9 +1,12 @@
 package search;
 
-import android.os.Handler;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -14,221 +17,203 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.smartstore.R;
 
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class InfiniteScrollAdapter extends RecyclerView.Adapter<InfiniteScrollAdapter.ViewHolder> {
-
-    //数据列表（Data List）：
-    //适配器内部通常维护一个数据列表（如ArrayList），该列表包含了要在RecyclerView中显示的数据项
-    public List<info> dataList;
-    static public   List<List<View>> tmp = new ArrayList<>();
-    public int infiniteItemCount;
-
-
-    //构造函数（Constructor）：
-    //适配器通常需要一个构造函数来接收数据列表或其他必要的信息，以便能够创建和绑定视图。
-    public InfiniteScrollAdapter(List<info> dataList, int infiniteItemCount) {
-        this.dataList = new ArrayList<>(dataList);
-        // 复制数据以创建无限循环效果！！！
-        for (int i = 0; i < infiniteItemCount; i++) {
-            this.dataList.addAll(dataList);  //改变数据
-        }
-        this.infiniteItemCount = infiniteItemCount;
+//    public List<info> dataList;
+    public  Map<Integer,String> user_room = new HashMap<>();  //空间及对应id
+    public  Map<Integer,String> user_stgs = new HashMap<>();  //储藏点及对应id
+    public  Map< Integer, Map<Integer, ArrayList<Integer> > > room_stg_item = new HashMap<>();   //当前所在场景内的 所有空间 及其 对应收纳点 及其对应物品类别
+    public  Map<Integer, itemClass> item_list = new HashMap<>();  //存储物品信息
+    private ArrayList<Integer> room_id = new ArrayList<>();  //存储所有房间的id，顺序表，用于遍历
+    private String Current_layout;
+    private Context context;
+    public InfiniteScrollAdapter(Context context) {
+        this.user_room = search.user_room;
+        this.user_stgs = search.user_stgs;
+        this.room_stg_item = search.room_stg_item;
+        this.item_list = search.item_list;
+        this.context = context;
+        room_id.addAll(user_room.keySet());
+        SharedPreferences preference_name = context.getSharedPreferences("config", Context.MODE_PRIVATE);
+        Current_layout =  preference_name.getString("current_layout_name","");
     }
 
-    //onCreateViewHolder(ViewGroup parent, int viewType) 方法：
-    //这个方法负责创建RecyclerView的每一项的布局的根视图。通常在这里，你会基于一个布局文件来实例化一个视图，并创建一个ViewHolder来持有这个视图的引用。
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list, parent, false);
         return new ViewHolder(view);
     }
-    //onBindViewHolder(VH holder, int position) 方法：
-    //这个方法用于将数据绑定到ViewHolder所持有的视图上。在这里，你根据数据列表中的位置position获取相应的数据项，并将其显示在holder的视图上。
+    @SuppressLint({"SetTextI18n", "ClickableViewAccessibility"})
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
-        holder.v.invalidate(); // 标记View为需要重新绘制
-        holder.v.requestLayout(); // 请求重新测量和布局
-
-
         holder.cardLayout.removeAllViews();
+        Integer r_id = room_id.get(position);
 
-        holder.room_title.setText(dataList.get(position).room_title);
-        holder.room_discription.setText((dataList.get(position).room_discription));
-        if(position == dataList.size() - 1){
+        holder.room_title.setText(user_room.get(r_id));
+        holder.stgn.setText(String.valueOf(room_stg_item.get(r_id).size()));
+
+        int cnt = 0;
+        int cntstar = 0;
+        for(Integer k1 : room_stg_item.get(r_id).keySet()){
+            for(Integer k2: Objects.requireNonNull(room_stg_item.get(r_id).get(k1))){
+                cnt++;
+                if(Objects.requireNonNull(item_list.get(k2)).it_fav)
+                    cntstar++;
+            }
+        }
+
+        holder.itn.setText(String.valueOf(cnt));
+        holder.strn.setText(String.valueOf(cntstar));
+
+        if(position == room_id.size() - 1){
              holder.next_room_title.setText("暂时没有了");
+             holder.search_arrow_blue.setVisibility(View.GONE);
+             holder.search_arrow_green.setVisibility(View.GONE);
         }
         else{
-            holder.next_room_title.setText(dataList.get(position).room_title);
+            holder.next_room_title.setText(user_room.get(room_id.get(position+1)));
+            if(position % 2 != 0){
+                holder.search_space_blue.setVisibility(View.VISIBLE);
+                holder.search_space_green.setVisibility(View.GONE);
+                holder.search_arrow_blue.setVisibility(View.VISIBLE);
+                holder.search_arrow_green.setVisibility(View.GONE);
+            }
+            else{
+                holder.search_space_green.setVisibility(View.VISIBLE);
+                holder.search_space_blue.setVisibility(View.GONE);
+                holder.search_arrow_green.setVisibility(View.VISIBLE);
+                holder.search_arrow_blue.setVisibility(View.GONE);
+            }
         }
 
-        if(position % 2 != 0){
-            holder.search_space_blue.setVisibility(View.VISIBLE);
-            holder.search_space_green.setVisibility(View.GONE);
-            holder.search_arrow_blue.setVisibility(View.VISIBLE);
-            holder.search_arrow_green.setVisibility(View.GONE);
-        }
-        else{
-            holder.search_space_green.setVisibility(View.VISIBLE);
-            holder.search_space_blue.setVisibility(View.GONE);
-            holder.search_arrow_green.setVisibility(View.VISIBLE);
-            holder.search_arrow_blue.setVisibility(View.GONE);
-        }
-
-        if (tmp.size() - 1 < position){
-            tmp.add(new ArrayList<>());
-        }
-
-        int numberOfCards = getNumberOfCardsForPosition(position); // 确保这个方法返回正确的卡片数量
-
-        String[] title = {"小衣柜", "书桌抽屉第二格", "书架第三格", "左床头柜"};
-
-        for (int i = 0; i < numberOfCards; i++) {
+        int i = -1;
+        for (Integer key_stg : room_stg_item.get(r_id).keySet()) {  //遍历当前房间下每一个储藏点id
+            i ++;
             View itemCard = LayoutInflater.from(holder.cardLayout.getContext())
                     .inflate(R.layout.item_card_item, holder.cardLayout, false);
 
             if(position % 2 == 0) {
-                ((ImageView) itemCard.findViewById(R.id.search_card_green)).setVisibility(View.VISIBLE);
-                ((ImageView) itemCard.findViewById(R.id.search_card_blue)).setVisibility(View.GONE);
+                (itemCard.findViewById(R.id.search_card_green)).setVisibility(View.VISIBLE);
+                (itemCard.findViewById(R.id.search_card_blue)).setVisibility(View.GONE);
             }
             else{
-                ((ImageView) itemCard.findViewById(R.id.search_card_green)).setVisibility(View.GONE);
-                ((ImageView) itemCard.findViewById(R.id.search_card_blue)).setVisibility(View.VISIBLE);
+                (itemCard.findViewById(R.id.search_card_green)).setVisibility(View.GONE);
+                ( itemCard.findViewById(R.id.search_card_blue)).setVisibility(View.VISIBLE);
             }
 
-            ((TextView) itemCard.findViewById(R.id.textViewCardName)).setText("title[i]");
+            ((TextView) itemCard.findViewById(R.id.textViewCardName)).setText(user_stgs.get(key_stg));
             itemCard.setTag(String.valueOf(i));
             itemCard.setOnClickListener(v -> {
                 holder.cardLayout.expandItem(Integer.parseInt((String) v.getTag()));
-                if(tmp.get(position).size() >= 1){
-                    for (int k = 0; k < tmp.get(position).size(); k = k + 1) {
-                        if (Integer.parseInt((String) v.getTag()) != k && k != tmp.get(position).size()-1) {
-                            (tmp.get(position)).get(k).findViewById(R.id.display).setVisibility(View.GONE);
-                        } else
-                            (tmp.get(position)).get(k).findViewById(R.id.display).setVisibility(View.VISIBLE);
-                    }
-                }
             });
-
-            //设置星标收纳点(非星标状态下点击 -> 设置为星标状态)
-            itemCard.findViewById(R.id.set_into_star_btn).setOnClickListener(v -> {
-                if(position % 2 == 0){
-                        itemCard.findViewById(R.id.set_into_star_btn_green).setVisibility(View.VISIBLE);
-                        itemCard.findViewById(R.id.set_into_star_btn).setVisibility(View.GONE);
-                }
-                else{
-                        itemCard.findViewById(R.id.set_into_star_btn_blue).setVisibility(View.VISIBLE);
-                        itemCard.findViewById(R.id.set_into_star_btn).setVisibility(View.GONE);
-                }
-                    //弹窗提醒成功
-                    Handler handler = new Handler();
-                    Runnable runnable = new Runnable() {
-                        @Override
-                        public void run() {
-                            Toast.makeText(v.getContext(), "设置星标收纳点成功！", Toast.LENGTH_SHORT).show();
-                        }
-                    };
-                    handler.postDelayed(runnable, 0); // 3000毫秒 = 3秒
-            });
-            //取消星标收纳点(星标状态下点击 -> 取消星标状态)
-            itemCard.findViewById(R.id.set_into_star_btn_green).setOnLongClickListener(v -> {
-                    itemCard.findViewById(R.id.set_into_star_btn_green).setVisibility(View.GONE);
-                    itemCard.findViewById(R.id.set_into_star_btn).setVisibility(View.VISIBLE);
-                Handler handler = new Handler();
-                Runnable runnable = new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(v.getContext(), "取消成功！", Toast.LENGTH_SHORT).show();
-                    }
-                };
-                handler.postDelayed(runnable, 0); // 3000毫秒 = 3秒
-                    return true;
-            });
-            itemCard.findViewById(R.id.set_into_star_btn_blue).setOnLongClickListener(v -> {
-                    itemCard.findViewById(R.id.set_into_star_btn_blue).setVisibility(View.GONE);
-                    itemCard.findViewById(R.id.set_into_star_btn).setVisibility(View.VISIBLE);
-                Handler handler = new Handler();
-                Runnable runnable = new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(v.getContext(), "取消成功！", Toast.LENGTH_SHORT).show();
-                    }
-                };
-                handler.postDelayed(runnable, 0); // 3000毫秒 = 3秒
-                    return true;
-            });
-
-
-            // 确保itemCard中有一个ID为R.id.linear_layout的LinearLayout
             LinearLayout linearLayout = itemCard.findViewById(R.id.linear_layout);
+            for (Integer key_it : Objects.requireNonNull(room_stg_item.get(r_id).get(key_stg))) {
 
-                // 创建single_items视图，并添加到linearLayout中
                 View single_items = LayoutInflater.from(linearLayout.getContext())
                         .inflate(R.layout.single_item, linearLayout, false);
-                ((ImageView) single_items.findViewById(R.id.star_object_1)).setImageResource(R.drawable.star_thing_example_1);
-                ((TextView) single_items.findViewById(R.id.itemtitle)).setText("阿司匹林");
-                ((TextView) single_items.findViewById(R.id.item_disciption)).setText("卧室 - 1号床头柜 - 第3抽屉");
-                ((TextView) single_items.findViewById(R.id.item_deadline)).setText("2024.12.12");
+                if (Objects.requireNonNull(item_list.get(key_it)).it_img != null) {
+                    ((ImageView) single_items.findViewById(R.id.star_object_1)).setImageBitmap(Objects.requireNonNull(item_list.get(key_it)).it_img);
+                }
+                ((TextView) single_items.findViewById(R.id.itemtitle)).setText(Objects.requireNonNull(item_list.get(key_it)).it_name);
+                ((TextView) single_items.findViewById(R.id.item_disciption)).setText(Current_layout + " -> " + user_room.get(room_id.get(position)) + " -> " + user_stgs.get(key_stg));
+                ((TextView) single_items.findViewById(R.id.item_deadline)).setText(Objects.requireNonNull(item_list.get(key_it)).best_before);
 
-                // 将single_items添加到linearLayout中
+                if (Objects.requireNonNull(item_list.get(key_it)).it_fav)
+                    single_items.findViewById(R.id.it_fav).setVisibility(View.VISIBLE);
+                else
+                    single_items.findViewById(R.id.it_fav).setVisibility(View.GONE);
+
                 linearLayout.addView(single_items);
-                (tmp.get(position)).add(itemCard);
 
-            // 最后将itemCard添加到holder.cardLayout中
-            holder.cardLayout.addView(itemCard);
-            for (int k = 0; k < tmp.get(position).size()-1; k = k + 1) {
-                    (tmp.get(position)).get(k).findViewById(R.id.display).setVisibility(View.GONE);
+                single_items.setOnLongClickListener(v -> {
+                    single_items.getParent().requestDisallowInterceptTouchEvent(false);
+                    Thread t1 = new Thread(() -> {
+                        OkHttpClient client = new OkHttpClient().newBuilder().build();
+                        MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+
+                        RequestBody body = RequestBody.create(JSON, "");
+                        String url = "http://120.26.248.74:8080/ChuItem?uid=" + search.uid.toString() + "&it_id=" + key_it;
+
+                        try {
+                            Request request = new Request.Builder()
+                                    .url(url)
+                                    .post(body)
+                                    .build();
+
+                            Response response = client.newCall(request).execute();
+                            if (!response.isSuccessful())
+                                System.out.println("响应码: " + response.code());
+                            String responseBody = response.body().string();
+                            System.out.println("响应体: " + responseBody);
+                            response.body().close();
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    });
+                    t1.start();
+                    try {
+                        t1.join();
+                        Toast.makeText(context, "出库成功", Toast.LENGTH_SHORT).show();
+                        single_items.setVisibility(View.GONE);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                    return false;
+                });
             }
+            HorizontalScrollView sc = itemCard.findViewById(R.id.display);
+            sc.setOnTouchListener((v, event) -> {
+                v.getParent().requestDisallowInterceptTouchEvent(true);
+                return false;
+            });
+            holder.cardLayout.addView(itemCard);
+
         }
+        CardLinearLayout.mesured = false;
+        System.out.println(holder.cardLayout.getChildCount());
     }
 
-    // 这个方法需要根据您的业务逻辑来实现，返回每个位置应该有的itemCard数量
-    private int getNumberOfCardsForPosition(int position) {
-        // 示例逻辑：位置0有3个itemCard，位置1有2个，其他位置有1个
-        if (position == 0) {
-            return 10;
-        } else if (position == 1) {
-            return 2;
-        } else if(position == 2) {
-            return 1;
-        }
-        else { return 4;
-        }
-        // 在实际应用中，您可能需要根据数据源来确定这个数量
-    }
-
-        //getItemCount() 方法：
-    //这个方法返回数据列表中的项数，告诉RecyclerView有多少项需要显示。
     @Override
     public int getItemCount() {
-        return dataList.size();
+        return room_id.size();
     }
     static public class ViewHolder extends RecyclerView.ViewHolder {
         TextView room_title;
-        TextView room_discription;
         ImageView search_space_green;
         ImageView search_space_blue;
         ImageView search_arrow_green;
         ImageView search_arrow_blue;
         TextView next_room_title;
         CardLinearLayout cardLayout;
-        ImageView set_into_star_btn;
+        TextView stgn;
+        TextView itn;
+        TextView strn;
         View v;
         public ViewHolder(View itemView) {
                 super(itemView);
                 search_space_green  = itemView.findViewById(R.id.search_space_green);
                 search_space_blue  = itemView.findViewById(R.id.search_space_blue);
                 room_title = itemView.findViewById(R.id.room_title);
-                room_discription = itemView.findViewById(R.id.room_discription);
                 search_arrow_blue = itemView.findViewById(R.id.search_arrow_blue);
                 search_arrow_green = itemView.findViewById(R.id.search_arrow_green);
                 next_room_title = itemView.findViewById(R.id.next_room_title);
                 cardLayout = itemView.findViewById(R.id.cardLayout);
-                set_into_star_btn = itemView.findViewById(R.id.set_into_star_btn);
-                v = itemView.findViewById(R.id.cardLayout);
+                v = itemView.findViewById(R.id.textView);
+                stgn = itemView.findViewById(R.id.stg_n);
+                itn = itemView.findViewById(R.id.it_n);
+                strn = itemView.findViewById(R.id.str_n);
         }
     }
 }

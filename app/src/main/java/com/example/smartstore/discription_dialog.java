@@ -1,9 +1,7 @@
 package com.example.smartstore;
-import static androidx.core.content.ContextCompat.startActivity;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
@@ -12,9 +10,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -36,13 +31,11 @@ public class discription_dialog extends Dialog {
     }
     @NonNull
     public void onCreateDialog() {
-        // 寻找layout下的xml文件
+
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.discription_dialog, null);
-
-        // 创建Dialog对象，并设置自定义样式和内容
         final Dialog dialog = new Dialog(context, R.style.style_dialog);
-        dialog.setContentView(view);  // 设置inflate得到的view作为对话框内容
+        dialog.setContentView(view);  // 完成对对话框样式的设计
 
         dialog.show();
 

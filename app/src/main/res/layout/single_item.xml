@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/smssdk_transparent"
+    android:orientation="vertical"
+    android:layout_marginEnd="10dp">
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/star_object_card_1"
-        android:layout_width="55dp"
-        android:layout_height="55dp">
-
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        app:cardBackgroundColor="#C6EEE4"
+        android:outlineSpotShadowColor="#5506A05B"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
+        app:layout_constraintDimensionRatio="1,1">
         <ImageView
             android:id="@+id/star_object_1"
             android:layout_width="match_parent"
@@ -17,34 +25,51 @@
             android:src="@drawable/star_thing_example_1" />
     </androidx.cardview.widget.CardView>
 
+    <ImageView
+        android:id="@+id/it_fav"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignEnd="@+id/star_object_card_1"
+        android:layout_alignBottom="@+id/star_object_card_1"
+        android:layout_marginEnd="-10dp"
+        android:layout_marginBottom="-5dp"
+        android:src="@drawable/star_blue" />
+
     <TextView
         android:id="@+id/itemtitle"
-        android:layout_marginTop="5dp"
-        android:paddingHorizontal="10dp"
         android:layout_width="wrap_content"
         android:layout_height="18dp"
+        android:layout_below="@+id/star_object_card_1"
+        android:layout_marginTop="5dp"
         android:background="@drawable/circle_text"
-        android:text="阿司匹林"
         android:gravity="center"
+        android:paddingHorizontal="10dp"
+        android:text="阿司匹林"
         android:textColor="#238F7F"
-        android:textStyle="bold"
-        android:textSize="11sp" />
+        android:textSize="11sp"
+        android:textStyle="bold" />
+
     <TextView
         android:id="@+id/item_disciption"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/itemtitle"
         android:lines="3"
+        android:layout_marginTop="5dp"
         android:text="卧室 - 1号床头柜 - 第3抽屉"
         android:textColor="#000000"
-        android:textStyle="bold"
-        android:textSize="11sp" />
+        android:textSize="11sp"
+        android:textStyle="normal" />
 
     <TextView
         android:id="@+id/item_deadline"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/item_disciption"
+
+
         android:text="2024.12.12"
         android:textColor="#BB000000"
         android:textSize="11sp" />
 
-</LinearLayout>
+</RelativeLayout>

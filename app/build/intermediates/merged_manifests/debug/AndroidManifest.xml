@@ -1,59 +1,111 @@
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.smartstore"
-    android:versionCode="1"
-    android:versionName="1.0" >
-
-    <uses-sdk
-        android:minSdkVersion="28"
-        android:targetSdkVersion="34" />
-
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-
-    <permission
-        android:name="com.example.smartstore.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-        android:protectionLevel="signature" />
-
-    <uses-permission android:name="com.example.smartstore.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-
-    <application
-        android:allowBackup="true"
-        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        android:debuggable="true"
-        android:extractNativeLibs="false"
-        android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:testOnly="true"
-        android:theme="@style/Theme.SmartStore" >
-        <activity android:name="com.example.smartstore.discription_dialog" />
-        <activity android:name="search.search" />
-        <activity android:name="in_out_rcd.in_out_rcd" />
-        <activity android:name="com.example.smartstore.MainActivity" />
-        <activity
-            android:name="com.example.smartstore.mine_page"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <provider
-            android:name="androidx.startup.InitializationProvider"
-            android:authorities="com.example.smartstore.androidx-startup"
-            android:exported="false" >
-            <meta-data
-                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-                android:value="androidx.startup" />
-            <meta-data
-                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-                android:value="androidx.startup" />
-        </provider>
-    </application>
-
+<?xml version="1.0" encoding="UTF-8"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.example.smartstore" android:versionName="1.0" android:versionCode="1">
+  <uses-sdk android:targetSdkVersion="34" android:minSdkVersion="28"/>
+  <uses-feature android:name="android.hardware.camera" android:required="false"/>
+  <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+  <uses-permission android:name="android.permission.READ_CONTACTS"/>
+  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+  <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+  <uses-permission android:name="android.permission.READ_SMS"/>
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+  <uses-permission android:name="android.permission.GET_TASKS"/>
+  <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+  <uses-permission android:name="android.permission.CAMERA"/>
+  <permission android:name="com.example.smartstore.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature"/>
+  <uses-permission android:name="com.example.smartstore.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
+  <application android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:allowBackup="true" android:roundIcon="@mipmap/ic_launcher_round" android:usesCleartextTraffic="true" android:extractNativeLibs="false" android:supportsRtl="true" android:debuggable="true" android:label="@string/app_name" android:name="com.mob.MobApplication" android:theme="@style/AppTheme" android:dataExtractionRules="@xml/data_extraction_rules" android:icon="@mipmap/ic_launcher" android:fullBackupContent="@xml/backup_rules">
+    <activity android:name="image_submit.Upload"/>
+    <activity android:name="in_out_rcd.in_out_rcd"/>
+    <activity android:name="com.example.smartstore.discription_dialog"/>
+    <activity android:name="search.search"/>
+    <activity android:name="com.example.smartstore.mine_page" android:windowSoftInputMode="adjustNothing"/>
+    <activity android:name="chattingCircle.ChattingCircle"/>
+    <activity android:name="chattingCircle.Chattingcircle_recommend"/>
+    <activity android:name="self_edit_layout.self_edit_layout"/>
+    <activity android:name="Baidu.Baidu"/>
+    <activity android:name="image_submit.Image_edit"/>
+    <activity android:name="com.example.smartstore.MainActivity"/>
+    <activity android:name="chattingCircle.Postings"/>
+    <activity android:name="chattingCircle.Post"/>
+    <activity android:windowSoftInputMode="adjustPan" android:name="login.LoginActivity" android:exported="true">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
+    <service android:enabled="false" android:name="androidx.camera.core.impl.MetadataHolderService" android:exported="false">
+      <meta-data android:name="androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER" android:value="androidx.camera.camera2.Camera2Config$DefaultProvider"/>
+    </service>
+    <provider android:name="androidx.startup.InitializationProvider" android:exported="false" android:authorities="com.example.smartstore.androidx-startup">
+      <meta-data android:name="androidx.emoji2.text.EmojiCompatInitializer" android:value="androidx.startup"/>
+      <meta-data android:name="androidx.lifecycle.ProcessLifecycleInitializer" android:value="androidx.startup"/>
+      <meta-data android:name="androidx.profileinstaller.ProfileInstallerInitializer" android:value="androidx.startup"/>
+    </provider>
+    <uses-library android:name="androidx.window.extensions" android:required="false"/>
+    <uses-library android:name="androidx.window.sidecar" android:required="false"/>
+    <provider android:name="com.mob.MobProvider" android:exported="false" android:authorities="com.example.smartstore.com.mob.MobProvider" android:multiprocess="true"/>
+    <activity android:name="com.mob.id.MobIDSYActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" android:exported="true">
+      <intent-filter>
+        <action android:name="com.mob.id.app_lk"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+      </intent-filter>
+    </activity>
+    <activity android:name="com.mob.guard.MobTranPullLockActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" android:exported="true">
+      <intent-filter>
+        <action android:name="com.mob.open.app_lk"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+      </intent-filter>
+    </activity>
+    <service android:enabled="true" android:name="com.mob.MobACService" android:exported="true">
+      <intent-filter>
+        <action android:name="com.mob.service.action.MOB_AC_SERVICE"/>
+      </intent-filter>
+    </service>
+    <activity android:name="com.mob.id.MobIDActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" android:exported="true">
+      <intent-filter>
+        <action android:name="com.mob.id.app_30000"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+      </intent-filter>
+    </activity>
+    <service android:enabled="true" android:name="com.mob.id.MobIDService" android:exported="true">
+      <intent-filter>
+        <action android:name="com.mob.intent.MOB_ID_SERVICE"/>
+      </intent-filter>
+    </service>
+    <meta-data android:name="mob_guard_version" android:value="30000"/>
+    <meta-data android:name="mob_id_ver" android:value="30000"/>
+    <activity android:name="com.mob.guard.MobTranPullUpActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" android:exported="true">
+      <intent-filter>
+        <action android:name="com.mob.open.app_20000"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+      </intent-filter>
+    </activity>
+    <service android:enabled="true" android:name="com.mob.guard.MobGuardPullUpService" android:exported="true">
+      <intent-filter>
+        <action android:name="com.mob.intent.MOB_GUARD_SERVICE"/>
+      </intent-filter>
+    </service>
+    <receiver android:directBootAware="false" android:enabled="true" android:permission="android.permission.DUMP" android:name="androidx.profileinstaller.ProfileInstallReceiver" android:exported="true">
+      <intent-filter>
+        <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE"/>
+      </intent-filter>
+      <intent-filter>
+        <action android:name="androidx.profileinstaller.action.SKIP_FILE"/>
+      </intent-filter>
+      <intent-filter>
+        <action android:name="androidx.profileinstaller.action.SAVE_PROFILE"/>
+      </intent-filter>
+      <intent-filter>
+        <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION"/>
+      </intent-filter>
+    </receiver>
+    <meta-data xmlns:tools="http://schemas.android.com/tools" android:name="Mob-AppKey" android:value="39792fe74ca6a" tools:node="merge"/>
+    <meta-data xmlns:tools="http://schemas.android.com/tools" android:name="Mob-AppSecret" android:value="69edb1dfeda3bed071eac4649b48579c" tools:node="merge"/>
+    <activity xmlns:tools="http://schemas.android.com/tools" android:name="com.mob.tools.MobUIShell" android:configChanges="keyboardHidden|orientation|screenSize" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:exported="true" android:windowSoftInputMode="stateHidden|adjustResize" tools:node="merge"/>
+  </application>
+  <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+  <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>
 </manifest>

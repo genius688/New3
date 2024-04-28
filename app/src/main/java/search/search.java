@@ -1,7 +1,13 @@
 package search;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,78 +17,272 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.smartstore.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 //import cn.student0.manager.RepeatLayoutManager;
 
 
 public class search extends AppCompatActivity {
-
+    public static Map<Integer,String> user_room = new HashMap<>();  //空间id -> name
+    public static Map<Integer, String> user_stgs = new HashMap<>();  //储藏点id -> name
+    public static Map< Integer, Map<Integer, ArrayList<Integer> > > room_stg_item = new HashMap<>();   //当前所在场景内的 所有空间 及其 对应收纳点 及其对应物品类别
+    public static Map<Integer, itemClass> item_list = new HashMap<>();  //存储物品信息
     private RecyclerView recyclerView;
     private InfiniteScrollAdapter adapter;
-    private List<info> dataList;
+    private Button search_return_btn;
+    public  static Integer uid;
+    private Integer Current_layout_id;
+    private String Current_layout;
+    private Boolean itemChange;
+    private EditText editText;
     private Button search_btn;
 
-
+    public static ArrayList<String> res = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search);
 
         recyclerView = findViewById(R.id.recyclerView);
-        search_btn = findViewById(R.id.search_return_btn);
 
-        recyclerView.invalidate(); // 标记View为需要重新绘制
-        recyclerView.requestLayout(); // 请求重新测量和布局
+        search_return_btn = findViewById(R.id.search_return_btn);
+        SharedPreferences preference = getSharedPreferences("config", Context.MODE_PRIVATE);
+        uid =  preference.getInt("uer_id",-1);
+        Current_layout =  preference.getString("current_layout_name","");
+        Current_layout_id =  preference.getInt("current_layout_id",-1);
+        editText = findViewById(R.id.search_txt);
+        search_btn = findViewById(R.id.search_btn);
 
-//动态添加收纳点 ***************
-        InfiniteScrollLayoutManager layoutManager = new InfiniteScrollLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        recyclerView.setLayoutManager(layoutManager);
+        {
+            Thread t1 = new Thread(this::layout_get_room);
+            Thread t2 = new Thread(this::room_get_stgs);
+            Thread t3 = new Thread(this::stg_get_item);
 
-        //存储某一场景下，所拥有的空间数目
-        dataList = new ArrayList<>();
-        dataList.add(new info("小女儿的房间","可可爱爱的小女儿"));
-        dataList.add(new info("阳台","适合休息，有花有草有小鸟"));
-        dataList.add(new info("客厅","重要的门面，一定要保持干净"));
-        dataList.add(new info("厕所","容易滋生细菌，要定期打扫"));
-
-        // 设置无限循环的项数
-        int infiniteItemCount = 0;
-        adapter = new InfiniteScrollAdapter(dataList, infiniteItemCount);
-
-        // 设置适配器
-        recyclerView.setAdapter(adapter);
-        PagerSnapHelper snapHelper = new PagerSnapHelper();
-        snapHelper.attachToRecyclerView(recyclerView);
-        //更新界面
-        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-                public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                    super.onScrolled(recyclerView, dx, dy);
-                    recyclerView.invalidate(); // 标记View为需要重新绘制
-                    recyclerView.requestLayout(); // 请求重新测量和布局
-                }
-
-                public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
-                    super.onScrollStateChanged(recyclerView, newState);
-                    recyclerView.invalidate(); // 标记View为需要重新绘制
-                    recyclerView.requestLayout(); // 请求重新测量和布局
+            t1.start();
+            try {
+                t1.join();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
             }
-            });
+
+            t2.start();
+            try {
+                t2.join();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+
+            t3.start();
+            try {
+                t3.join();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            updateUI();
+        }
 
 
-//动态添加收纳点 ***************
-
-//返回主界面 ***************
         search_btn.setOnClickListener(v -> {
-            InfiniteScrollAdapter.tmp.clear();
+            res.clear();
+            String content = editText.getText().toString();
+            if(content.equals("")){
+                Toast.makeText(this, "输入内容不能为空", Toast.LENGTH_SHORT).show();
+            }
+            Integer cnt = 1;
+            for(Integer key: item_list.keySet()){
+                if(Objects.requireNonNull(item_list.get(key)).it_name.contains(content)){
+                    res.add(cnt + ": " + Current_layout + " -> " + user_room.get(Objects.requireNonNull(item_list.get(key)).rom_id) + " -> " + user_stgs.get(Objects.requireNonNull(item_list.get(key)).stg_id) +":" + item_list.get(key).it_name);
+                    cnt++;
+                }
+            }
+            search_dialog dd = new search_dialog( this,content);
+            dd.onCreate_Attention_Dialog();
+        });
+        search_return_btn.setOnClickListener(v -> {
+            user_room.clear();
+            user_stgs.clear();
+            room_stg_item.clear();
+            item_list.clear();
             finish();
         });
     }
+
+    public void updateUI() {
+        recyclerView.invalidate();
+        recyclerView.requestLayout();
+        InfiniteScrollLayoutManager layoutManager = new InfiniteScrollLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+        adapter = new InfiniteScrollAdapter(this);
+        recyclerView.setAdapter(adapter);
+        PagerSnapHelper snapHelper = new PagerSnapHelper();
+        snapHelper.attachToRecyclerView(recyclerView);
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+
+            }
+
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+        });
+
+    }
     public void onBackPressed(){
-        InfiniteScrollAdapter.tmp.clear();
+        user_room.clear();
+        user_stgs.clear();
+        room_stg_item.clear();
+        item_list.clear();
         finish();
     }
-//返回主界面 ***************
+    public void layout_get_room() {  //在每次场景切换执行,拉取当前场景所有room
+        OkHttpClient client = new OkHttpClient().newBuilder().build();
+        MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 
+        StringBuilder queryParams = new StringBuilder();
+        queryParams.append(Current_layout_id);
+
+        RequestBody body = RequestBody.create(JSON, "");
+        String url = "http://120.26.248.74:8080/getRoomId?layout_id=" + queryParams;
+
+        try {
+            Request request = new Request.Builder()
+                    .url(url)
+                    .post(body)
+                    .build();
+
+            Response response = client.newCall(request).execute();
+            if (response.isSuccessful()) {
+                assert response.body() != null;
+                String js = response.body().string();
+                JSONArray jsonArray = new JSONArray(js);
+                for (int k = 0; k < jsonArray.length(); k++) {
+                    JSONObject jsonObject = jsonArray.getJSONObject(k);
+
+                    String rnm = jsonObject.getString("room_name");
+                    String rid = jsonObject.getString("room_id");
+                    user_room.put(Integer.parseInt(rid),rnm);
+                    Map<Integer, ArrayList<Integer>>  tmp = new HashMap<>();
+                    room_stg_item.put(Integer.parseInt(rid),tmp);
+                }
+            } else {
+                System.out.println("响应码: " + response.code());
+                String responseBody = response.body().string();
+                System.out.println("响应体: " + responseBody);
+            }
+            response.body().close();
+        } catch (IOException | JSONException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void room_get_stgs() {
+        for (Integer key_room : user_room.keySet()) {  //遍历当前场景下所有的房间id
+
+            OkHttpClient client = new OkHttpClient().newBuilder().build();
+            MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+
+            StringBuilder queryParams = new StringBuilder();
+            queryParams.append(key_room);
+
+            RequestBody body = RequestBody.create(JSON, "");
+            String url = "http://120.26.248.74:8080/getStgId?room_id=" + queryParams;
+
+            try {
+                Request request = new Request.Builder()
+                        .url(url)
+                        .post(body)
+                        .build();
+
+                Response response = client.newCall(request).execute();
+                if (response.isSuccessful()) {
+                    assert response.body() != null;
+                    String js = response.body().string();
+                    JSONArray jsonArray = new JSONArray(js);
+                    for (int k = 0; k < jsonArray.length(); k++) {
+                        JSONObject jsonObject = jsonArray.getJSONObject(k);
+
+                        String snm = jsonObject.getString("stg_name");
+                        String sid = jsonObject.getString("stg_id");
+
+                        user_stgs.put(Integer.parseInt(sid),snm);
+                        ArrayList<Integer> tmp = new ArrayList<>();
+                        Objects.requireNonNull(room_stg_item.get(key_room)).put(Integer.parseInt(sid),tmp);
+
+                    }
+                } else {
+                    System.out.println("响应码: " + response.code());
+                    assert response.body() != null;
+                    String responseBody = response.body().string();
+                    System.out.println("响应体: " + responseBody);
+                }
+                response.body().close();
+            } catch (IOException | JSONException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+    public void stg_get_item() {
+
+        for (Integer key_room : room_stg_item.keySet()) {  //遍历所有所需房间id
+            for (Integer key_stg : Objects.requireNonNull(room_stg_item.get(key_room)).keySet()) {  //遍历某个房间的所有物品
+                Integer stg_id = key_stg;
+
+                OkHttpClient client = new OkHttpClient().newBuilder().build();
+                MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+
+                StringBuilder queryParams = new StringBuilder();
+                queryParams.append(stg_id);
+
+                RequestBody body = RequestBody.create(JSON, "");
+                String url = "http://120.26.248.74:8080/getItemId?stg_id=" + queryParams;
+
+                try {
+                    Request request = new Request.Builder()
+                            .url(url)
+                            .post(body)
+                            .build();
+
+                    Response response = client.newCall(request).execute();
+                    if (response.isSuccessful()) {
+                        String js = response.body().string();
+                        JSONArray jsonArray = new JSONArray(js);
+                        for (int k = 0; k < jsonArray.length(); k++) {
+                            JSONObject jsonObject = jsonArray.getJSONObject(k);
+                             Integer it_id_ = Integer.parseInt(jsonObject.getString("it_id"));;
+                             String best_before_ = jsonObject.getString("best_before");
+                             Boolean it_fav_ = jsonObject.getString("it_fav").equals("1");
+                             String it_name_ = jsonObject.getString("it_name");
+                             String description_ = jsonObject.getString("remark");
+                             Bitmap it_img_ = BitmapFactory.decodeFile(jsonObject.getString("it_img"));
+
+                             item_list.put(it_id_,new itemClass(it_id_, best_before_, stg_id, it_fav_, it_name_, it_img_, description_, key_room));
+                             Objects.requireNonNull(Objects.requireNonNull(room_stg_item.get(key_room)).get(key_stg)).add(it_id_);
+                        }
+                    } else {
+                        System.out.println("响应码: " + response.code());
+                        assert response.body() != null;
+                        String responseBody = response.body().string();
+                        System.out.println("响应体: " + responseBody);
+                    }
+                    response.body().close();
+                } catch (IOException | JSONException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+    }
 }
