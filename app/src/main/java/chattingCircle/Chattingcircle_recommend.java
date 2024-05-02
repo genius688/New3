@@ -2,6 +2,7 @@ package chattingCircle;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -36,21 +37,48 @@ public class Chattingcircle_recommend extends AppCompatActivity implements Modul
     private ArrayList<String> bp_ = new ArrayList<>();
     private ArrayList<String>  post_detail_ = new ArrayList<>();
     private ArrayList<String> post_rls_time_ = new ArrayList<>();
+    private ArrayList<String> user_ID_ = new ArrayList<>();
+    private ArrayList<String> post_like_ = new ArrayList<>();
+    private ArrayList<String> post_id_ = new ArrayList<>();
     private Context context;
+    private RecyclerView recyclerView;
+    int serverId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        View decorView = getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+        decorView.setSystemUiVisibility(uiOptions);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chattingcircle_recommend);
+        SharedPreferences preferences = getSharedPreferences("config", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        serverId = preferences.getInt("uer_id",-1);
         context = this;
         Button commend = findViewById(R.id.commend);
         Button mine = findViewById(R.id.my_chatting_circle);
         ImageView commend_icon=findViewById(R.id.commend_icon);
         ImageView mine_icon=findViewById(R.id.my_circle_icon);
-        TextView goto1 = findViewById(R.id.twoTOone);
-        TextView goto3 = findViewById(R.id.twoTOthree);
+        TextView goto1 = findViewById(R.id.threeTOone);
+        TextView goto2 = findViewById(R.id.threeTOtwo);
+        TextView goto4 = findViewById(R.id.threeTOfour);
+        recyclerView = findViewById(R.id.list1);
+
+        boolean shouldTriggerPostingBackClick = getIntent().getBooleanExtra("trigger_postingback_click", false);
+        if(shouldTriggerPostingBackClick){
+            finish();
+        }
+        boolean shouldSaveClick = getIntent().getBooleanExtra("trigger_save_click", false);
+        if(shouldSaveClick){
+            finish();
+        }
+        boolean shouldCancelClick = getIntent().getBooleanExtra("trigger_cancel_click", false);
+        if(shouldCancelClick){
+            finish();
+        }
+
+
 
         goto1.setOnClickListener(v -> {
             Intent intent = new Intent(context, MainActivity.class);
@@ -59,7 +87,13 @@ public class Chattingcircle_recommend extends AppCompatActivity implements Modul
             finish();
         });
 
-        goto3.setOnClickListener(v -> {
+        goto2.setOnClickListener(v -> {
+            Intent intent = new Intent(context, Family.family.class);
+            startActivity(intent);
+            overridePendingTransition(0,0);
+            finish();
+        });
+        goto4.setOnClickListener(v -> {
             Intent intent = new Intent(context, mine_page.class);
             startActivity(intent);
             overridePendingTransition(0,0);
@@ -97,7 +131,7 @@ public class Chattingcircle_recommend extends AppCompatActivity implements Modul
         }
 
         RecyclerView recyclerView = findViewById(R.id.list1);
-        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)); // 根据需求调整列数
+        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
         List<ModuleItem> moduleItems = getModuleItemsData();
         ModuleAdapter adapter = new ModuleAdapter(moduleItems,this);
         recyclerView.setAdapter(adapter);
@@ -107,14 +141,13 @@ public class Chattingcircle_recommend extends AppCompatActivity implements Modul
     public void onFixedImageButtonClick(int position) {
         Intent intent = new Intent(this, Post.class);
         startActivity(intent);
-        finish();
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 
     private List<ModuleItem> getModuleItemsData() {
         List<ModuleItem> moduleItems = new ArrayList<>();
 
-        ModuleItem fixedModule = new ModuleItem(ModuleItem.Type.FIXED, null, "","","");
+        ModuleItem fixedModule = new ModuleItem(ModuleItem.Type.FIXED, null, "","","","","","");
         moduleItems.add(fixedModule);
 
         for (int i = 0; i < bp_.size(); i++) {
@@ -123,7 +156,10 @@ public class Chattingcircle_recommend extends AppCompatActivity implements Modul
                     bp_.get(i),
                     post_detail_.get(i),
                     post_name_.get(i),
-                    post_rls_time_.get(i)
+                    post_rls_time_.get(i),
+                    user_ID_.get(i),
+                    post_like_.get(i),
+                    post_id_.get(i)
             );
 
             moduleItems.add(customModule);
@@ -152,11 +188,19 @@ public class Chattingcircle_recommend extends AppCompatActivity implements Modul
                     String bp = jsonObject.getString("post_media");
                     String post_detail = jsonObject.getString("post_detail");
                     String post_rls_time = jsonObject.getString("post_rls_time");
+                    String post_likes = jsonObject.getString("post_likes");
+                    int commaIndex = post_rls_time.indexOf("T");
+                    String partofptime = post_rls_time.substring(0, commaIndex);
+                    int userid=jsonObject.getInt("uid");
+                    String postid=jsonObject.getString("post_id");
 
                     post_name_.add(post_name);
                     bp_.add(bp);
                     post_detail_.add(post_detail);
-                    post_rls_time_.add(post_rls_time);
+                    post_rls_time_.add(partofptime);
+                    user_ID_.add(userid+"");
+                    post_like_.add(post_likes);
+                    post_id_.add(postid);
                 }
             } else {
                 System.out.println("响应码: " + response.code());
@@ -170,6 +214,40 @@ public class Chattingcircle_recommend extends AppCompatActivity implements Modul
         }
     }
 
+    protected void onResume() {
+        super.onResume();
+        refreshData();
+    }
+
+    private void refreshData() {
+        post_name_.clear();
+        bp_.clear();
+        post_detail_.clear();
+        post_rls_time_.clear();
+        user_ID_.clear();
+        post_like_.clear();
+        post_id_.clear();
+
+        Thread t1 = new Thread(this::getPost);
+        t1.start();
+        try {
+            t1.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        if (recyclerView != null) {
+            ModuleAdapter adapter = (ModuleAdapter) recyclerView.getAdapter();
+            if (adapter != null) {
+                List<ModuleItem> updatedModuleItems = getModuleItemsData();
+                adapter.updateData(updatedModuleItems);
+            } else {
+                List<ModuleItem> moduleItems = getModuleItemsData();
+                ModuleAdapter newAdapter = new ModuleAdapter(moduleItems, this);
+                recyclerView.setAdapter(newAdapter);
+                newAdapter.setItemClickListener(this);
+            }
+        }
+    }
 
 }
-

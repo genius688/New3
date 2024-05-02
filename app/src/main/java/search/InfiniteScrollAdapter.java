@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import image_submit.attention_dialog;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -138,38 +139,43 @@ public class InfiniteScrollAdapter extends RecyclerView.Adapter<InfiniteScrollAd
                 linearLayout.addView(single_items);
 
                 single_items.setOnLongClickListener(v -> {
-                    single_items.getParent().requestDisallowInterceptTouchEvent(false);
-                    Thread t1 = new Thread(() -> {
-                        OkHttpClient client = new OkHttpClient().newBuilder().build();
-                        MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+                    attention_dialog dd = new attention_dialog("你确定要将"+item_list.get(key_it).it_name+"出库吗?","物品出库" ,"确认出库", "我点错了",context, isAccept -> {
+                        if(isAccept){
+                            single_items.getParent().requestDisallowInterceptTouchEvent(false);
+                            Thread t1 = new Thread(() -> {
+                                OkHttpClient client = new OkHttpClient().newBuilder().build();
+                                MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 
-                        RequestBody body = RequestBody.create(JSON, "");
-                        String url = "http://120.26.248.74:8080/ChuItem?uid=" + search.uid.toString() + "&it_id=" + key_it;
+                                RequestBody body = RequestBody.create(JSON, "");
+                                String url = "http://120.26.248.74:8080/ChuItem?uid=" + search.uid.toString() + "&it_id=" + key_it;
 
-                        try {
-                            Request request = new Request.Builder()
-                                    .url(url)
-                                    .post(body)
-                                    .build();
+                                try {
+                                    Request request = new Request.Builder()
+                                            .url(url)
+                                            .post(body)
+                                            .build();
 
-                            Response response = client.newCall(request).execute();
-                            if (!response.isSuccessful())
-                                System.out.println("响应码: " + response.code());
-                            String responseBody = response.body().string();
-                            System.out.println("响应体: " + responseBody);
-                            response.body().close();
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
+                                    Response response = client.newCall(request).execute();
+                                    if (!response.isSuccessful())
+                                        System.out.println("响应码: " + response.code());
+                                    String responseBody = response.body().string();
+                                    System.out.println("响应体: " + responseBody);
+                                    response.body().close();
+                                } catch (IOException e) {
+                                    throw new RuntimeException(e);
+                                }
+                            });
+                            t1.start();
+                            try {
+                                t1.join();
+                                Toast.makeText(context, "出库成功", Toast.LENGTH_SHORT).show();
+                                single_items.setVisibility(View.GONE);
+                            } catch (InterruptedException e) {
+                                throw new RuntimeException(e);
+                            }
                         }
                     });
-                    t1.start();
-                    try {
-                        t1.join();
-                        Toast.makeText(context, "出库成功", Toast.LENGTH_SHORT).show();
-                        single_items.setVisibility(View.GONE);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
+                    dd.onCreate_Attention_Dialog();
                     return false;
                 });
             }

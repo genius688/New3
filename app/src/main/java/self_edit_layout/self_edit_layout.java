@@ -1,6 +1,7 @@
 package self_edit_layout;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.smartstore.MainActivity;
 import com.example.smartstore.R;
 
 import org.json.JSONArray;
@@ -100,16 +102,6 @@ public class self_edit_layout extends AppCompatActivity {
             updateUi();
         }  //初始化ui界面
 
-        change_layout_btn.setOnClickListener(v -> {
-            findViewById(R.id.PART2).animate().alpha(1).setDuration(500);
-            findViewById(R.id.PART2).setVisibility(View.VISIBLE);
-            findViewById(R.id.PART1).setClickable(false);
-
-            if(my_layouts.getChildCount() != 0)  //不是第一次触发
-                return;
-            update_layout_ui();
-        });
-
         back_btn.setOnClickListener(v -> {
             findViewById(R.id.PART2).animate().alpha(0).setDuration(500);
             findViewById(R.id.PART1).setClickable(true);
@@ -149,6 +141,25 @@ public class self_edit_layout extends AppCompatActivity {
             });
             dd.onCreate_Attention_Dialog();
         });
+
+        change_layout_btn.setOnClickListener(v -> {
+            findViewById(R.id.PART2).animate().alpha(1).setDuration(500);
+            findViewById(R.id.PART2).setVisibility(View.VISIBLE);
+            findViewById(R.id.PART1).setClickable(false);
+
+            if(my_layouts.getChildCount() != 0)  //不是第一次触发
+                return;
+            update_layout_ui();
+        });
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String source = extras.getString("source");
+            if (source != null && source.equals("search")) {
+                change_layout_btn.performClick();
+            }
+        }
+
     }
 
     public void update_layout_ui(){
@@ -514,6 +525,9 @@ public class self_edit_layout extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         allClear();
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("source", "self_edit");
+        startActivity(intent);
         super.onBackPressed();
     }
     public void allClear(){

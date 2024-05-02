@@ -1,27 +1,27 @@
 [
     {
-        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\layout_inrecd.xml.flat",
-        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\layout\\inrecd.xml"
+        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_rank1.png.flat",
+        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\rank1.png"
     },
     {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\layout_fragment_first.xml.flat",
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\layout\\fragment_first.xml"
     },
     {
-        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_rank1.png.flat",
-        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\rank1.png"
+        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\layout_inrecd.xml.flat",
+        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\layout\\inrecd.xml"
     },
     {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_attention_dialog.png.flat",
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\attention_dialog.png"
     },
     {
-        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_circle_text.xml.flat",
-        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\circle_text.xml"
+        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_line.png.flat",
+        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\line.png"
     },
     {
-        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_store2.png.flat",
-        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\store2.png"
+        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_circle_text.xml.flat",
+        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\circle_text.xml"
     },
     {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\layout_attention_dialog.xml.flat",
@@ -56,16 +56,20 @@
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\search_list.png"
     },
     {
+        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\layout_data_item1.xml.flat",
+        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\layout\\data_item1.xml"
+    },
+    {
+        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_part3.png.flat",
+        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\part3.png"
+    },
+    {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_goto_sign_up.png.flat",
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\goto_sign_up.png"
     },
     {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_stg_edit_post.png.flat",
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\stg_edit_post.png"
-    },
-    {
-        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_menu_unchat.png.flat",
-        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\menu_unchat.png"
     },
     {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\navigation_nav_graph.xml.flat",
@@ -78,6 +82,10 @@
     {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\layout_fragment_second.xml.flat",
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\layout\\fragment_second.xml"
+    },
+    {
+        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_help_main.png.flat",
+        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\help_main.png"
     },
     {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable__honor.png.flat",
@@ -96,12 +104,16 @@
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\add_lay.png"
     },
     {
-        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_store3.png.flat",
-        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\store3.png"
+        "merged": "com.example.smartstore.app-merged_res-50:/layout_activity_chattingcircle_recommend.xml.flat",
+        "source": "com.example.smartstore.app-main-52:/layout/activity_chattingcircle_recommend.xml"
     },
     {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_minebgr_2.png.flat",
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\minebgr_2.png"
+    },
+    {
+        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_part2.png.flat",
+        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\part2.png"
     },
     {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\anim_fade_out.xml.flat",
@@ -152,10 +164,6 @@
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\out.png"
     },
     {
-        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_menu_me.png.flat",
-        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\menu_me.png"
-    },
-    {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\layout_chatting_my_content.xml.flat",
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\layout\\chatting_my_content.xml"
     },
@@ -192,8 +200,8 @@
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\polygon1.png"
     },
     {
-        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_menu_chat.png.flat",
-        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\menu_chat.png"
+        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_line_under_task.png.flat",
+        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\line_under_task.png"
     },
     {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_edit_btn.png.flat",
@@ -212,6 +220,10 @@
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\my_history.png"
     },
     {
+        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_part1.png.flat",
+        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\part1.png"
+    },
+    {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_select_dialog.png.flat",
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\select_dialog.png"
     },
@@ -226,6 +238,10 @@
     {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_my_like.png.flat",
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\my_like.png"
+    },
+    {
+        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\layout_family.xml.flat",
+        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\layout\\family.xml"
     },
     {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_my_invite.png.flat",
@@ -246,10 +262,6 @@
     {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_ic_launcher_background.xml.flat",
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\ic_launcher_background.xml"
-    },
-    {
-        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_store1.png.flat",
-        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\store1.png"
     },
     {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\mipmap-anydpi_ic_launcher.xml.flat",
@@ -292,6 +304,10 @@
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\layout\\stg_item.xml"
     },
     {
+        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_rest.png.flat",
+        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\rest.png"
+    },
+    {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_scan_post_bgr.png.flat",
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\scan_post_bgr.png"
     },
@@ -312,6 +328,10 @@
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\sign_card.png"
     },
     {
+        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_help_research.png.flat",
+        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\help_research.png"
+    },
+    {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_search_bgr.png.flat",
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\search_bgr.png"
     },
@@ -324,8 +344,8 @@
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\mipmap-hdpi\\ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_menu_unrenwu.png.flat",
-        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\menu_unrenwu.png"
+        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_tarbar4.png.flat",
+        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\tarbar4.png"
     },
     {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\layout_date_item.xml.flat",
@@ -344,6 +364,10 @@
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\layout\\upload_img.xml"
     },
     {
+        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_background2.png.flat",
+        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\background2.png"
+    },
+    {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\layout_activity_post.xml.flat",
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\layout\\activity_post.xml"
     },
@@ -356,14 +380,6 @@
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\star_gray.png"
     },
     {
-        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_menu_store.png.flat",
-        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\menu_store.png"
-    },
-    {
-        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\layout_fragment_sub_interface_b.xml.flat",
-        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\layout\\fragment_sub_interface_b.xml"
-    },
-    {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_date_index.png.flat",
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\date_index.png"
     },
@@ -372,8 +388,8 @@
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\layout\\activity_login.xml"
     },
     {
-        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_menu_unme.png.flat",
-        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\menu_unme.png"
+        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_button_task_start.png.flat",
+        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\button_task_start.png"
     },
     {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_rank5.png.flat",
@@ -386,6 +402,14 @@
     {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\layout_item_list.xml.flat",
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\layout\\item_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_person_light.png.flat",
+        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\person_light.png"
+    },
+    {
+        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_nullp.png.flat",
+        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\nullp.png"
     },
     {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_rank4.png.flat",
@@ -456,12 +480,12 @@
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\balnk.png"
     },
     {
-        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\layout_fragment_sub_interface_a.xml.flat",
-        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\layout\\fragment_sub_interface_a.xml"
-    },
-    {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_search_space_blue.png.flat",
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\search_space_blue.png"
+    },
+    {
+        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\layout_activity_help.xml.flat",
+        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\layout\\activity_help.xml"
     },
     {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_scan_room_title.png.flat",
@@ -504,16 +528,16 @@
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\mipmap-xxxhdpi\\ic_launcher.webp"
     },
     {
+        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_warning.png.flat",
+        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\warning.png"
+    },
+    {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\mipmap-anydpi_ic_launcher_round.xml.flat",
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\mipmap-anydpi\\ic_launcher_round.xml"
     },
     {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_select_dialog_1.png.flat",
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\select_dialog_1.png"
-    },
-    {
-        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_menu_unstore.png.flat",
-        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\menu_unstore.png"
     },
     {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_search_space_green.png.flat",
@@ -524,12 +548,16 @@
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\shallow.png"
     },
     {
+        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_help_task.png.flat",
+        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\help_task.png"
+    },
+    {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_tarbar2.png.flat",
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\tarbar2.png"
     },
     {
-        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_star_object_bgr.png.flat",
-        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\star_object_bgr.png"
+        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_button_task_stop.png.flat",
+        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\button_task_stop.png"
     },
     {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\anim_bottom_out.xml.flat",
@@ -564,14 +592,6 @@
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\chatting_my_single_card.png"
     },
     {
-        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_p1_total_bgr.png.flat",
-        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\p1_total_bgr.png"
-    },
-    {
-        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_card1.png.flat",
-        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\card1.png"
-    },
-    {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_unseeable.png.flat",
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\unseeable.png"
     },
@@ -596,16 +616,16 @@
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\yoyo.png"
     },
     {
+        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\layout_dialog.xml.flat",
+        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\layout\\dialog.xml"
+    },
+    {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\anim_bottom_in.xml.flat",
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\anim\\bottom_in.xml"
     },
     {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_title.png.flat",
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\title.png"
-    },
-    {
-        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_star_object_bgr_2.png.flat",
-        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\star_object_bgr_2.png"
     },
     {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_sign_bgr.png.flat",
@@ -616,12 +636,20 @@
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\myexp.png"
     },
     {
+        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_icon.png.flat",
+        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\icon.png"
+    },
+    {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\layout_activity_self_edit_layout.xml.flat",
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\layout\\activity_self_edit_layout.xml"
     },
     {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\layout_waterfall_list_item.xml.flat",
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\layout\\waterfall_list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\layout_task.xml.flat",
+        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\layout\\task.xml"
     },
     {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\mipmap-mdpi_ic_launcher.webp.flat",
@@ -640,10 +668,6 @@
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\layout\\search_dialog.xml"
     },
     {
-        "merged": "com.example.smartstore.app-merged_res-50:/layout_activity_main.xml.flat",
-        "source": "com.example.smartstore.app-main-52:/layout/activity_main.xml"
-    },
-    {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_guizi.png.flat",
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\guizi.png"
     },
@@ -656,6 +680,10 @@
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\layout\\discription_dialog.xml"
     },
     {
+        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_person_dark.png.flat",
+        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\person_dark.png"
+    },
+    {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_discription_input.png.flat",
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\discription_input.png"
     },
@@ -664,20 +692,16 @@
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\search_space_blue_1.png"
     },
     {
-        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\layout\\activity_main.xml"
-    },
-    {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\layout_item_card_item.xml.flat",
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\layout\\item_card_item.xml"
     },
     {
-        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_light_btn.png.flat",
-        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\light_btn.png"
+        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\layout\\activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_menu_renwu.png.flat",
-        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\menu_renwu.png"
+        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_light_btn.png.flat",
+        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\light_btn.png"
     },
     {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\layout_image_edit.xml.flat",
@@ -716,7 +740,15 @@
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\my_implement.png"
     },
     {
+        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_bell.png.flat",
+        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\bell.png"
+    },
+    {
         "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_my_peo_manage.png.flat",
         "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\my_peo_manage.png"
+    },
+    {
+        "merged": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-merged_res-50:\\drawable_help2.png.flat",
+        "source": "C:\\Users\\zzw15\\.gradle\\daemon\\8.2\\com.example.smartstore.app-main-52:\\drawable\\help2.png"
     }
 ]

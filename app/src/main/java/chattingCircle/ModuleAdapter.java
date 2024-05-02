@@ -3,7 +3,6 @@ package chattingCircle;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.BitmapFactory;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +29,12 @@ public class ModuleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     public ModuleAdapter(List<ModuleItem> moduleItems, Context context) {
         this.moduleItems = moduleItems;
         this.context = context;
+    }
+
+    public void updateData(List<ModuleItem> newData) {
+        moduleItems.clear();
+        moduleItems.addAll(newData);
+        notifyDataSetChanged();
     }
 
     @Override
@@ -112,29 +117,39 @@ public class ModuleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     private class CustomViewHolder extends RecyclerView.ViewHolder {
         private final TextView customText;
         private final ImageView customImage;
+        private final TextView userid;
+        private final TextView likes;
 
         CustomViewHolder(View itemView) {
             super(itemView);
             customText = itemView.findViewById(R.id.tx);
             customImage = itemView.findViewById(R.id.custom_image);
             customText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f);
+            userid=itemView.findViewById(R.id.userID);
+            likes=itemView.findViewById(R.id.postLike);
         }
         void bind(ModuleItem item) {
 
-            customText.setText(item.customText);
-            customImage.setImageBitmap(BitmapFactory.decodeFile(item.imageUrl));
+            customText.setText(item.Title);
+            customImage.setImageResource(R.drawable.nullp);
+            userid.setText(item.userID);
+            likes.setText(item.like);
 
             itemView.setOnClickListener(v -> {
                 Intent intent = new Intent(context, Postings.class);
                 intent.putExtra("trigger_single_items_click", false);
-                intent.putExtra("post_Id", 0);
+                intent.putExtra("post_Id", item.postid);
                 intent.putExtra("post_name",item.Title);
                 intent.putExtra("post_content",item.customText);
                 intent.putExtra("post_img",item.imageUrl);
                 intent.putExtra("post_time",item.time);
+                intent.putExtra("user_ID",item.userID);
+                intent.putExtra("post_like",item.like);
                 context.startActivity(intent);
                 ((Activity)context).overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-        });
+            });
         }
     }
+
+
 }

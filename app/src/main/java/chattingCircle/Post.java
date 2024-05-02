@@ -85,6 +85,7 @@ public class Post extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent = new Intent(Post.this, Chattingcircle_recommend.class);
+                intent.putExtra("trigger_cancel_click", true);
                 startActivity(intent);
                 finish();
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
@@ -173,10 +174,14 @@ public class Post extends AppCompatActivity {
                     filePath = it_img.getPath();
                 updateInfo(serverId,servername[0],servertext[0],filePath);
                 Intent intent = new Intent(Post.this, Chattingcircle_recommend.class);
+                intent.putExtra("trigger_save_click", true);
                 startActivity(intent);
                 finish();
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 Toast.makeText(this, "发布成功", Toast.LENGTH_SHORT).show();
+            }
+            else{
+                Toast.makeText(this, "请输入标题和内容！", Toast.LENGTH_SHORT).show();
             }
         });
     }

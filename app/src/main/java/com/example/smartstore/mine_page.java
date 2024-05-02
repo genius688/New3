@@ -4,6 +4,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -24,6 +25,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -53,6 +55,7 @@ import chattingCircle.ChattingCircle;
 import chattingCircle.Chattingcircle_recommend;
 import image_submit.Utils;
 import image_submit.attention_dialog;
+import in_out_rcd.in_out_rcd;
 import login.LoginActivity;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -75,6 +78,10 @@ public class mine_page extends AppCompatActivity  {
     TextView myfeedback;
     public Circle user_img;
     TextView user_id;
+    private int u_id = 2;
+    private String invitecode;
+    private  String layoutid;    //邀请人
+    private  int layout_id = 1;  //被邀请人
     ImageView my_like_btn;
     Button checkinButton;
     TextView use_rank;
@@ -83,6 +90,7 @@ public class mine_page extends AppCompatActivity  {
     TextView use_exp;
     TextView max_exp;
     ProgressBar progressBar;
+    Context context;
     public static final String[] LEVEL_NAMES = {"下一级：收纳新手", "下一级：收纳玩家", "下一级：收纳专手", "下一级：收纳达人", "下一级：收纳大师", "下一级：齐物王者"};
     public static final String[] LEVEL_rank = {" 收纳新手", " 收纳玩家", " 收纳专手", " 收纳达人", " 收纳大师", " 齐物王者"};
     private static final int STORAGE_PERMISSION = 1;
@@ -90,11 +98,18 @@ public class mine_page extends AppCompatActivity  {
 
     private File file;
     ImageView my_feedback_btn;
+    private ImageView my_record_btn;
+    private Button contact;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mine_page);
 
+        View decorView = getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+        decorView.setSystemUiVisibility(uiOptions);
+
+        context = this;
         setting=findViewById(R.id.setting_btn);
         activity = (Activity)this;
         preferences = getSharedPreferences("config", Context.MODE_PRIVATE);
@@ -105,6 +120,7 @@ public class mine_page extends AppCompatActivity  {
         user_img=findViewById(R.id.user_img);
         my_like_btn=findViewById(R.id.my_like_btn);
         my_feedback_btn=findViewById(R.id.my_feedback_btn);
+        my_record_btn = findViewById(R.id.my_record_btn);
         myfeedback=findViewById(R.id.my_feedback_btn1);
         checkinButton = findViewById(R.id.checkin_button);
         HonorLevel=findViewById(R.id.HonorLevel);
@@ -115,6 +131,7 @@ public class mine_page extends AppCompatActivity  {
         use_exp=findViewById(R.id.user_exp);
         max_exp=findViewById(R.id.max_exp);
         progressBar = findViewById(R.id.exp_progress);
+        contact = findViewById(R.id.contact_btn);
 
         resetCheckinStatusIfNewDay();
 
@@ -127,6 +144,12 @@ public class mine_page extends AppCompatActivity  {
         user_id.setText(UID);
         getinfoAll(serverId);
 
+        contact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showInviteDialog();
+            }
+        });
 
         user_name1.setOnFocusChangeListener((v, hasFocus) -> {
             InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -247,7 +270,7 @@ public class mine_page extends AppCompatActivity  {
                 progressBar.setProgress(progress);
 
                 showRandomMotivationalQuote();
-                checkinButton.setText("已签到");
+                checkinButton.setText("签到成功");
             }
         });
 
@@ -255,7 +278,7 @@ public class mine_page extends AppCompatActivity  {
         if (isCheckedIn) {
             checkinButton.setText("已签到");
         } else {
-            checkinButton.setText("签到");
+            checkinButton.setText("· 今天还未签到哦");
         }
 
         my_like_btn.setOnClickListener(new View.OnClickListener() {
@@ -288,6 +311,10 @@ public class mine_page extends AppCompatActivity  {
 
         user_img.setOnClickListener(v -> xzImage());
 
+        my_record_btn.setOnClickListener(v -> {
+            startActivity(new Intent(this, in_out_rcd.class));
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        });
         myfeedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -301,18 +328,26 @@ public class mine_page extends AppCompatActivity  {
             }
         });
 
-        TextView goto2 = findViewById(R.id.threeTOtwo);
-        TextView goto1 = findViewById(R.id.threeTOine);
+        TextView goto1 = findViewById(R.id.fourTOine);
+        TextView goto2 = findViewById(R.id.fourTOtwo);
+        TextView goto3 = findViewById(R.id.fourTOthree);
 
-        goto2.setOnClickListener(v -> {
-            Intent intent = new Intent(this, Chattingcircle_recommend.class);
+        goto1.setOnClickListener(v -> {
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
             overridePendingTransition(0,0);
             finish();
         });
 
-        goto1.setOnClickListener(v -> {
-            Intent intent = new Intent(this, MainActivity.class);
+        goto2.setOnClickListener(v -> {
+            Intent intent = new Intent(this, Family.family.class);
+            startActivity(intent);
+            overridePendingTransition(0,0);
+            finish();
+        });
+
+        goto3.setOnClickListener(v -> {
+            Intent intent = new Intent(this, Chattingcircle_recommend.class);
             startActivity(intent);
             overridePendingTransition(0,0);
             finish();
@@ -903,9 +938,7 @@ public class mine_page extends AppCompatActivity  {
                             System.out.println("响应体: " + responseBody);
                         }
                         response.body().close();
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    } catch (JSONException e) {
+                    } catch (IOException | JSONException e) {
                         throw new RuntimeException(e);
                     }
                 }
@@ -919,5 +952,144 @@ public class mine_page extends AppCompatActivity  {
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
         super.onPointerCaptureChanged(hasCapture);
+    }
+
+    private void showInviteDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("邀请你的家庭成员");
+        String[] items = {"邀请成员", "接受邀请"};
+        builder.setItems(items, (dialog, which) -> {
+            if (which == 0) {
+                showInviteCodeDialog();
+            } else if (which == 1) {
+                showEnterInviteCodeDialog();
+            }
+            dialog.dismiss();
+        }).setNegativeButton("返回", null);
+
+        builder.show();
+    }
+    //*****生成邀请码
+    private void showInviteCodeDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        Thread t1= new Thread(() -> invite_family(0,layout_id));
+        t1.start();
+        try {
+            t1.join();
+        }catch (InterruptedException e){
+            throw  new RuntimeException(e);
+        }
+        System.out.println("你好世界 邀请码 " + invitecode);
+        builder.setMessage("你的邀请码是："+invitecode); // 假设的邀请码
+        builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int id) {
+                // 用户点击了确认按钮，可以在这里执行相关操作
+                dialog.dismiss();
+            }
+        });
+        builder.show();
+    }
+    //*****生成邀请码
+    //*****接受邀请
+    private void showEnterInviteCodeDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("请输入你的邀请码");
+
+        final EditText input = new EditText(this);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        input.setLayoutParams(lp);
+        builder.setView(input);
+        builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int id) {
+                String inviteCode1 = input.getText().toString();
+                Thread t1= new Thread(() -> accept_invite(inviteCode1,u_id));
+                t1.start();
+                try {
+                    t1.join();
+                }catch (InterruptedException e){
+                    throw  new RuntimeException(e);
+                }
+                System.out.println("你好世界 邀请人 " + layoutid);
+                if (layoutid.equals("fail")) { Toast.makeText(context, "您的验证码无效", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    Toast.makeText(context, "您成功加入家庭", Toast.LENGTH_SHORT).show();
+                }
+                dialog.dismiss();
+            }
+        });
+        builder.setNegativeButton("取消", null);
+        builder.show();
+    }
+    //*****接受邀请
+    //****api接口
+    public void invite_family(int uid,int layout_id){
+        OkHttpClient client1 = new OkHttpClient().newBuilder().build();
+        MediaType JSON1 = MediaType.parse("application/json; charset=utf-8");
+
+        StringBuilder queryParams1 = new StringBuilder();
+
+        queryParams1.append("uid=").append(uid).append("&");
+        queryParams1.append("layout_id=").append(layout_id);
+
+
+        System.out.println("你好世界 邀请家庭成员参数 " + queryParams1);
+        RequestBody body1 = RequestBody.create(JSON1, "");
+        String url1 = "http://120.26.248.74:8080/inviteFamily?" + queryParams1;
+        try {
+            Request request = new Request.Builder()
+                    .url(url1)
+                    .post(body1)
+                    .build();
+
+            Response response = client1.newCall(request).execute();
+            if (response.isSuccessful()) {
+                invitecode = response.body().string();
+                System.out.println("你好世界 成功获取邀请码： "+invitecode);
+            } else {
+                System.out.println("响应码: " + response.code());
+                String responseBody = response.body().string();
+                System.out.println("响应体: " + responseBody);
+            }
+            response.body().close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void accept_invite(String invite_code, int u_id){
+        OkHttpClient client1 = new OkHttpClient().newBuilder().build();
+        MediaType JSON1 = MediaType.parse("application/json; charset=utf-8");
+
+        StringBuilder queryParams1 = new StringBuilder();
+
+        queryParams1.append("invite_code=").append(invite_code).append("&");
+        queryParams1.append("uid=").append(u_id);
+
+        System.out.println("你好世界 接受邀请参数 " + queryParams1);
+        RequestBody body1 = RequestBody.create(JSON1, "");
+        String url1 = "http://120.26.248.74:8080/acceptInvite?" + queryParams1;
+        try {
+            Request request = new Request.Builder()
+                    .url(url1)
+                    .post(body1)
+                    .build();
+
+            Response response = client1.newCall(request).execute();
+            if (response.isSuccessful()) {
+                layoutid = response.body().string();
+                System.out.println("你好世界 成功接受邀请，邀请你的用户为 "+layoutid);
+            } else {
+                System.out.println("响应码: " + response.code());
+                String responseBody = response.body().string();
+                System.out.println("响应体: " + responseBody);
+            }
+            response.body().close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

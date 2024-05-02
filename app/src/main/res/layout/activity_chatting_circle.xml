@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
                 android:adjustViewBounds="true"
-                android:src="@drawable/x" />
+                android:src="@drawable/yoyo" />
 
             <TextView
                 android:layout_width="0dp"

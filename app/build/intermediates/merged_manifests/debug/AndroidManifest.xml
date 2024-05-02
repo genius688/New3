@@ -16,7 +16,7 @@
   <uses-permission android:name="android.permission.CAMERA"/>
   <permission android:name="com.example.smartstore.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature"/>
   <uses-permission android:name="com.example.smartstore.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
-  <application android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:allowBackup="true" android:roundIcon="@mipmap/ic_launcher_round" android:usesCleartextTraffic="true" android:extractNativeLibs="false" android:supportsRtl="true" android:debuggable="true" android:label="@string/app_name" android:name="com.mob.MobApplication" android:theme="@style/AppTheme" android:dataExtractionRules="@xml/data_extraction_rules" android:icon="@mipmap/ic_launcher" android:fullBackupContent="@xml/backup_rules">
+  <application android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:allowBackup="true" android:testOnly="true" android:roundIcon="@mipmap/ic_launcher_round" android:usesCleartextTraffic="true" android:extractNativeLibs="false" android:supportsRtl="true" android:debuggable="true" android:label="@string/app_name" android:name="com.mob.MobApplication" android:theme="@style/AppTheme" android:dataExtractionRules="@xml/data_extraction_rules" android:icon="@drawable/icon" android:fullBackupContent="@xml/backup_rules">
     <activity android:name="image_submit.Upload"/>
     <activity android:name="in_out_rcd.in_out_rcd"/>
     <activity android:name="com.example.smartstore.discription_dialog"/>
@@ -29,6 +29,8 @@
     <activity android:name="image_submit.Image_edit"/>
     <activity android:name="com.example.smartstore.MainActivity"/>
     <activity android:name="chattingCircle.Postings"/>
+    <activity android:name="Family.family"/>
+    <activity android:name="Family.help"/>
     <activity android:name="chattingCircle.Post"/>
     <activity android:windowSoftInputMode="adjustPan" android:name="login.LoginActivity" android:exported="true">
       <intent-filter>

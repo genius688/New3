@@ -1,20 +1,15 @@
 package chattingCircle;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.provider.Settings;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -28,11 +23,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.smartstore.Circle;
@@ -42,16 +33,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import image_submit.Utils;
 import image_submit.attention_dialog;
-import okhttp3.Call;
-import okhttp3.Callback;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -70,9 +57,6 @@ public class ChattingCircle extends AppCompatActivity {
     TextView postrlstime;
     TextView postlikes;
     public Circle user_img1;
-    private static final int STORAGE_PERMISSION = 1;
-    int REQUEST_CODE_CAPTURE_IMAGE = 100;
-    private File file;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
     private Activity activity;
@@ -94,6 +78,10 @@ public class ChattingCircle extends AppCompatActivity {
         setContentView(R.layout.activity_chatting_circle);
         activity = (Activity)this;
         context=(Context)this;
+
+        View decorView = getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+        decorView.setSystemUiVisibility(uiOptions);
 
         preferences = getSharedPreferences("config", Context.MODE_PRIVATE);
         editor = preferences.edit();
@@ -241,7 +229,6 @@ public class ChattingCircle extends AppCompatActivity {
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
-        user_img1.setOnClickListener(v -> xzImage());
     }
 
     protected void onResume() {
@@ -251,102 +238,7 @@ public class ChattingCircle extends AppCompatActivity {
         getworks(serverId);
     }
 
-    private ActivityResultLauncher<Intent> imagePickerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
-            result -> {
-                if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
-                    Intent data = result.getData();
-                    String realPath = Utils.getRealPath(this, data);
-                    file = new File(realPath);
-                    System.out.println("成功"+file );
-                    Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
-                    System.out.println("成功l"+bitmap );
-                    user_img1.setImageBitmap(bitmap);
-                    int serverId = preferences.getInt("uer_id", -1);
-                    final_upload(file,serverId);
 
-                }
-            });
-    public void final_upload(File file,int id){
-        File it_img = file;
-        JSONObject json = new JSONObject();
-        try {
-            json.put("u_img",it_img);
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return;
-        }
-        RequestBody body = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), json.toString());
-        Request request = new Request.Builder()
-                .url("http://120.26.248.74:8080/updateUserInfo?uid="+id)
-                .post(body)
-                .build();
-
-        OkHttpClient client1 = new OkHttpClient();
-        client1.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                e.printStackTrace();
-                runOnUiThread(() -> Toast.makeText(ChattingCircle.this, "网络问题", Toast.LENGTH_SHORT).show());
-            }
-            @Override
-            public void onResponse(Call call, Response response) {
-                assert response.body() != null;
-                if (!response.isSuccessful()) {
-                    ChattingCircle.this.runOnUiThread(() -> {
-                        try {
-                            String responseBody = response.body().string();
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        }
-                    });
-                }
-                else{
-                    runOnUiThread(() -> Toast.makeText(ChattingCircle.this, "提交成功！", Toast.LENGTH_SHORT).show());
-                }
-            }
-        });
-    }
-    private void xzImage() {
-        if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
-            requestPermissions(new String[]{Manifest.permission.CAMERA}, STORAGE_PERMISSION);
-            return;
-        }
-        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        intent.setType("image/*");
-        imagePickerLauncher.launch(intent);
-    }
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == STORAGE_PERMISSION) {
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            }
-            else {
-                attention_dialog dd = new attention_dialog("开启读取照片权限，\n就可以上传头像啦!" ,"获取照片权限未开启哦！","去开启", "下次再来",this, isAccept -> {
-                    if(isAccept){
-                        Intent intent = new Intent();
-                        intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-                        Uri uri = Uri.fromParts("package", getPackageName(), null);
-                        intent.setData(uri);
-                        startActivity(intent);
-                    }
-                });
-                dd.onCreate_Attention_Dialog();
-            }
-        }
-        if(requestCode == REQUEST_CODE_CAPTURE_IMAGE){
-            attention_dialog dd = new attention_dialog("开启相机和照片权限，\n才能上传头像哦~" ,"获取相机权限开启！","去开启", "下次再来",this, isAccept -> {
-                if(isAccept){
-                    Intent intent = new Intent();
-                    intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-                    Uri uri = Uri.fromParts("package", getPackageName(), null);
-                    intent.setData(uri);
-                    startActivity(intent);
-                }
-            });
-            dd.onCreate_Attention_Dialog();
-        }
-    }
     public void getInfo(int id){
         OkHttpClient client = new OkHttpClient().newBuilder().build();
         MediaType JSON = MediaType.parse("application/json; charset=utf-8");
@@ -496,6 +388,16 @@ public class ChattingCircle extends AppCompatActivity {
                                         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                                     });
                                     sub_interface_container.addView(single_items);
+                                    single_items.setOnLongClickListener(v -> {
+                                        attention_dialog dd = new attention_dialog("你确认要删除吗？","删除作品" ,"确认删除", "我点错了",context, isAccept -> {
+                                            if(isAccept){
+                                                single_items.setVisibility(View.GONE);
+                                                deletePost(post_ids[finalK]);
+                                            }
+                                        });
+                                        dd.onCreate_Attention_Dialog();
+                                        return true;
+                                    });
                                 }
                             });
                         } else {
@@ -507,6 +409,41 @@ public class ChattingCircle extends AppCompatActivity {
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }).start();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void deletePost(int pId){
+        OkHttpClient client = new OkHttpClient().newBuilder().build();
+        MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+        StringBuilder queryParams = new StringBuilder();
+        queryParams.append("post_id=").append(pId);
+
+        RequestBody body = RequestBody.create(JSON, "");
+        String url = "http://120.26.248.74:8080/deletePost?" + queryParams;
+        try {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Request request = new Request.Builder()
+                                .url(url)
+                                .post(body)
+                                .build();
+                        Response response = client.newCall(request).execute();
+                        if (response.isSuccessful()) {
+                            System.out.println("0");
+                        } else {
+                            System.out.println("响应码: " + response.code());
+                            String responseBody = response.body().string();
+                            System.out.println("响应体: " + responseBody);
+                        }
+                        response.body().close();
+                    } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
                 }

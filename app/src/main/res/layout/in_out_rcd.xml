@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/backcolor"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EFF9F6"
     >
+
+    <ScrollView
+        android:id="@+id/scrollView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -24,98 +32,112 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                android:src="@drawable/rcd_light"/>
+                android:src="@drawable/rcd_light" />
 
             <ImageView
                 android:id="@+id/part_20"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                android:src="@drawable/dummy"/>
+                android:src="@drawable/dummy" />
 
             <LinearLayout
-                android:layout_marginTop="-2dp"
                 android:id="@+id/part_21"
-                android:layout_below="@id/part_20"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:layout_below="@id/part_20"
+                android:layout_marginTop="-2dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/rcd_dark_return_btn"
                     android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="20"
-                    android:layout_height="wrap_content"
-                    android:minHeight = "0dp"
-                    android:background="#00000000"/>
+                    android:background="#00000000"
+                    android:minHeight="0dp" />
+
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="68"
-                    android:layout_height="wrap_content"/>
-
-                    <ImageView
-                        android:layout_marginRight="5dp"
-                        android:id="@+id/rcd_change_btn_light"
-                        android:layout_weight="7"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:adjustViewBounds="true"
-                        android:src="@drawable/light_btn" />
+                    android:layout_height="wrap_content"
+                    android:layout_weight="68" />
 
                 <ImageView
-                    android:layout_marginLeft="5dp"
+                    android:id="@+id/rcd_change_btn_light"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="7"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/light_btn" />
+
+                <ImageView
                     android:id="@+id/rcd_change_btn_dark"
                     android:layout_width="0dp"
-                    android:layout_weight="7"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="7"
                     android:adjustViewBounds="true"
                     android:src="@drawable/dark_btn" />
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="13"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_weight="13" />
 
             </LinearLayout>
+
             <ImageView
                 android:id="@+id/part_22"
-                android:layout_below="@id/part_21"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/part_21"
                 android:adjustViewBounds="true"
-                android:src="@drawable/dummy_2"/>
+                android:src="@drawable/dummy_2" />
 
             <HorizontalScrollView
-                android:scrollbars="none"
-                android:layout_marginLeft="63dp"
-                android:layout_marginRight="70dp"
-                android:layout_below="@id/part_22"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                >
+                android:layout_below="@id/part_22"
+                android:layout_marginLeft="63dp"
+                android:layout_marginRight="70dp"
+                android:scrollbars="none">
 
                 <LinearLayout
                     android:id="@+id/date_time_bar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                 </LinearLayout>
 
             </HorizontalScrollView>
-
-          <ScrollView
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content">
-
-              <LinearLayout
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:id="@+id/INOUT_info"
-                  android:orientation="vertical"
-                  />
-
-          </ScrollView>
         </RelativeLayout>
+    </ScrollView>
 
-</ScrollView>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/part32"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.42" />
+
+    <ScrollView
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_alignParentBottom="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/part32">
+
+        <LinearLayout
+            android:id="@+id/page"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

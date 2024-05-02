@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F6F6"
+    android:background="#EFEFEF"
     android:focusable="true"
     android:focusableInTouchMode="true">
 
@@ -11,572 +12,270 @@
         android:id="@+id/scrollView3"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scrollbars="none">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <!--part1-->
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <!--背景-->
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitStart"
-                    android:src="@drawable/p1_total_bgr" />
-
-                <!--仓库名称-->
-                <RelativeLayout
-                    android:id="@+id/part_6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp">
-
-                    <ImageView
-                        android:id="@+id/HeadLine"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:adjustViewBounds="true"
-                        android:src="@drawable/title" />
-
-                    <LinearLayout
-                        android:id="@+id/part_3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="-6dp"
-                        android:layout_marginRight="15dp">
-
-                        <Button
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="22"
-                            android:background="#00000000" />
-
-                        <TextView
-                            android:id="@+id/layout_name"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"
-                            android:layout_weight="65"
-                            android:text=""
-                            android:textColor="#1D4642"
-                            android:textSize="18dp"
-                            android:textStyle="bold" />
-
-                        <Button
-                            android:id="@+id/introduction_btn"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="12"
-                            android:background="#00000000" />
-
-                        <Button
-                            android:id="@+id/notice_btn"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="12"
-                            android:background="#00000000" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/space_discription_btn"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/part_3"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginRight="120dp"
-                        android:hint="点击添加描述"
-                        android:text=""
-                        android:textColor="#000000"
-                        android:textSize="13dp" />
-
-                </RelativeLayout>
-
-                <!--AI入库-->
-                <ImageView
-                    android:id="@+id/camera_btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/part_6"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/store1" />
-
-                <!--分区查找 + 定制空间-->
-                <RelativeLayout
-                    android:id="@+id/part1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/camera_btn"
-                    android:layout_marginTop="15dp">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:adjustViewBounds="true"
-                        android:src="@drawable/store2" />
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:adjustViewBounds="true"
-                        android:src="@drawable/store3" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="95dp"
-                        android:orientation="horizontal">
-
-                        <Button
-                            android:id="@+id/search_btn"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:background="@android:color/transparent" />
-
-                        <Button
-                            android:id="@+id/manage_btn"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:background="@android:color/transparent" />
-                    </LinearLayout>
-                </RelativeLayout>
-
-                <!--仓库数据-->
-                <RelativeLayout
-                    android:id="@+id/part_2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/part1"
-                    android:layout_marginTop="15dp">
-
-                    <ImageView
-                        android:id="@+id/card_1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:adjustViewBounds="true"
-                        android:src="@drawable/card1" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1" />
-
-                        <TextView
-                            android:id="@+id/storedata"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="8"
-                            android:text="仓库数据"
-                            android:textColor="#404040"
-                            android:textSize="15dp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/card_1_data"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginTop="45dp"
-                        android:layout_marginRight="30dp"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="99"
-                                android:textColor="#000000"
-                                android:textSize="20sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="物品总数"
-                                android:textColor="#787878"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="99"
-                                android:textColor="#000000"
-                                android:textSize="20sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="空间总数"
-                                android:textColor="#787878"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="99"
-                                android:textColor="#000000"
-                                android:textSize="20sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="临期物品"
-                                android:textColor="#787878"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="3"
-                                android:textColor="#000000"
-                                android:textSize="20sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="家庭人数"
-                                android:textColor="#787878"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </LinearLayout>
-                </RelativeLayout>
-
-                <!--星标系列-->
-                <ImageView
-                    android:id="@+id/star_1_bgr"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/part_2"
-                    android:layout_marginTop="15dp"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/star_object_bgr" />
-
-                <ImageView
-                    android:id="@+id/star_2_bgr"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/part_2"
-                    android:layout_marginTop="10dp"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/star_object_bgr_2"
-                    android:visibility="gone" />
-                <!--星标物品内容-->
-                <HorizontalScrollView
-                    android:id="@+id/star_object"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/part_5"
-                    android:layout_marginLeft="26dp"
-                    android:layout_marginRight="26dp"
-                    android:scrollbars="none">
-
-                    <LinearLayout
-                        android:layout_width="1000dp"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:orientation="vertical">
-
-                            <androidx.cardview.widget.CardView
-                                android:id="@+id/star_object_card_1"
-                                android:layout_width="70dp"
-                                android:layout_height="70dp"
-                                app:cardCornerRadius="10dp"
-                                app:cardMaxElevation="10dp">
-
-                                <ImageView
-                                    android:id="@+id/star_object_1"
-                                    android:layout_width="75dp"
-                                    android:layout_height="match_parent"
-                                    android:scaleType="centerCrop"
-                                    android:src="@drawable/star_thing_example_1" />
-                            </androidx.cardview.widget.CardView>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="20dp"
-                                android:layout_marginTop="5dp"
-                                android:background="@drawable/circle_text"
-                                android:gravity="center"
-                                android:paddingHorizontal="10dp"
-                                android:text="阿司匹林"
-                                android:textColor="#238F7F"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="100dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
-                                android:lines="3"
-                                android:text="卧室 - 1号床头柜 - 第3抽屉"
-                                android:textColor="#000000"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="2024.12.12"
-                                android:textColor="#BB000000"
-                                android:textSize="11sp" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:orientation="vertical">
-
-                            <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                                xmlns:card="http://schemas.android.com/apk/res-auto"
-                                android:id="@+id/star_object_card_2"
-                                android:layout_width="70dp"
-                                android:layout_height="70dp"
-                                app:cardCornerRadius="10dp"
-                                card:cardMaxElevation="10dp">
-
-                                <ImageView
-                                    android:id="@+id/star_object_2"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:scaleType="centerCrop"
-                                    android:src="@drawable/star_thing_example_1" />
-                            </androidx.cardview.widget.CardView>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="20dp"
-                                android:layout_marginTop="5dp"
-                                android:background="@drawable/circle_text"
-                                android:gravity="center"
-                                android:paddingHorizontal="10dp"
-                                android:text="阿司匹林"
-                                android:textColor="#238F7F"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="100dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
-                                android:lines="3"
-                                android:text="卧室 - 1号床头柜 - 第3抽屉"
-                                android:textColor="#000000"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="2024.12.12"
-                                android:textColor="#BB000000"
-                                android:textSize="11sp" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:orientation="vertical">
-
-                            <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                                xmlns:card="http://schemas.android.com/apk/res-auto"
-                                android:id="@+id/star_object_card_3"
-                                android:layout_width="70dp"
-                                android:layout_height="70dp"
-                                app:cardCornerRadius="10dp"
-                                card:cardMaxElevation="10dp">
-
-                                <ImageView
-                                    android:id="@+id/star_object_3"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:scaleType="centerCrop"
-                                    android:src="@drawable/star_thing_example_1" />
-                            </androidx.cardview.widget.CardView>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="20dp"
-                                android:layout_marginTop="5dp"
-                                android:gravity="center"
-                                android:paddingHorizontal="10dp"
-                                android:text="阿司匹林"
-                                android:textColor="#238F7F"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="100dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
-                                android:lines="3"
-                                android:text="卧室 - 1号床头柜 - 第3抽屉"
-                                android:textColor="#000000"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="2024.12.12"
-                                android:textColor="#BB000000"
-                                android:textSize="11sp" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:orientation="vertical">
-
-                            <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                                xmlns:card="http://schemas.android.com/apk/res-auto"
-                                android:id="@+id/star_object_card_4"
-                                android:layout_width="70dp"
-                                android:layout_height="70dp"
-                                app:cardCornerRadius="10dp"
-                                card:cardMaxElevation="10dp">
-
-                                <ImageView
-                                    android:id="@+id/star_object_4"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:scaleType="centerCrop"
-                                    android:src="@drawable/star_thing_example_1" />
-                            </androidx.cardview.widget.CardView>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="20dp"
-                                android:background="@drawable/circle_text"
-                                android:gravity="center"
-                                android:paddingHorizontal="10dp"
-                                android:text="阿司匹林"
-                                android:textColor="#238F7F"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="100dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
-                                android:lines="3"
-                                android:text="卧室 - 1号床头柜 - 第3抽屉"
-                                android:textColor="#000000"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
-                                android:text="2024.12.12"
-                                android:textColor="#BB000000"
-                                android:textSize="11sp" />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                </HorizontalScrollView>
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/part31"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/part32"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.72" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/part33"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.82" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/part34"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.11" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/part35"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.05" />
+
+            <TextView
+                android:id="@+id/help1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text=" "
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@id/part34"
+                app:layout_constraintEnd_toStartOf="@id/part33"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@id/part32"
+                app:layout_constraintTop_toBottomOf="@id/part35"
+                app:layout_constraintVertical_bias="0.112" />
+
+            <ImageView
+                android:id="@+id/imageView14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/part1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="130dp"
+                android:text="温暖的家"
+                android:textColor="#ffffff"
+                android:textSize="25sp"
+                android:typeface="serif"
+                app:layout_constraintBottom_toTopOf="@+id/imageView15"
+                app:layout_constraintEnd_toStartOf="@+id/part31"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imageView14" />
+
+
+            <ImageView
+                android:id="@+id/imageView15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/part3"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView14"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout18"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="18dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView15"
+                app:layout_constraintTop_toTopOf="@+id/imageView15">
 
                 <LinearLayout
-                    android:id="@+id/part_5"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/part_2"
-                    android:orientation="horizontal">
+                    android:layout_weight="0.8" />
 
-                    <Button
-                        android:id="@+id/star_btn_1"
-                        android:layout_width="0dp"
-                        android:layout_height="60dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_weight="1"
-                        android:background="#00000000" />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-                    <Button
-                        android:id="@+id/star_btn_2"
-                        android:layout_width="0dp"
-                        android:layout_height="60dp"
-                        android:layout_marginRight="5dp"
-                        android:layout_weight="1"
-                        android:background="#00000000" />
+
+                    <TextView
+                        android:id="@+id/StgNum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="99"
+                        android:textColor="#57D3C2"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="储藏点"
+                        android:textSize="14sp" />
+
+
                 </LinearLayout>
 
-            </RelativeLayout>
-        </LinearLayout>
-    </ScrollView>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
+
+                    <TextView
+                        android:id="@+id/itemNum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="99"
+                        android:textColor="#57D3C2"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="物品数"
+                        android:textSize="14sp" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:id="@+id/familyNum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="99"
+                        android:textColor="#57D3C2"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="家人数"
+                        android:textSize="14sp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.8" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:id="@+id/imageView18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/part2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView15" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout20"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView14">
+
+
+                <Button
+                    android:id="@+id/camera_btn"
+                    android:background="@color/smssdk_transparent"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:layout_marginBottom="40dp"
+                    android:id="@+id/search_btn"
+                    android:background="@color/smssdk_transparent"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout20">
+
+                <Button
+                    android:layout_marginTop="40dp"
+                    android:id="@+id/manage_btn"
+                    android:background="@color/smssdk_transparent"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/record_btn"
+                    android:layout_marginBottom="40dp"
+                    android:background="@color/smssdk_transparent"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
     <LinearLayout
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:id="@+id/linearLayout15"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="horizontal"
@@ -602,12 +301,31 @@
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
+        <TextView
+            android:id="@+id/oneTOfour"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
     </LinearLayout>
+
+
     <ImageView
         android:id="@+id/imageView13"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
-        android:src="@drawable/tarbar2"
+        android:src="@drawable/tarbar1"
         app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+        android:id="@+id/help_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/help_main"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

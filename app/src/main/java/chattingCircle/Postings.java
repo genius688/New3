@@ -35,6 +35,7 @@ public class Postings extends AppCompatActivity {
 
     TextView postingtime;
     TextView postinglikes;
+    TextView postingBack;
     Activity activity;
 
     ImageView Likes;
@@ -44,8 +45,9 @@ public class Postings extends AppCompatActivity {
     String post_content;
     String post_img;
     String post_time;
+    String post_like;
+    String pid;
     String likes;
-    int[]isLike;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,16 +59,20 @@ public class Postings extends AppCompatActivity {
         postingdetail=findViewById(R.id.posting_detail);
         postinglikes=findViewById(R.id.postinglikes);
         Likes=findViewById(R.id.posting_likes);
+        postingBack=findViewById(R.id.postingBack);
         postingtime=findViewById(R.id.postingtime);
         activity = (Activity)this;
 
         Intent intent = getIntent();
         if (intent != null) {
-            id = intent.getIntExtra("post_Id", 0);
+            pid = intent.getStringExtra("post_Id");
+            //id=Integer.parseInt(pid);
+            id=intent.getIntExtra("post_Id",0);
             post_img = intent.getStringExtra("post_img");
             post_content = intent.getStringExtra("post_content");
             post_title = intent.getStringExtra("post_name");
             post_time = intent.getStringExtra("post_time");
+            post_like = intent.getStringExtra("post_like");
         }
 
         SharedPreferences preferences = getSharedPreferences("config", Context.MODE_PRIVATE);
@@ -74,29 +80,38 @@ public class Postings extends AppCompatActivity {
 
         scrollPost(id);
 
+        postingBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Postings.this, Chattingcircle_recommend.class);
+                intent.putExtra("trigger_postingback_click", true);
+                startActivity(intent);
+                finish();
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+            }
+        });
+
+
         boolean shouldTriggerSingleitemsClick = getIntent().getBooleanExtra("trigger_single_items_click", false);
         if (!shouldTriggerSingleitemsClick) {
             Likes.setImageResource(R.drawable.star_gray);
-            postinglikes.setText(likes);
-
+            postinglikes.setText(post_like);
             postingname.setText(post_title);
             postingdetail.setText(post_content);
             postingimg.setImageBitmap(BitmapFactory.decodeFile(post_img));
             postingtime.setText(post_time);
 
-            postinglikes.setOnClickListener(new View.OnClickListener() {
+            Likes.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
-                        String likes=postinglikes.getText().toString();
-                        int like = 1;
-                        if(likes != null && !likes.trim().isEmpty()){
-                            like = Integer.parseInt(likes);
-                        }
-                        String after_like=String.valueOf(like)+"";
-                        postinglikes.setText(after_like);
-                        Likes.setImageResource(R.drawable.star_green);
-                        updateLike(id,serverId);
+                    String likes=postinglikes.getText().toString();
+                    int afterlike = Integer.parseInt(likes)+1;
+                    String after_like=afterlike+"";
+                    postinglikes.setText(after_like);
+                    Likes.setImageResource(R.drawable.star_green);
+                    id=Integer.parseInt(pid);
+                    updateLike(id,serverId);
                 }
             });
         }
@@ -132,7 +147,8 @@ public class Postings extends AppCompatActivity {
                                 Bitmap media= BitmapFactory.decodeFile(jsonObject.getString("post_media"));
                                 String detail=jsonObject.getString("post_detail");
                                 String time=jsonObject.getString("post_rls_time");
-                                likes=jsonObject.getString("post_likes");
+                                int l=jsonObject.getInt("post_likes");
+                                System.out.println("我的点赞"+l);
 
                                 activity.runOnUiThread(() -> {
                                     postingname.setText(name);
@@ -141,6 +157,7 @@ public class Postings extends AppCompatActivity {
                                     int commaIndex = time.indexOf("T");
                                     String partOfPtime = time.substring(0, commaIndex);
                                     postingtime.setText(partOfPtime);
+                                    //postinglikes.setText(l+"");
                                 });
                             }
                             else {

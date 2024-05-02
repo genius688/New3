@@ -1,12 +1,14 @@
 package search;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -27,11 +29,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import image_submit.attention_dialog;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import self_edit_layout.self_edit_layout;
 //import cn.student0.manager.RepeatLayoutManager;
 
 
@@ -51,6 +55,8 @@ public class search extends AppCompatActivity {
     private Button search_btn;
 
     public static ArrayList<String> res = new ArrayList<>();
+    private Button goto_change_layout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +71,11 @@ public class search extends AppCompatActivity {
         Current_layout_id =  preference.getInt("current_layout_id",-1);
         editText = findViewById(R.id.search_txt);
         search_btn = findViewById(R.id.search_btn);
+        goto_change_layout = findViewById(R.id.goto_change_layout);
+
+        preference = getSharedPreferences("config",Context.MODE_PRIVATE);
+        ((TextView)findViewById(R.id.layout_name)).setText(preference.getString("current_layout_name","还没有场景哦！"));
+
 
         {
             Thread t1 = new Thread(this::layout_get_room);
@@ -118,7 +129,26 @@ public class search extends AppCompatActivity {
             item_list.clear();
             finish();
         });
+
+        goto_change_layout.setOnClickListener(v -> {
+            attention_dialog dd = new attention_dialog("你确定要切换当前场景吗","场景切换" ,"确认切换", "不，我点错了",this, isAccept -> {
+                if(isAccept){
+                    user_room.clear();
+                    user_stgs.clear();
+                    room_stg_item.clear();
+                    item_list.clear();
+                    Intent intent = new Intent(this, self_edit_layout.class);
+                    intent.putExtra("source", "search");
+                    startActivity(intent);
+                    finish();
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                    super.onBackPressed();
+                }
+            });
+            dd.onCreate_Attention_Dialog();
+        });
     }
+
 
     public void updateUI() {
         recyclerView.invalidate();

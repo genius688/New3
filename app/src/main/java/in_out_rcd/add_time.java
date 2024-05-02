@@ -11,19 +11,20 @@ import com.example.smartstore.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class add_time extends LinearLayout {
     private Context context;
     private  LinearLayout dateTimeBar;
-    private LinearLayout test_info;
+    private  LinearLayout page;
 
-    public static List<ImageView> date_index_list = new ArrayList<>();  //是否点击的图标
+    public List<ImageView> date_index_list = new ArrayList<>();  //是否点击的图标
 
-    public add_time(Context context, LinearLayout dateTimeBa, LinearLayout text_info) {
+    public add_time(Context context, LinearLayout dateTimeBa, LinearLayout page) {
         super(context);
         this.context = context;
+        this.page = page;
         this.dateTimeBar = dateTimeBa;
-        this.test_info = text_info;
     }
 
     public void add_date_item(Integer start_idx, List<String> day, List<String> month){
@@ -42,14 +43,27 @@ public class add_time extends LinearLayout {
 
             dateTimeBar.addView(date_item); //把date_item放入日历中
 
-            date_item.setOnClickListener(v -> {
+            date_item.setOnClickListener(v -> {  //点击每一天，显示什么东西
                 date_index.setVisibility(VISIBLE);
-
+                page.removeAllViews();
                 for(int k = 0; k < date_index_list.size(); k++){
                     if((int)v.getTag() == k){
 
+                        if(in_out_rcd.flag){ //入库
+                            if(in_out_rcd.IN != null && in_out_rcd.IN.get(k) != null){
+                                for(View vv : Objects.requireNonNull(in_out_rcd.IN.get(k))){
+                                    page.addView(vv);
+                                }
+                            }
+                        }
 
-
+                        else{ //出库
+                            if(in_out_rcd.OUT!= null && in_out_rcd.OUT.get(k) != null){
+                                for(View vv : Objects.requireNonNull(in_out_rcd.OUT.get(k))){
+                                    page.addView(vv);
+                                }
+                            }
+                        }
                     }
                     else{
                         date_index_list.get(k).setVisibility(INVISIBLE);

@@ -3,21 +3,33 @@ package in_out_rcd;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.smartstore.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.time.OffsetDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -26,56 +38,59 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class in_out_rcd extends AppCompatActivity {
-
+    public static List<String> test_information = new ArrayList<>(7);  //用于点击各个 “日” 显示的文本
     public static Map<Boolean, ArrayList<inoutClass>> info = new HashMap<>();
-    public List<String> day = new ArrayList<>(7);  //用于记录日历中每一块要显示的“日”
+    public List<String> day = new ArrayList<>(7);  //用于记录日历中每一块要显示的“日”  左到右：现在到以前
     public List<String> month = new ArrayList<>(7);//用于记录日历中每一块要显示的“月”
-    private LinearLayout inoutInfo;
+    private String Current_layout_id;
+    private LinearLayout page;
+
+    public static Map<Integer,ArrayList<View>> OUT = new HashMap<>();
+    public static Map<Integer,ArrayList<View>> IN = new HashMap<>();
+    public static boolean flag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.in_out_rcd);
 
-        inoutInfo = findViewById(R.id.INOUT_info);
+        SharedPreferences preferences = getSharedPreferences("config", Context.MODE_PRIVATE);
+        Current_layout_id = String.valueOf(preferences.getInt("current_layout_id",-1));
+
+        System.out.println("aaaaaa" + Current_layout_id);
+        flag = true;  //入库
+
+        page = findViewById(R.id.page);
+        get_post_days();
 
         {
-//            Thread t1 = new Thread(this::updateDataTime);
-////            Thread t2 = new Thread(this::getInOutInfo);
-//
-//            t1.start();
-//            try {
-//                t1.join();
-//            } catch (InterruptedException e) {
-//                throw new RuntimeException(e);
-//            }
-//            t2.start();
-//            try {
-//                t2.join();
-//            } catch (InterruptedException e) {
-//                throw new RuntimeException(e);
-//            }
+            Thread t1 = new Thread(this::updateDataTime);
+            Thread t2 = new Thread(this::getInInfo);
+            Thread t3 = new Thread(this::getOutInfo);
+
+            t1.start();
+            try {
+                t1.join();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            t2.start();
+            try {
+                t2.join();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            t3.start();
+            try {
+                t3.join();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
 
-//****创建日历*****
-        {
-//            //获取过去一周内的出入库记录
-//            test_information.add("Click 1");
-//            test_information.add("Click 2");
-//            test_information.add("Click 3");
-//            test_information.add("Click 4");
-//            test_information.add("Click 5");
-//            test_information.add("Click 6");
-//            test_information.add("Click 7");  //用于点击各个 “日” 显示的文本
-
-            get_post_days();  //函数定义在下面，用于将今天以前的七天对应的月和日存入上面的day和month链表中
-
-            //at是一个类，里面有一种函数add_date_item，可以动态地在日历中添加每一天
-            //findViewById(R.id.date_time_bar表示要添加入的位置，findViewById(R.id.test）表示点击要显示的位置
-
-            add_time at = new add_time(this, findViewById(R.id.date_time_bar), inoutInfo);
-            at.add_date_item(0, day, month);//触发添加函数
-        }
+        updateUI();
+        add_time at = new add_time(this, findViewById(R.id.date_time_bar), page);
+        at.add_date_item(0, day, month);
 
 //****平滑切换****
         {
@@ -83,6 +98,7 @@ public class in_out_rcd extends AppCompatActivity {
             findViewById(R.id.rcd_change_btn_dark).animate().alpha(0).setDuration(1);
             findViewById(R.id.rcd_change_btn_dark).setEnabled(false);
             findViewById(R.id.rcd_change_btn_light).setOnClickListener(v -> {
+                flag = false;
                 findViewById(R.id.rcd_change_btn_light).setEnabled(false);
                 findViewById(R.id.rcd_change_btn_dark).setEnabled(true);
                 ValueAnimator colorAnimator = ValueAnimator.ofArgb(Color.parseColor("#EFF9F6"), Color.parseColor("#C7F2E3"));
@@ -116,6 +132,7 @@ public class in_out_rcd extends AppCompatActivity {
             });
             //黑到白
             findViewById(R.id.rcd_change_btn_dark).setOnClickListener(v -> {
+                flag = true;
                 findViewById(R.id.rcd_change_btn_light).setEnabled(true);
                 findViewById(R.id.rcd_change_btn_dark).setEnabled(false);
                 ValueAnimator colorAnimator = ValueAnimator.ofArgb(Color.parseColor("#C7F2E3"), Color.parseColor("#EFF9F6"));
@@ -150,61 +167,62 @@ public class in_out_rcd extends AppCompatActivity {
         }
 
 
-//        {
-//            findViewById(R.id.rcd_dark_return_btn).setOnClickListener(v -> {
-//                test_information.clear();
-//                day.clear();
-//                month.clear();
-//                add_time.date_index_list.clear();
-//                finish();
-//            });
-//        }
+        {
+            findViewById(R.id.rcd_dark_return_btn).setOnClickListener(v -> {
+                test_information.clear();
+                info.clear();
+                IN.clear();
+                OUT.clear();
+                finish();
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+            });
+        }
     }
 
+    public void updateUI() {
+        if (info != null && info.get(true) != null) {
+            for (inoutClass ic : Objects.requireNonNull(info.get(true))) {  //入库
+                View rcd_item = LayoutInflater.from(this)
+                        .inflate(R.layout.inrecd, page, false);
+                ((TextView) rcd_item.findViewById(R.id.textView7)).setText(ic.it_name);
+                ((TextView) rcd_item.findViewById(R.id.textView8)).setText(ic.where);
+                ((TextView) rcd_item.findViewById(R.id.textView6)).setText(ic.user);
+                ((TextView) rcd_item.findViewById(R.id.ttttt)).setText(ic.time);
 
-//    public void getInOutInfo(){
-//        OkHttpClient client = new OkHttpClient().newBuilder().build();
-//        MediaType JSON = MediaType.parse("application/json; charset=utf-8");
-//
-////        String queryParams = String.valueOf(uid);
-//
-//        RequestBody body = RequestBody.create(JSON, "");
-//        String url = "http://120.26.248.74:8080/getLayoutId?uid=" + queryParams;
-//
-//        try {
-//            Request request = new Request.Builder()
-//                    .url(url)
-//                    .post(body)
-//                    .build();
-//
-//            Response response = client.newCall(request).execute();
-//            if (response.isSuccessful()) {
-//                String js = response.body().string();
-//                JSONArray jsonArray = new JSONArray(js);
-//                for (int k = 0; k < jsonArray.length(); k++) {
-//                    JSONObject jsonObject = jsonArray.getJSONObject(k);
-//
-//                    String lnm = jsonObject.getString("layout_name");
-//                    String lid = jsonObject.getString("layout_id");
-//                    user_layout.put(lnm,Integer.parseInt(lid));  //获取所有布局
-//
-//                }
-//            } else {
-//                System.out.println("响应码: " + response.code());
-//                String responseBody = response.body().string();
-//                System.out.println("响应体: " + responseBody);
-//            }
-//            response.body().close();
-//        } catch (IOException | JSONException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
+                for (int i = 0; i < 7; i++)
+                    if (getMONTH(Integer.parseInt(ic.month)).equals(month.get(i)) && ic.day.equals(day.get(i))) {
+                        IN.computeIfAbsent(i, k -> new ArrayList<>());
+                        Objects.requireNonNull(IN.get(i)).add(rcd_item);
+                    }
+            }
+        }
 
-    public void updateDataTime(){
+        if (info != null && info.get(false) != null) {
+            for (inoutClass ic : Objects.requireNonNull(info.get(false))) {  //出库
+
+                View rcd_item = LayoutInflater.from(this)
+                        .inflate(R.layout.inrecd, page, false);
+                ((TextView) rcd_item.findViewById(R.id.textView7)).setText(ic.it_name);
+                ((TextView) rcd_item.findViewById(R.id.textView8)).setText(ic.where);
+                ((TextView) rcd_item.findViewById(R.id.textView6)).setText(ic.user);
+                ((TextView) rcd_item.findViewById(R.id.ttttt)).setText(ic.time);
+
+                for (int i = 0; i < 7; i++){
+                    System.out.println("??????" + ic.day);
+                    if (getMONTH(Integer.parseInt(ic.month)).equals(month.get(i)) && ic.day.equals(day.get(i))) {
+                        OUT.computeIfAbsent(i, k -> new ArrayList<>());
+                        Objects.requireNonNull(OUT.get(i)).add(rcd_item);
+                    }
+                }
+            }
+        }
+    }
+    public void getInInfo(){
         OkHttpClient client = new OkHttpClient().newBuilder().build();
         MediaType JSON = MediaType.parse("application/json; charset=utf-8");
         RequestBody body = RequestBody.create(JSON, "");
-        String url = "http://120.26.248.74:8080/delete7DAgo?";
+        String url = "http://120.26.248.74:8080/rukuRecord?layout_id=" + Current_layout_id;
+
         try {
             Request request = new Request.Builder()
                     .url(url)
@@ -212,22 +230,129 @@ public class in_out_rcd extends AppCompatActivity {
                     .build();
 
             Response response = client.newCall(request).execute();
+            if (response.isSuccessful()) {
+                assert response.body() != null;
+                String js = response.body().string();
+                JSONArray jsonArray = new JSONArray(js);
+
+                ArrayList<inoutClass> arr = new ArrayList<>();
+                for (int k = 0; k < jsonArray.length(); k++) {
+                    JSONObject jsonObject = jsonArray.getJSONObject(k);
+
+                    String layout_name = jsonObject.getString("layout_name");
+                    String room_name = jsonObject.getString("room_name");
+                    String it_name = jsonObject.getString("it_name") ;
+                    String stg_name = jsonObject.getString("stg_name");
+                    String dateTimeString = jsonObject.getString("ruchu_time");
+                    String uname = jsonObject.getString("uname");
+                    System.out.println("+++++++" + it_name);
+                    DateTimeFormatter formatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME;
+                    OffsetDateTime offsetDateTime = OffsetDateTime.parse(dateTimeString, formatter);
+
+                    String month = String.valueOf(offsetDateTime.getMonthValue());
+                    String day = String.valueOf(offsetDateTime.getDayOfMonth());
+                    String time = String.valueOf(offsetDateTime.toLocalTime()); // 获取本地时间部分
+
+                    inoutClass ic = new inoutClass(day, month, time, it_name, uname, layout_name + " - " + room_name + " - " + stg_name);
+                    arr.add(ic);
+                }
+
+                info.put(false,arr);
+            } else {
+                System.out.println("响应码: " + response.code());
+                assert response.body() != null;
+                String responseBody = response.body().string();
+                System.out.println("响应体: " + responseBody);
+            }
+            response.body().close();
+        } catch (IOException | JSONException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void getOutInfo(){
+        OkHttpClient client = new OkHttpClient().newBuilder().build();
+        MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+        RequestBody body = RequestBody.create(JSON, "");
+        String url = "http://120.26.248.74:8080/chukuRecord?layout_id=" + Current_layout_id;
+
+        try {
+            Request request = new Request.Builder()
+                    .url(url)
+                    .post(body)
+                    .build();
+
+            Response response = client.newCall(request).execute();
+            if (response.isSuccessful()) {
+                assert response.body() != null;
+                String js = response.body().string();
+                JSONArray jsonArray = new JSONArray(js);
+
+                ArrayList<inoutClass> arr = new ArrayList<>();
+                for (int k = 0; k < jsonArray.length(); k++) {
+                    JSONObject jsonObject = jsonArray.getJSONObject(k);
+
+                    String layout_name = jsonObject.getString("layout_name");
+                    String room_name = jsonObject.getString("room_name");
+                    String it_name = jsonObject.getString("it_name") ;
+                    String stg_name = jsonObject.getString("stg_name");
+                    String dateTimeString = jsonObject.getString("ruchu_time");
+                    String uname = jsonObject.getString("uname");
+                    DateTimeFormatter formatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME;
+                    OffsetDateTime offsetDateTime = OffsetDateTime.parse(dateTimeString, formatter);
+
+                    String month = String.valueOf(offsetDateTime.getMonthValue());
+                    String day = String.valueOf(offsetDateTime.getDayOfMonth());
+                    String time = String.valueOf(offsetDateTime.toLocalTime()); // 获取本地时间部分
+
+                    inoutClass ic = new inoutClass(day, month, time, it_name, uname, layout_name + " - " + room_name + " - " + stg_name);
+                    arr.add(ic);
+                }
+
+                info.put(true,arr);
+            } else {
+                System.out.println("响应码: " + response.code());
+                assert response.body() != null;
+                String responseBody = response.body().string();
+                System.out.println("响应体: " + responseBody);
+            }
+            response.body().close();
+        } catch (IOException | JSONException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void updateDataTime(){
+        OkHttpClient client = new OkHttpClient().newBuilder().build();
+        MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+        String url = "http://120.26.248.74:8080/delete7DAgo?";
+        try {
+            Request request = new Request.Builder()
+                    .url(url)
+                    .get()
+                    .build();
+
+            Response response = client.newCall(request).execute();
             if (!response.isSuccessful()) {
                 System.out.println("响应码: " + response.code());
                 String responseBody = response.body().string();
                 System.out.println("响应体: " + responseBody);
+            }else{
+                System.out.println("响应成功");
             }
             response.body().close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
+
     public void onBackPressed() {
-//        test_information.clear();
-        day.clear();
-        month.clear();
-        add_time.date_index_list.clear();
+        test_information.clear();
+        info.clear();
+        IN.clear();
+        OUT.clear();
         finish();
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 
     //****获取今天以前七天的数据***

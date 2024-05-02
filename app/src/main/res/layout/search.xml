@@ -82,7 +82,8 @@
                         android:background="#00000000" />
 
                     <TextView
-
+                        android:layout_marginLeft="5dp"
+                        android:id="@+id/layout_name"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginBottom="9dp"
@@ -94,6 +95,7 @@
                         android:textStyle="bold" />
 
                     <Button
+                        android:id="@+id/goto_change_layout"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="20"
@@ -147,6 +149,7 @@
                     android:textSize="10sp" />
 
                 <LinearLayout
+                    android:layout_marginTop="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignTop="@id/search_bar"
@@ -162,7 +165,7 @@
                         android:gravity="center_vertical"
                         android:hint="在此搜索物品"
                         android:textColor="#000000"
-                        android:textSize="15sp" />
+                        android:textSize="13sp" />
 
                     <Button
                         android:id="@+id/search_btn"
