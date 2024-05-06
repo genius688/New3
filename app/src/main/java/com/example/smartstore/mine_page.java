@@ -85,7 +85,7 @@ public class mine_page extends AppCompatActivity  {
     private String invitecode; //用于接受邀请码
     private int u_id2;//用户接受邀请者的id
     private  int layoutid;    //用于接受返回的场景
-    private  int layout_id = 1;  //当前的场景
+    private  int layout_id = 1;  //当前场景id
     ImageView my_like_btn;
     Button checkinButton;
     TextView use_rank;

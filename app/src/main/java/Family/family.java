@@ -68,9 +68,9 @@ public class family extends AppCompatActivity {
     private int select_month;
     private int select_day;
     private int msn_id;//任务id
-    private int uid;
-    private String Current_layout;
-    private int Current_layout_id;
+    private String Current_layout;//当前场景名称
+    private int Current_layout_id;//当前场景id
+     private int uid;//当前用户id
     private ArrayList<String> user_list=new ArrayList<String>();//用于存放当前场景下的所有用户
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
