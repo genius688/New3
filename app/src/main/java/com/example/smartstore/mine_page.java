@@ -3,6 +3,7 @@ package com.example.smartstore;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -18,6 +19,7 @@ import android.provider.MediaStore;
 import android.provider.Settings;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -47,6 +49,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
@@ -79,9 +82,10 @@ public class mine_page extends AppCompatActivity  {
     public Circle user_img;
     TextView user_id;
     private int u_id = 2;
-    private String invitecode;
-    private  String layoutid;    //邀请人
-    private  int layout_id = 1;  //被邀请人
+    private String invitecode; //用于接受邀请码
+    private int u_id2;//用户接受邀请者的id
+    private  int layoutid;    //用于接受返回的场景
+    private  int layout_id = 1;  //当前的场景
     ImageView my_like_btn;
     Button checkinButton;
     TextView use_rank;
@@ -99,7 +103,9 @@ public class mine_page extends AppCompatActivity  {
     private File file;
     ImageView my_feedback_btn;
     private ImageView my_record_btn;
+    private ImageView people;
     private Button contact;
+    private ArrayList<String> user_list=new ArrayList<String>();//用于存放当前场景下的所有用户
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -132,7 +138,7 @@ public class mine_page extends AppCompatActivity  {
         max_exp=findViewById(R.id.max_exp);
         progressBar = findViewById(R.id.exp_progress);
         contact = findViewById(R.id.contact_btn);
-
+        people=findViewById(R.id.my_peo_btn);
         resetCheckinStatusIfNewDay();
 
         SharedPreferences preferences = getSharedPreferences("config", Context.MODE_PRIVATE);
@@ -327,6 +333,47 @@ public class mine_page extends AppCompatActivity  {
                 dd.onCreateDialog();
             }
         });
+        people.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 创建一个自定义对话框
+                Dialog dialog = new Dialog(mine_page.this);
+                dialog.setContentView(R.layout.dialog_user_list);
+               // 假设我们有一个LinearLayout来容纳多个TextView
+                LinearLayout userContainer = dialog.findViewById(R.id.user_container); // 你需要在布局文件中添加这个LinearLayout
+               TextView title=dialog.findViewById(R.id.user_title);
+                userContainer.removeAllViews();
+              title.setText("当前场景下的用户: ");
+                // 遍历用户列表并添加TextView，同时设置margin
+                for (String userName : user_list) {
+                    TextView textView = new TextView(mine_page.this);
+                    textView.setText(userName);
+
+                    // 使用ViewGroup.MarginLayoutParams来设置margin
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                            LinearLayout.LayoutParams.MATCH_PARENT,
+                            LinearLayout.LayoutParams.WRAP_CONTENT);
+
+                    // 设置垂直margin（这里以16dp为例）
+                    int marginInPixels = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 16, getResources().getDisplayMetrics());
+                    layoutParams.setMargins(0, marginInPixels, 0, 0); // left, top, right, bottom
+
+                    textView.setLayoutParams(layoutParams);
+                    userContainer.addView(textView);
+                }
+                // 显示对话框
+                dialog.show();
+            }
+        });
+        //****拉取用户名称
+        Thread t3= new Thread(() -> getUsers(layout_id));
+        t3.start();
+        try {
+            t3.join();
+        }catch (InterruptedException e){
+            throw  new RuntimeException(e);
+        }
+        System.out.println("任务列表的大小 "+user_list.size());
 
         TextView goto1 = findViewById(R.id.fourTOine);
         TextView goto2 = findViewById(R.id.fourTOtwo);
@@ -948,7 +995,48 @@ public class mine_page extends AppCompatActivity  {
         }
 
     }
+    //*****获取当前场景下的用户名称
+    public void getUsers(int layout_id) {
+        OkHttpClient client1 = new OkHttpClient().newBuilder().build();
+        MediaType JSON1 = MediaType.parse("application/json; charset=utf-8");
 
+        StringBuilder queryParams1 = new StringBuilder();
+
+        queryParams1.append("layout_id=").append(layout_id);
+        System.out.println("你好世界 获取用户参数" + queryParams1);
+        RequestBody body1 = RequestBody.create(JSON1, "");
+        String url1 = "http://120.26.248.74:8080/useLayoutGetUid?" + queryParams1;
+        try {
+            Request request = new Request.Builder()
+                    .url(url1)
+                    .post(body1)
+                    .build();
+
+            Response response = client1.newCall(request).execute();
+            if (response.isSuccessful()) {
+                System.out.println("你好世界 成功拉取用户名称");
+                String js = response.body().string();
+                JSONArray jsonArray = new JSONArray(js);
+                //拉取的时候清空taskList,避免重复拉取
+                user_list.clear();
+                for (int k = 0; k < jsonArray.length(); k++){
+                    JSONObject jsonObject = jsonArray.getJSONObject(k);
+
+                    String user_name=jsonObject.getString("uname");
+                    user_list.add(user_name);
+                }} else {
+                System.out.println("响应码: " + response.code());
+                String responseBody = response.body().string();
+                System.out.println("响应体: " + responseBody);
+            }
+            response.body().close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    //*****获取当前场景下的用户名称
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
         super.onPointerCaptureChanged(hasCapture);
@@ -972,7 +1060,7 @@ public class mine_page extends AppCompatActivity  {
     //*****生成邀请码
     private void showInviteCodeDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        Thread t1= new Thread(() -> invite_family(0,layout_id));
+        Thread t1= new Thread(() -> invite_family(u_id,layout_id));
         t1.start();
         try {
             t1.join();
@@ -1014,10 +1102,10 @@ public class mine_page extends AppCompatActivity  {
                     throw  new RuntimeException(e);
                 }
                 System.out.println("你好世界 邀请人 " + layoutid);
-                if (layoutid.equals("fail")) { Toast.makeText(context, "您的验证码无效", Toast.LENGTH_SHORT).show();
+                if (layoutid==-1) { Toast.makeText(context, "您的验证码无效", Toast.LENGTH_SHORT).show();
 
                 } else {
-                    Toast.makeText(context, "您成功加入家庭", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "您成功加入家庭: "+layoutid, Toast.LENGTH_SHORT).show();
                 }
                 dialog.dismiss();
             }
@@ -1080,8 +1168,9 @@ public class mine_page extends AppCompatActivity  {
 
             Response response = client1.newCall(request).execute();
             if (response.isSuccessful()) {
-                layoutid = response.body().string();
-                System.out.println("你好世界 成功接受邀请，邀请你的用户为 "+layoutid);
+                String s=response.body().string();
+                layoutid = Integer.parseInt(s);
+                System.out.println("你好世界 成功接受邀请，你加入的场景为 "+layoutid);
             } else {
                 System.out.println("响应码: " + response.code());
                 String responseBody = response.body().string();

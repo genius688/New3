@@ -9,399 +9,397 @@
 9        android:targetSdkVersion="34" />
 10
 11    <uses-feature
-11-->D:\SmartStore\app\src\main\AndroidManifest.xml:5:5-7:36
+11-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:5:5-7:36
 12        android:name="android.hardware.camera"
-12-->D:\SmartStore\app\src\main\AndroidManifest.xml:6:9-47
+12-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:6:9-47
 13        android:required="false" />
-13-->D:\SmartStore\app\src\main\AndroidManifest.xml:7:9-33
+13-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:7:9-33
 14
 15    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-15-->D:\SmartStore\app\src\main\AndroidManifest.xml:9:5-78
-15-->D:\SmartStore\app\src\main\AndroidManifest.xml:9:22-75
+15-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:9:5-78
+15-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:9:22-75
 16    <uses-permission android:name="android.permission.INTERNET" />
-16-->D:\SmartStore\app\src\main\AndroidManifest.xml:10:5-67
-16-->D:\SmartStore\app\src\main\AndroidManifest.xml:10:22-64
+16-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:10:5-67
+16-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:10:22-64
 17    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-17-->D:\SmartStore\app\src\main\AndroidManifest.xml:11:5-79
-17-->D:\SmartStore\app\src\main\AndroidManifest.xml:11:22-76
+17-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:11:5-79
+17-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:11:22-76
 18    <uses-permission android:name="android.permission.READ_CONTACTS" />
-18-->D:\SmartStore\app\src\main\AndroidManifest.xml:12:5-72
-18-->D:\SmartStore\app\src\main\AndroidManifest.xml:12:22-69
+18-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:12:5-72
+18-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:12:22-69
 19    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-19-->D:\SmartStore\app\src\main\AndroidManifest.xml:13:5-75
-19-->D:\SmartStore\app\src\main\AndroidManifest.xml:13:22-72
+19-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:13:5-75
+19-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:13:22-72
 20    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-20-->D:\SmartStore\app\src\main\AndroidManifest.xml:14:5-76
-20-->D:\SmartStore\app\src\main\AndroidManifest.xml:14:22-73
+20-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:14:5-76
+20-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:14:22-73
 21    <uses-permission android:name="android.permission.RECEIVE_SMS" />
-21-->D:\SmartStore\app\src\main\AndroidManifest.xml:15:5-17:71
-21-->D:\SmartStore\app\src\main\AndroidManifest.xml:16:9-54
+21-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:15:5-17:71
+21-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:16:9-54
 22    <uses-permission android:name="android.permission.READ_SMS" />
-22-->D:\SmartStore\app\src\main\AndroidManifest.xml:18:5-20:71
-22-->D:\SmartStore\app\src\main\AndroidManifest.xml:19:9-51
+22-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:18:5-20:71
+22-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:19:9-51
 23    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-23-->D:\SmartStore\app\src\main\AndroidManifest.xml:21:5-79
-23-->D:\SmartStore\app\src\main\AndroidManifest.xml:21:22-76
+23-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:21:5-79
+23-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:21:22-76
 24    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-24-->D:\SmartStore\app\src\main\AndroidManifest.xml:22:5-81
-24-->D:\SmartStore\app\src\main\AndroidManifest.xml:22:22-78
+24-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:22:5-81
+24-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:22:22-78
 25    <uses-permission android:name="android.permission.GET_TASKS" />
-25-->D:\SmartStore\app\src\main\AndroidManifest.xml:23:5-68
-25-->D:\SmartStore\app\src\main\AndroidManifest.xml:23:22-65
+25-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:23:5-68
+25-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:23:22-65
 26    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-26-->D:\SmartStore\app\src\main\AndroidManifest.xml:24:5-76
-26-->D:\SmartStore\app\src\main\AndroidManifest.xml:24:22-73
+26-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:24:5-76
+26-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:24:22-73
 27    <uses-permission android:name="android.permission.CAMERA" />
-27-->D:\SmartStore\app\src\main\AndroidManifest.xml:25:5-65
-27-->D:\SmartStore\app\src\main\AndroidManifest.xml:25:22-62
+27-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:25:5-65
+27-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:25:22-62
 28
 29    <permission
-29-->[androidx.core:core:1.13.0] C:\Users\zzw15\.gradle\caches\transforms-3\59027f515bf37ce54fde6e3cddc9e87d\transformed\core-1.13.0\AndroidManifest.xml:22:5-24:47
+29-->[androidx.core:core:1.13.0] C:\Users\lenovo\.gradle\caches\transforms-3\59027f515bf37ce54fde6e3cddc9e87d\transformed\core-1.13.0\AndroidManifest.xml:22:5-24:47
 30        android:name="com.example.smartstore.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-30-->[androidx.core:core:1.13.0] C:\Users\zzw15\.gradle\caches\transforms-3\59027f515bf37ce54fde6e3cddc9e87d\transformed\core-1.13.0\AndroidManifest.xml:23:9-81
+30-->[androidx.core:core:1.13.0] C:\Users\lenovo\.gradle\caches\transforms-3\59027f515bf37ce54fde6e3cddc9e87d\transformed\core-1.13.0\AndroidManifest.xml:23:9-81
 31        android:protectionLevel="signature" />
-31-->[androidx.core:core:1.13.0] C:\Users\zzw15\.gradle\caches\transforms-3\59027f515bf37ce54fde6e3cddc9e87d\transformed\core-1.13.0\AndroidManifest.xml:24:9-44
+31-->[androidx.core:core:1.13.0] C:\Users\lenovo\.gradle\caches\transforms-3\59027f515bf37ce54fde6e3cddc9e87d\transformed\core-1.13.0\AndroidManifest.xml:24:9-44
 32
 33    <uses-permission android:name="com.example.smartstore.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-33-->[androidx.core:core:1.13.0] C:\Users\zzw15\.gradle\caches\transforms-3\59027f515bf37ce54fde6e3cddc9e87d\transformed\core-1.13.0\AndroidManifest.xml:26:5-97
-33-->[androidx.core:core:1.13.0] C:\Users\zzw15\.gradle\caches\transforms-3\59027f515bf37ce54fde6e3cddc9e87d\transformed\core-1.13.0\AndroidManifest.xml:26:22-94
+33-->[androidx.core:core:1.13.0] C:\Users\lenovo\.gradle\caches\transforms-3\59027f515bf37ce54fde6e3cddc9e87d\transformed\core-1.13.0\AndroidManifest.xml:26:5-97
+33-->[androidx.core:core:1.13.0] C:\Users\lenovo\.gradle\caches\transforms-3\59027f515bf37ce54fde6e3cddc9e87d\transformed\core-1.13.0\AndroidManifest.xml:26:22-94
 34
 35    <application
-35-->D:\SmartStore\app\src\main\AndroidManifest.xml:27:5-66:19
+35-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:27:5-66:19
 36        android:allowBackup="true"
-36-->D:\SmartStore\app\src\main\AndroidManifest.xml:28:9-35
+36-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:28:9-35
 37        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-37-->[androidx.core:core:1.13.0] C:\Users\zzw15\.gradle\caches\transforms-3\59027f515bf37ce54fde6e3cddc9e87d\transformed\core-1.13.0\AndroidManifest.xml:28:18-86
+37-->[androidx.core:core:1.13.0] C:\Users\lenovo\.gradle\caches\transforms-3\59027f515bf37ce54fde6e3cddc9e87d\transformed\core-1.13.0\AndroidManifest.xml:28:18-86
 38        android:dataExtractionRules="@xml/data_extraction_rules"
-38-->D:\SmartStore\app\src\main\AndroidManifest.xml:29:9-65
+38-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:29:9-65
 39        android:debuggable="true"
 40        android:extractNativeLibs="false"
 41        android:fullBackupContent="@xml/backup_rules"
-41-->D:\SmartStore\app\src\main\AndroidManifest.xml:30:9-54
+41-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:30:9-54
 42        android:icon="@drawable/icon"
-42-->D:\SmartStore\app\src\main\AndroidManifest.xml:31:9-38
+42-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:31:9-38
 43        android:label="@string/app_name"
-43-->D:\SmartStore\app\src\main\AndroidManifest.xml:32:9-41
+43-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:32:9-41
 44        android:roundIcon="@mipmap/ic_launcher_round"
-44-->D:\SmartStore\app\src\main\AndroidManifest.xml:33:9-54
+44-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:33:9-54
 45        android:supportsRtl="true"
-45-->D:\SmartStore\app\src\main\AndroidManifest.xml:34:9-35
+45-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:34:9-35
 46        android:testOnly="true"
 47        android:theme="@style/AppTheme"
-47-->D:\SmartStore\app\src\main\AndroidManifest.xml:36:9-40
+47-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:36:9-40
 48        android:usesCleartextTraffic="true" >
-48-->D:\SmartStore\app\src\main\AndroidManifest.xml:35:9-44
+48-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:35:9-44
 49        <activity android:name="image_submit.Upload" />
-49-->D:\SmartStore\app\src\main\AndroidManifest.xml:39:9-56
-49-->D:\SmartStore\app\src\main\AndroidManifest.xml:39:19-53
+49-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:39:9-56
+49-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:39:19-53
 50        <activity android:name="in_out_rcd.in_out_rcd" />
-50-->D:\SmartStore\app\src\main\AndroidManifest.xml:40:9-58
-50-->D:\SmartStore\app\src\main\AndroidManifest.xml:40:19-55
+50-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:40:9-58
+50-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:40:19-55
 51        <activity android:name="com.example.smartstore.discription_dialog" />
-51-->D:\SmartStore\app\src\main\AndroidManifest.xml:41:9-56
-51-->D:\SmartStore\app\src\main\AndroidManifest.xml:41:19-53
+51-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:41:9-56
+51-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:41:19-53
 52        <activity android:name="search.search" />
-52-->D:\SmartStore\app\src\main\AndroidManifest.xml:42:9-50
-52-->D:\SmartStore\app\src\main\AndroidManifest.xml:42:19-47
+52-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:42:9-50
+52-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:42:19-47
 53        <activity
-53-->D:\SmartStore\app\src\main\AndroidManifest.xml:43:9-45:59
+53-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:43:9-45:59
 54            android:name="com.example.smartstore.mine_page"
-54-->D:\SmartStore\app\src\main\AndroidManifest.xml:44:13-38
+54-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:44:13-38
 55            android:windowSoftInputMode="adjustNothing" />
-55-->D:\SmartStore\app\src\main\AndroidManifest.xml:45:13-56
+55-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:45:13-56
 56        <activity android:name="chattingCircle.ChattingCircle" />
-56-->D:\SmartStore\app\src\main\AndroidManifest.xml:46:9-66
-56-->D:\SmartStore\app\src\main\AndroidManifest.xml:46:19-63
+56-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:46:9-66
+56-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:46:19-63
 57        <activity android:name="chattingCircle.Chattingcircle_recommend" />
-57-->D:\SmartStore\app\src\main\AndroidManifest.xml:47:9-76
-57-->D:\SmartStore\app\src\main\AndroidManifest.xml:47:19-73
+57-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:47:9-76
+57-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:47:19-73
 58        <activity android:name="self_edit_layout.self_edit_layout" />
-58-->D:\SmartStore\app\src\main\AndroidManifest.xml:48:9-70
-58-->D:\SmartStore\app\src\main\AndroidManifest.xml:48:19-67
+58-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:48:9-70
+58-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:48:19-67
 59        <activity android:name="Baidu.Baidu" />
-59-->D:\SmartStore\app\src\main\AndroidManifest.xml:49:9-48
-59-->D:\SmartStore\app\src\main\AndroidManifest.xml:49:19-45
+59-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:49:9-48
+59-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:49:19-45
 60        <activity android:name="image_submit.Image_edit" />
-60-->D:\SmartStore\app\src\main\AndroidManifest.xml:50:9-60
-60-->D:\SmartStore\app\src\main\AndroidManifest.xml:50:19-57
+60-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:50:9-60
+60-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:50:19-57
 61        <activity android:name="com.example.smartstore.MainActivity" />
-61-->D:\SmartStore\app\src\main\AndroidManifest.xml:51:9-50
-61-->D:\SmartStore\app\src\main\AndroidManifest.xml:51:19-47
+61-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:51:9-50
+61-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:51:19-47
 62        <activity android:name="chattingCircle.Postings" />
-62-->D:\SmartStore\app\src\main\AndroidManifest.xml:52:9-60
-62-->D:\SmartStore\app\src\main\AndroidManifest.xml:52:19-57
-63        <activity android:name="Family.family" />
-63-->D:\SmartStore\app\src\main\AndroidManifest.xml:53:9-49
-63-->D:\SmartStore\app\src\main\AndroidManifest.xml:53:19-47
+62-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:52:9-60
+62-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:52:19-57
+63        <!-- <activity android:name="Family.family"/> -->
 64        <activity android:name="Family.help" />
-64-->D:\SmartStore\app\src\main\AndroidManifest.xml:54:9-47
-64-->D:\SmartStore\app\src\main\AndroidManifest.xml:54:19-45
+64-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:54:9-47
+64-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:54:19-45
 65        <activity android:name="chattingCircle.Post" />
-65-->D:\SmartStore\app\src\main\AndroidManifest.xml:55:9-55
-65-->D:\SmartStore\app\src\main\AndroidManifest.xml:55:19-53
+65-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:55:9-55
+65-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:55:19-53
 66        <activity
-66-->D:\SmartStore\app\src\main\AndroidManifest.xml:56:9-65:20
-67            android:name="login.LoginActivity"
-67-->D:\SmartStore\app\src\main\AndroidManifest.xml:57:13-47
+66-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:56:9-65:20
+67            android:name="Family.family"
+67-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:57:13-41
 68            android:exported="true"
-68-->D:\SmartStore\app\src\main\AndroidManifest.xml:58:13-36
+68-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:58:13-36
 69            android:windowSoftInputMode="adjustPan" >
-69-->D:\SmartStore\app\src\main\AndroidManifest.xml:59:13-52
+69-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:59:13-52
 70            <intent-filter>
-70-->D:\SmartStore\app\src\main\AndroidManifest.xml:60:13-64:29
+70-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:60:13-64:29
 71                <action android:name="android.intent.action.MAIN" />
-71-->D:\SmartStore\app\src\main\AndroidManifest.xml:61:17-69
-71-->D:\SmartStore\app\src\main\AndroidManifest.xml:61:25-66
+71-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:61:17-69
+71-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:61:25-66
 72
 73                <category android:name="android.intent.category.LAUNCHER" />
-73-->D:\SmartStore\app\src\main\AndroidManifest.xml:63:17-77
-73-->D:\SmartStore\app\src\main\AndroidManifest.xml:63:27-74
+73-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:63:17-77
+73-->C:\Users\lenovo\AndroidStudioProjects\app1\app\src\main\AndroidManifest.xml:63:27-74
 74            </intent-filter>
 75        </activity>
 76
 77        <service
-77-->[androidx.camera:camera-camera2:1.2.2] C:\Users\zzw15\.gradle\caches\transforms-3\d9f084ab3aaa026b11e2e4203a731755\transformed\jetified-camera-camera2-1.2.2\AndroidManifest.xml:24:9-33:19
+77-->[androidx.camera:camera-camera2:1.2.2] C:\Users\lenovo\.gradle\caches\transforms-3\d9f084ab3aaa026b11e2e4203a731755\transformed\jetified-camera-camera2-1.2.2\AndroidManifest.xml:24:9-33:19
 78            android:name="androidx.camera.core.impl.MetadataHolderService"
-78-->[androidx.camera:camera-camera2:1.2.2] C:\Users\zzw15\.gradle\caches\transforms-3\d9f084ab3aaa026b11e2e4203a731755\transformed\jetified-camera-camera2-1.2.2\AndroidManifest.xml:25:13-75
+78-->[androidx.camera:camera-camera2:1.2.2] C:\Users\lenovo\.gradle\caches\transforms-3\d9f084ab3aaa026b11e2e4203a731755\transformed\jetified-camera-camera2-1.2.2\AndroidManifest.xml:25:13-75
 79            android:enabled="false"
-79-->[androidx.camera:camera-camera2:1.2.2] C:\Users\zzw15\.gradle\caches\transforms-3\d9f084ab3aaa026b11e2e4203a731755\transformed\jetified-camera-camera2-1.2.2\AndroidManifest.xml:26:13-36
+79-->[androidx.camera:camera-camera2:1.2.2] C:\Users\lenovo\.gradle\caches\transforms-3\d9f084ab3aaa026b11e2e4203a731755\transformed\jetified-camera-camera2-1.2.2\AndroidManifest.xml:26:13-36
 80            android:exported="false" >
-80-->[androidx.camera:camera-camera2:1.2.2] C:\Users\zzw15\.gradle\caches\transforms-3\d9f084ab3aaa026b11e2e4203a731755\transformed\jetified-camera-camera2-1.2.2\AndroidManifest.xml:27:13-37
+80-->[androidx.camera:camera-camera2:1.2.2] C:\Users\lenovo\.gradle\caches\transforms-3\d9f084ab3aaa026b11e2e4203a731755\transformed\jetified-camera-camera2-1.2.2\AndroidManifest.xml:27:13-37
 81            <meta-data
-81-->[androidx.camera:camera-camera2:1.2.2] C:\Users\zzw15\.gradle\caches\transforms-3\d9f084ab3aaa026b11e2e4203a731755\transformed\jetified-camera-camera2-1.2.2\AndroidManifest.xml:30:13-32:89
+81-->[androidx.camera:camera-camera2:1.2.2] C:\Users\lenovo\.gradle\caches\transforms-3\d9f084ab3aaa026b11e2e4203a731755\transformed\jetified-camera-camera2-1.2.2\AndroidManifest.xml:30:13-32:89
 82                android:name="androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER"
-82-->[androidx.camera:camera-camera2:1.2.2] C:\Users\zzw15\.gradle\caches\transforms-3\d9f084ab3aaa026b11e2e4203a731755\transformed\jetified-camera-camera2-1.2.2\AndroidManifest.xml:31:17-103
+82-->[androidx.camera:camera-camera2:1.2.2] C:\Users\lenovo\.gradle\caches\transforms-3\d9f084ab3aaa026b11e2e4203a731755\transformed\jetified-camera-camera2-1.2.2\AndroidManifest.xml:31:17-103
 83                android:value="androidx.camera.camera2.Camera2Config$DefaultProvider" />
-83-->[androidx.camera:camera-camera2:1.2.2] C:\Users\zzw15\.gradle\caches\transforms-3\d9f084ab3aaa026b11e2e4203a731755\transformed\jetified-camera-camera2-1.2.2\AndroidManifest.xml:32:17-86
+83-->[androidx.camera:camera-camera2:1.2.2] C:\Users\lenovo\.gradle\caches\transforms-3\d9f084ab3aaa026b11e2e4203a731755\transformed\jetified-camera-camera2-1.2.2\AndroidManifest.xml:32:17-86
 84        </service>
 85
 86        <provider
-86-->[androidx.emoji2:emoji2:1.2.0] C:\Users\zzw15\.gradle\caches\transforms-3\ff4035fdd280931ebe3eaa0986f8a05b\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+86-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\ff4035fdd280931ebe3eaa0986f8a05b\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
 87            android:name="androidx.startup.InitializationProvider"
-87-->[androidx.emoji2:emoji2:1.2.0] C:\Users\zzw15\.gradle\caches\transforms-3\ff4035fdd280931ebe3eaa0986f8a05b\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
+87-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\ff4035fdd280931ebe3eaa0986f8a05b\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
 88            android:authorities="com.example.smartstore.androidx-startup"
-88-->[androidx.emoji2:emoji2:1.2.0] C:\Users\zzw15\.gradle\caches\transforms-3\ff4035fdd280931ebe3eaa0986f8a05b\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
+88-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\ff4035fdd280931ebe3eaa0986f8a05b\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
 89            android:exported="false" >
-89-->[androidx.emoji2:emoji2:1.2.0] C:\Users\zzw15\.gradle\caches\transforms-3\ff4035fdd280931ebe3eaa0986f8a05b\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
+89-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\ff4035fdd280931ebe3eaa0986f8a05b\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
 90            <meta-data
-90-->[androidx.emoji2:emoji2:1.2.0] C:\Users\zzw15\.gradle\caches\transforms-3\ff4035fdd280931ebe3eaa0986f8a05b\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+90-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\ff4035fdd280931ebe3eaa0986f8a05b\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
 91                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-91-->[androidx.emoji2:emoji2:1.2.0] C:\Users\zzw15\.gradle\caches\transforms-3\ff4035fdd280931ebe3eaa0986f8a05b\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
+91-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\ff4035fdd280931ebe3eaa0986f8a05b\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
 92                android:value="androidx.startup" />
-92-->[androidx.emoji2:emoji2:1.2.0] C:\Users\zzw15\.gradle\caches\transforms-3\ff4035fdd280931ebe3eaa0986f8a05b\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
+92-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\ff4035fdd280931ebe3eaa0986f8a05b\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
 93            <meta-data
-93-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\zzw15\.gradle\caches\transforms-3\9e2f2de6827c40d687bb60dfa306e3fb\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:29:13-31:52
+93-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\lenovo\.gradle\caches\transforms-3\9e2f2de6827c40d687bb60dfa306e3fb\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:29:13-31:52
 94                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-94-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\zzw15\.gradle\caches\transforms-3\9e2f2de6827c40d687bb60dfa306e3fb\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:30:17-78
+94-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\lenovo\.gradle\caches\transforms-3\9e2f2de6827c40d687bb60dfa306e3fb\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:30:17-78
 95                android:value="androidx.startup" />
-95-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\zzw15\.gradle\caches\transforms-3\9e2f2de6827c40d687bb60dfa306e3fb\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:31:17-49
+95-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\lenovo\.gradle\caches\transforms-3\9e2f2de6827c40d687bb60dfa306e3fb\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:31:17-49
 96            <meta-data
-96-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\zzw15\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
+96-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
 97                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-97-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\zzw15\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
+97-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
 98                android:value="androidx.startup" />
-98-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\zzw15\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
+98-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
 99        </provider>
 100
 101        <uses-library
-101-->[androidx.window:window:1.0.0] C:\Users\zzw15\.gradle\caches\transforms-3\6b013d84ede3d2defbec3cf84d8dbe94\transformed\jetified-window-1.0.0\AndroidManifest.xml:25:9-27:40
+101-->[androidx.window:window:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\6b013d84ede3d2defbec3cf84d8dbe94\transformed\jetified-window-1.0.0\AndroidManifest.xml:25:9-27:40
 102            android:name="androidx.window.extensions"
-102-->[androidx.window:window:1.0.0] C:\Users\zzw15\.gradle\caches\transforms-3\6b013d84ede3d2defbec3cf84d8dbe94\transformed\jetified-window-1.0.0\AndroidManifest.xml:26:13-54
+102-->[androidx.window:window:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\6b013d84ede3d2defbec3cf84d8dbe94\transformed\jetified-window-1.0.0\AndroidManifest.xml:26:13-54
 103            android:required="false" />
-103-->[androidx.window:window:1.0.0] C:\Users\zzw15\.gradle\caches\transforms-3\6b013d84ede3d2defbec3cf84d8dbe94\transformed\jetified-window-1.0.0\AndroidManifest.xml:27:13-37
+103-->[androidx.window:window:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\6b013d84ede3d2defbec3cf84d8dbe94\transformed\jetified-window-1.0.0\AndroidManifest.xml:27:13-37
 104        <uses-library
-104-->[androidx.window:window:1.0.0] C:\Users\zzw15\.gradle\caches\transforms-3\6b013d84ede3d2defbec3cf84d8dbe94\transformed\jetified-window-1.0.0\AndroidManifest.xml:28:9-30:40
+104-->[androidx.window:window:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\6b013d84ede3d2defbec3cf84d8dbe94\transformed\jetified-window-1.0.0\AndroidManifest.xml:28:9-30:40
 105            android:name="androidx.window.sidecar"
-105-->[androidx.window:window:1.0.0] C:\Users\zzw15\.gradle\caches\transforms-3\6b013d84ede3d2defbec3cf84d8dbe94\transformed\jetified-window-1.0.0\AndroidManifest.xml:29:13-51
+105-->[androidx.window:window:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\6b013d84ede3d2defbec3cf84d8dbe94\transformed\jetified-window-1.0.0\AndroidManifest.xml:29:13-51
 106            android:required="false" />
-106-->[androidx.window:window:1.0.0] C:\Users\zzw15\.gradle\caches\transforms-3\6b013d84ede3d2defbec3cf84d8dbe94\transformed\jetified-window-1.0.0\AndroidManifest.xml:30:13-37
+106-->[androidx.window:window:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\6b013d84ede3d2defbec3cf84d8dbe94\transformed\jetified-window-1.0.0\AndroidManifest.xml:30:13-37
 107
 108        <provider
-108-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:9:3-13:34
+108-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:9:3-13:34
 109            android:name="com.mob.MobProvider"
-109-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:10:4-38
+109-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:10:4-38
 110            android:authorities="com.example.smartstore.com.mob.MobProvider"
-110-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:11:4-62
+110-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:11:4-62
 111            android:exported="false"
-111-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:12:4-28
+111-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:12:4-28
 112            android:multiprocess="true" />
-112-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:13:4-31
+112-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:13:4-31
 113
 114        <activity
-114-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:14:3-22:14
+114-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:14:3-22:14
 115            android:name="com.mob.id.MobIDSYActivity"
-115-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:15:4-45
+115-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:15:4-45
 116            android:exported="true"
-116-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:16:4-27
+116-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:16:4-27
 117            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
-117-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:17:4-74
+117-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:17:4-74
 118            <intent-filter>
-118-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:18:4-21:20
+118-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:18:4-21:20
 119                <action android:name="com.mob.id.app_lk" />
-119-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:19:5-48
-119-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:19:13-45
+119-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:19:5-48
+119-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:19:13-45
 120
 121                <category android:name="android.intent.category.DEFAULT" />
-121-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:20:5-64
-121-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:20:15-61
+121-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:20:5-64
+121-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:20:15-61
 122            </intent-filter>
 123        </activity>
 124        <activity
-124-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:23:3-31:14
+124-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:23:3-31:14
 125            android:name="com.mob.guard.MobTranPullLockActivity"
-125-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:24:4-56
+125-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:24:4-56
 126            android:exported="true"
-126-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:25:4-27
+126-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:25:4-27
 127            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
-127-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:26:4-74
+127-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:26:4-74
 128            <intent-filter>
-128-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:27:4-30:20
+128-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:27:4-30:20
 129                <action android:name="com.mob.open.app_lk" />
-129-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:28:5-50
-129-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:28:13-47
+129-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:28:5-50
+129-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:28:13-47
 130
 131                <category android:name="android.intent.category.DEFAULT" />
-131-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:20:5-64
-131-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:20:15-61
+131-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:20:5-64
+131-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:20:15-61
 132            </intent-filter>
 133        </activity>
 134
 135        <service
-135-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:10:9-17:19
+135-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:10:9-17:19
 136            android:name="com.mob.MobACService"
-136-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:11:13-48
+136-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:11:13-48
 137            android:enabled="true"
-137-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:12:13-35
+137-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:12:13-35
 138            android:exported="true" >
-138-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:13:13-36
+138-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:13:13-36
 139            <intent-filter>
-139-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:14:13-16:29
+139-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:14:13-16:29
 140                <action android:name="com.mob.service.action.MOB_AC_SERVICE" />
-140-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:15:17-80
-140-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:15:25-77
+140-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:15:17-80
+140-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:15:25-77
 141            </intent-filter>
 142        </service>
 143
 144        <activity
-144-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:19:9-27:20
+144-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:19:9-27:20
 145            android:name="com.mob.id.MobIDActivity"
-145-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:20:13-52
+145-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:20:13-52
 146            android:exported="true"
-146-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:21:13-36
+146-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:21:13-36
 147            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
-147-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:22:13-83
+147-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:22:13-83
 148            <intent-filter>
-148-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:23:13-26:29
+148-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:23:13-26:29
 149                <action android:name="com.mob.id.app_30000" />
-149-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:24:17-63
-149-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:24:25-60
+149-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:24:17-63
+149-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:24:25-60
 150
 151                <category android:name="android.intent.category.DEFAULT" />
-151-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:20:5-64
-151-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:20:15-61
+151-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:20:5-64
+151-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:20:15-61
 152            </intent-filter>
 153        </activity>
 154
 155        <service
-155-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:39:9-46:19
+155-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:39:9-46:19
 156            android:name="com.mob.id.MobIDService"
-156-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:40:13-51
+156-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:40:13-51
 157            android:enabled="true"
-157-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:41:13-35
+157-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:41:13-35
 158            android:exported="true" >
-158-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:42:13-36
+158-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:42:13-36
 159            <intent-filter>
-159-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:43:13-45:29
+159-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:43:13-45:29
 160                <action android:name="com.mob.intent.MOB_ID_SERVICE" />
-160-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:44:17-72
-160-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:44:25-69
+160-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:44:17-72
+160-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:44:25-69
 161            </intent-filter>
 162        </service>
 163
 164        <meta-data
-164-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:48:9-50:37
+164-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:48:9-50:37
 165            android:name="mob_guard_version"
-165-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:49:13-45
+165-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:49:13-45
 166            android:value="30000" />
-166-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:50:13-34
+166-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:50:13-34
 167        <meta-data
-167-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:52:9-54:37
+167-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:52:9-54:37
 168            android:name="mob_id_ver"
-168-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:53:13-38
+168-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:53:13-38
 169            android:value="30000" />
-169-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:54:13-34
+169-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:54:13-34
 170
 171        <activity
-171-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:56:9-64:20
+171-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:56:9-64:20
 172            android:name="com.mob.guard.MobTranPullUpActivity"
-172-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:57:13-63
+172-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:57:13-63
 173            android:exported="true"
-173-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:58:13-36
+173-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:58:13-36
 174            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
-174-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:59:13-83
+174-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:59:13-83
 175            <intent-filter>
-175-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:60:13-63:29
+175-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:60:13-63:29
 176                <action android:name="com.mob.open.app_20000" />
-176-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:61:17-65
-176-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:61:25-62
+176-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:61:17-65
+176-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:61:25-62
 177
 178                <category android:name="android.intent.category.DEFAULT" />
-178-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:20:5-64
-178-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:20:15-61
+178-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:20:5-64
+178-->[com.mob:MobCoreULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\9f6f0f0eace3807fa867625a1982d794\transformed\jetified-MobCoreULT-2024.0422.1822\AndroidManifest.xml:20:15-61
 179            </intent-filter>
 180        </activity>
 181
 182        <service
-182-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:76:9-83:19
+182-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:76:9-83:19
 183            android:name="com.mob.guard.MobGuardPullUpService"
-183-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:77:13-63
+183-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:77:13-63
 184            android:enabled="true"
-184-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:78:13-35
+184-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:78:13-35
 185            android:exported="true" >
-185-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:79:13-36
+185-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:79:13-36
 186            <intent-filter>
-186-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:80:13-82:29
+186-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:80:13-82:29
 187                <action android:name="com.mob.intent.MOB_GUARD_SERVICE" />
-187-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:81:17-75
-187-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\zzw15\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:81:25-72
+187-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:81:17-75
+187-->[com.mob:MobIDSULT:2024.0422.1822] C:\Users\lenovo\.gradle\caches\transforms-3\667c84de97537e5016b4ff46206444a2\transformed\jetified-MobIDSULT-2024.0422.1822\AndroidManifest.xml:81:25-72
 188            </intent-filter>
 189        </service>
 190
 191        <receiver
-191-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\zzw15\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
+191-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
 192            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-192-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\zzw15\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
+192-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
 193            android:directBootAware="false"
-193-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\zzw15\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
+193-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
 194            android:enabled="true"
-194-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\zzw15\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
+194-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
 195            android:exported="true"
-195-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\zzw15\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
+195-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
 196            android:permission="android.permission.DUMP" >
-196-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\zzw15\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
+196-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
 197            <intent-filter>
-197-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\zzw15\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
+197-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
 198                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-198-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\zzw15\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
-198-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\zzw15\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
+198-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
+198-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
 199            </intent-filter>
 200            <intent-filter>
-200-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\zzw15\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
+200-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
 201                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-201-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\zzw15\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
-201-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\zzw15\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
+201-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
+201-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
 202            </intent-filter>
 203            <intent-filter>
-203-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\zzw15\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
+203-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
 204                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-204-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\zzw15\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
-204-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\zzw15\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
+204-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
+204-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
 205            </intent-filter>
 206            <intent-filter>
-206-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\zzw15\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
+206-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
 207                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-207-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\zzw15\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
-207-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\zzw15\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
+207-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
+207-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\68f4b4de5cf01098640bf5b0c7b0732d\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
 208            </intent-filter>
 209        </receiver>
 210    </application>

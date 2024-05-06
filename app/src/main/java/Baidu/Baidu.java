@@ -24,8 +24,6 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.smartstore.R;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -82,7 +80,7 @@ public class Baidu extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_baidu);
+        setContentView(com.example.smartstore.R.layout.activity_baidu);
 
         SharedPreferences preference_id = getSharedPreferences("config", Context.MODE_PRIVATE);
         Current_layout_id =  preference_id.getInt("current_layout_id",-1);
@@ -96,9 +94,9 @@ public class Baidu extends AppCompatActivity {
         context = this;
         activity = (Activity)this;
         uri = getIntent().getParcelableExtra("image");
-        add_new_item_btn = findViewById(R.id.add_new_item_btn);
-        image_edit_return_btn = findViewById(R.id.image_edit_return_btn);
-        complete = findViewById(R.id.edit_btn);
+        add_new_item_btn = findViewById(com.example.smartstore.R.id.add_new_item_btn);
+        image_edit_return_btn = findViewById(com.example.smartstore.R.id.image_edit_return_btn);
+        complete = findViewById(com.example.smartstore.R.id.edit_btn);
 
         complete.setOnClickListener(v -> {
             attention_dialog dd = new attention_dialog("请确保所需物品与属性已设置完成","物品确认完成提醒" ,"确认完成", "再检查一下",this, isAccept -> {
@@ -159,7 +157,7 @@ public class Baidu extends AppCompatActivity {
                         room_Id.clear();
                         detect_type_1.clear();
                         finish();
-                        overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
+                        overridePendingTransition(com.example.smartstore.R.anim.fade_in,com.example.smartstore.R.anim.fade_out);
                     }
                 });
                 dd.onCreate_Attention_Dialog();
@@ -185,8 +183,8 @@ public class Baidu extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {  //接受doInBackground返回值
             if(op) {  //识别完成
-                LinearLayout container_1 = activity.findViewById(R.id.container_1);
-                LinearLayout container_2 = activity.findViewById(R.id.container_2);
+                LinearLayout container_1 = activity.findViewById(com.example.smartstore.R.id.container_1);
+                LinearLayout container_2 = activity.findViewById(com.example.smartstore.R.id.container_2);
 
                 OkHttpClient client = new OkHttpClient().newBuilder().build();
 
@@ -242,17 +240,17 @@ public class Baidu extends AppCompatActivity {
 
                                         if (k % 2 == 0) {
                                             View single_items = LayoutInflater.from(container_1.getContext())
-                                                    .inflate(R.layout.edit_item_card, container_1, false);
+                                                    .inflate(com.example.smartstore.R.layout.edit_item_card, container_1, false);
 
-                                            ((TextView) single_items.findViewById(R.id.detect_res)).setText(detect_res.get(k));
+                                            ((TextView) single_items.findViewById(com.example.smartstore.R.id.detect_res)).setText(detect_res.get(k));
                                             Bitmap bitmap = BitmapFactory.decodeByteArray(depart_res.get(k), 0, depart_res.get(k).length);
-                                            ((ImageView) single_items.findViewById(R.id.detect_img)).setImageBitmap(bitmap);
-                                            ((TextView) single_items.findViewById(R.id.size)).setText(getAttributeName("size",attributes.get(k).get(0)));
-                                            ((TextView) single_items.findViewById(R.id.urgn)).setText(getAttributeName("urgn",attributes.get(k).get(1)));
-                                            ((TextView) single_items.findViewById(R.id.buty)).setText(getAttributeName("buty",attributes.get(k).get(2)));
-                                            ((TextView) single_items.findViewById(R.id.freq)).setText(getAttributeName("freq",attributes.get(k).get(3)));
-                                            ((TextView) single_items.findViewById(R.id.ligt)).setText(getAttributeName("ligt",attributes.get(k).get(4)));
-                                            ((TextView) single_items.findViewById(R.id.wter)).setText(getAttributeName("wter",attributes.get(k).get(5)));
+                                            ((ImageView) single_items.findViewById(com.example.smartstore.R.id.detect_img)).setImageBitmap(bitmap);
+                                            ((TextView) single_items.findViewById(com.example.smartstore.R.id.size)).setText(getAttributeName("size",attributes.get(k).get(0)));
+                                            ((TextView) single_items.findViewById(com.example.smartstore.R.id.urgn)).setText(getAttributeName("urgn",attributes.get(k).get(1)));
+                                            ((TextView) single_items.findViewById(com.example.smartstore.R.id.buty)).setText(getAttributeName("buty",attributes.get(k).get(2)));
+                                            ((TextView) single_items.findViewById(com.example.smartstore.R.id.freq)).setText(getAttributeName("freq",attributes.get(k).get(3)));
+                                            ((TextView) single_items.findViewById(com.example.smartstore.R.id.ligt)).setText(getAttributeName("ligt",attributes.get(k).get(4)));
+                                            ((TextView) single_items.findViewById(com.example.smartstore.R.id.wter)).setText(getAttributeName("wter",attributes.get(k).get(5)));
 
                                             boolean flag = false;
                                             //如果没有此房间，则随机选择
@@ -260,14 +258,14 @@ public class Baidu extends AppCompatActivity {
                                             for(String lr: layout_room) {  //遍历所有房间
                                                 first_room = lr;
                                                 if (lr.contains(space.get(k))) {  //针对每一个房间，判断是否包含房间的关键字段
-                                                    ((TextView) single_items.findViewById(R.id.space)).setText("· " + lr);
+                                                    ((TextView) single_items.findViewById(com.example.smartstore.R.id.space)).setText("· " + lr);
                                                     space.set(k,lr);
                                                     flag = true;
                                                     break;
                                                 }
                                             }
                                             if(!flag) {  //未找到匹配房间
-                                                ((TextView) single_items.findViewById(R.id.space)).setText("· 无匹配空间");
+                                                ((TextView) single_items.findViewById(com.example.smartstore.R.id.space)).setText("· 无匹配空间");
                                                 space.set(k, first_room);
                                             }
 
@@ -309,14 +307,14 @@ public class Baidu extends AppCompatActivity {
                                                         attributes_1.set(kk,single_attribute);
                                                         space_1.set(kk, spaces);
                                                         detect_res_1.set(kk, keywords);
-                                                        ((TextView) v.findViewById(R.id.size)).setText(getAttributeName("size",attributes_1.get(kk).get(0)));
-                                                        ((TextView) v.findViewById(R.id.urgn)).setText(getAttributeName("urgn",attributes_1.get(kk).get(1)));
-                                                        ((TextView) v.findViewById(R.id.buty)).setText(getAttributeName("buty",attributes_1.get(kk).get(2)));
-                                                        ((TextView) v.findViewById(R.id.freq)).setText(getAttributeName("freq",attributes_1.get(kk).get(3)));
-                                                        ((TextView) v.findViewById(R.id.ligt)).setText(getAttributeName("ligt",attributes_1.get(kk).get(4)));
-                                                        ((TextView) v.findViewById(R.id.wter)).setText(getAttributeName("wter",attributes_1.get(kk).get(5)));
-                                                        ((TextView) v.findViewById(R.id.space)).setText("· " + spaces);
-                                                        ((TextView) v.findViewById(R.id.detect_res)).setText(keywords);
+                                                        ((TextView) v.findViewById(com.example.smartstore.R.id.size)).setText(getAttributeName("size",attributes_1.get(kk).get(0)));
+                                                        ((TextView) v.findViewById(com.example.smartstore.R.id.urgn)).setText(getAttributeName("urgn",attributes_1.get(kk).get(1)));
+                                                        ((TextView) v.findViewById(com.example.smartstore.R.id.buty)).setText(getAttributeName("buty",attributes_1.get(kk).get(2)));
+                                                        ((TextView) v.findViewById(com.example.smartstore.R.id.freq)).setText(getAttributeName("freq",attributes_1.get(kk).get(3)));
+                                                        ((TextView) v.findViewById(com.example.smartstore.R.id.ligt)).setText(getAttributeName("ligt",attributes_1.get(kk).get(4)));
+                                                        ((TextView) v.findViewById(com.example.smartstore.R.id.wter)).setText(getAttributeName("wter",attributes_1.get(kk).get(5)));
+                                                        ((TextView) v.findViewById(com.example.smartstore.R.id.space)).setText("· " + spaces);
+                                                        ((TextView) v.findViewById(com.example.smartstore.R.id.detect_res)).setText(keywords);
                                                     }
                                                 });
                                                 dd.onCreate_Attention_Dialog();
@@ -325,16 +323,16 @@ public class Baidu extends AppCompatActivity {
 
                                         else {
                                             View single_items = LayoutInflater.from(container_2.getContext())
-                                                    .inflate(R.layout.edit_item_card, container_2, false);
-                                            ((TextView) single_items.findViewById(R.id.detect_res)).setText(detect_res.get(k));
+                                                    .inflate(com.example.smartstore.R.layout.edit_item_card, container_2, false);
+                                            ((TextView) single_items.findViewById(com.example.smartstore.R.id.detect_res)).setText(detect_res.get(k));
                                             Bitmap bitmap = BitmapFactory.decodeByteArray(depart_res.get(k), 0, depart_res.get(k).length);
-                                            ((ImageView) single_items.findViewById(R.id.detect_img)).setImageBitmap(bitmap);
-                                            ((TextView) single_items.findViewById(R.id.size)).setText(getAttributeName("size",attributes.get(k).get(0)));
-                                            ((TextView) single_items.findViewById(R.id.urgn)).setText(getAttributeName("urgn",attributes.get(k).get(1)));
-                                            ((TextView) single_items.findViewById(R.id.buty)).setText(getAttributeName("buty",attributes.get(k).get(2)));
-                                            ((TextView) single_items.findViewById(R.id.freq)).setText(getAttributeName("freq",attributes.get(k).get(3)));
-                                            ((TextView) single_items.findViewById(R.id.ligt)).setText(getAttributeName("ligt",attributes.get(k).get(4)));
-                                            ((TextView) single_items.findViewById(R.id.wter)).setText(getAttributeName("wter",attributes.get(k).get(5)));
+                                            ((ImageView) single_items.findViewById(com.example.smartstore.R.id.detect_img)).setImageBitmap(bitmap);
+                                            ((TextView) single_items.findViewById(com.example.smartstore.R.id.size)).setText(getAttributeName("size",attributes.get(k).get(0)));
+                                            ((TextView) single_items.findViewById(com.example.smartstore.R.id.urgn)).setText(getAttributeName("urgn",attributes.get(k).get(1)));
+                                            ((TextView) single_items.findViewById(com.example.smartstore.R.id.buty)).setText(getAttributeName("buty",attributes.get(k).get(2)));
+                                            ((TextView) single_items.findViewById(com.example.smartstore.R.id.freq)).setText(getAttributeName("freq",attributes.get(k).get(3)));
+                                            ((TextView) single_items.findViewById(com.example.smartstore.R.id.ligt)).setText(getAttributeName("ligt",attributes.get(k).get(4)));
+                                            ((TextView) single_items.findViewById(com.example.smartstore.R.id.wter)).setText(getAttributeName("wter",attributes.get(k).get(5)));
 
                                             Boolean flag = false;
                                             String first_room = "";
@@ -342,14 +340,14 @@ public class Baidu extends AppCompatActivity {
                                             for(String lr: layout_room) {  //遍历所有房间
                                                 first_room = lr;
                                                 if (lr.contains(space.get(k))) {  //针对每一个房间，判断是否包含房间的关键字段
-                                                    ((TextView) single_items.findViewById(R.id.space)).setText("· " + lr);
+                                                    ((TextView) single_items.findViewById(com.example.smartstore.R.id.space)).setText("· " + lr);
                                                     flag = true;
                                                     space.set(k,lr);
                                                     break;
                                                 }
                                             }
                                             if(!flag) {  //未找到匹配房间
-                                                ((TextView) single_items.findViewById(R.id.space)).setText("· 无匹配空间");
+                                                ((TextView) single_items.findViewById(com.example.smartstore.R.id.space)).setText("· 无匹配空间");
                                                 space.set(k, first_room);
                                             }
 
@@ -390,14 +388,14 @@ public class Baidu extends AppCompatActivity {
                                                         attributes_2.set(kk,single_attribute);
                                                         space_2.set(kk, spaces);
                                                         detect_res_2.set(kk,keywords);
-                                                        ((TextView) v.findViewById(R.id.size)).setText(getAttributeName("size",attributes_2.get(kk).get(0)));
-                                                        ((TextView) v.findViewById(R.id.urgn)).setText(getAttributeName("urgn",attributes_2.get(kk).get(1)));
-                                                        ((TextView) v.findViewById(R.id.buty)).setText(getAttributeName("buty",attributes_2.get(kk).get(2)));
-                                                        ((TextView) v.findViewById(R.id.freq)).setText(getAttributeName("freq",attributes_2.get(kk).get(3)));
-                                                        ((TextView) v.findViewById(R.id.ligt)).setText(getAttributeName("ligt",attributes_2.get(kk).get(4)));
-                                                        ((TextView) v.findViewById(R.id.wter)).setText(getAttributeName("wter",attributes_2.get(kk).get(5)));
-                                                        ((TextView) v.findViewById(R.id.space)).setText("· " + spaces);
-                                                        ((TextView) v.findViewById(R.id.detect_res)).setText(keywords);
+                                                        ((TextView) v.findViewById(com.example.smartstore.R.id.size)).setText(getAttributeName("size",attributes_2.get(kk).get(0)));
+                                                        ((TextView) v.findViewById(com.example.smartstore.R.id.urgn)).setText(getAttributeName("urgn",attributes_2.get(kk).get(1)));
+                                                        ((TextView) v.findViewById(com.example.smartstore.R.id.buty)).setText(getAttributeName("buty",attributes_2.get(kk).get(2)));
+                                                        ((TextView) v.findViewById(com.example.smartstore.R.id.freq)).setText(getAttributeName("freq",attributes_2.get(kk).get(3)));
+                                                        ((TextView) v.findViewById(com.example.smartstore.R.id.ligt)).setText(getAttributeName("ligt",attributes_2.get(kk).get(4)));
+                                                        ((TextView) v.findViewById(com.example.smartstore.R.id.wter)).setText(getAttributeName("wter",attributes_2.get(kk).get(5)));
+                                                        ((TextView) v.findViewById(com.example.smartstore.R.id.space)).setText("· " + spaces);
+                                                        ((TextView) v.findViewById(com.example.smartstore.R.id.detect_res)).setText(keywords);
                                                     }
                                                 });
                                                 dd.onCreate_Attention_Dialog();
@@ -567,7 +565,7 @@ public class Baidu extends AppCompatActivity {
                 space_1.clear();
                 layout_room.clear();
                 room_Id.clear();
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                overridePendingTransition(com.example.smartstore.R.anim.fade_in, com.example.smartstore.R.anim.fade_out);
                 super.onBackPressed();
             }
         });

@@ -50,11 +50,11 @@
         <activity android:name="image_submit.Image_edit" />
         <activity android:name=".MainActivity" />
         <activity android:name="chattingCircle.Postings" />
-        <activity android:name="Family.family"/>
+<!--        <activity android:name="Family.family"/>-->
         <activity android:name="Family.help"/>
         <activity android:name="chattingCircle.Post"/>
         <activity
-            android:name="login.LoginActivity"
+            android:name="Family.family"
             android:exported="true"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>

@@ -74,6 +74,9 @@ public final class MinePageBinding implements ViewBinding {
   public final ImageView myLikeBtn;
 
   @NonNull
+  public final ImageView myPeoBtn;
+
+  @NonNull
   public final ImageView myRecordBtn;
 
   @NonNull
@@ -127,12 +130,12 @@ public final class MinePageBinding implements ViewBinding {
       @NonNull Button contactBtn, @NonNull ProgressBar expProgress, @NonNull TextView fourTOine,
       @NonNull TextView fourTOthree, @NonNull TextView fourTOtwo, @NonNull ImageView imageView12,
       @NonNull TextView maxExp, @NonNull ImageView myFeedbackBtn, @NonNull TextView myFeedbackBtn1,
-      @NonNull ImageView myLikeBtn, @NonNull ImageView myRecordBtn, @NonNull LinearLayout part10,
-      @NonNull ImageView part11, @NonNull LinearLayout part12, @NonNull LinearLayout part13,
-      @NonNull LinearLayout part8, @NonNull LinearLayout part9, @NonNull ImageView rank,
-      @NonNull LinearLayout rootLayout, @NonNull Button settingBtn, @NonNull TextView userExp,
-      @NonNull TextView userId, @NonNull Circle userImg, @NonNull EditText userName1,
-      @NonNull TextView userRank, @NonNull EditText userSignature1) {
+      @NonNull ImageView myLikeBtn, @NonNull ImageView myPeoBtn, @NonNull ImageView myRecordBtn,
+      @NonNull LinearLayout part10, @NonNull ImageView part11, @NonNull LinearLayout part12,
+      @NonNull LinearLayout part13, @NonNull LinearLayout part8, @NonNull LinearLayout part9,
+      @NonNull ImageView rank, @NonNull LinearLayout rootLayout, @NonNull Button settingBtn,
+      @NonNull TextView userExp, @NonNull TextView userId, @NonNull Circle userImg,
+      @NonNull EditText userName1, @NonNull TextView userRank, @NonNull EditText userSignature1) {
     this.rootView = rootView;
     this.HelpBtn = HelpBtn;
     this.HonorLevel = HonorLevel;
@@ -150,6 +153,7 @@ public final class MinePageBinding implements ViewBinding {
     this.myFeedbackBtn = myFeedbackBtn;
     this.myFeedbackBtn1 = myFeedbackBtn1;
     this.myLikeBtn = myLikeBtn;
+    this.myPeoBtn = myPeoBtn;
     this.myRecordBtn = myRecordBtn;
     this.part10 = part10;
     this.part11 = part11;
@@ -291,6 +295,12 @@ public final class MinePageBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.my_peo_btn;
+      ImageView myPeoBtn = ViewBindings.findChildViewById(rootView, id);
+      if (myPeoBtn == null) {
+        break missingId;
+      }
+
       id = R.id.my_record_btn;
       ImageView myRecordBtn = ViewBindings.findChildViewById(rootView, id);
       if (myRecordBtn == null) {
@@ -389,9 +399,9 @@ public final class MinePageBinding implements ViewBinding {
 
       return new MinePageBinding((ConstraintLayout) rootView, HelpBtn, HonorLevel, HonorLevelText,
           HonorNextLevel, checkinButton, con, contactBtn, expProgress, fourTOine, fourTOthree,
-          fourTOtwo, imageView12, maxExp, myFeedbackBtn, myFeedbackBtn1, myLikeBtn, myRecordBtn,
-          part10, part11, part12, part13, part8, part9, rank, rootLayout, settingBtn, userExp,
-          userId, userImg, userName1, userRank, userSignature1);
+          fourTOtwo, imageView12, maxExp, myFeedbackBtn, myFeedbackBtn1, myLikeBtn, myPeoBtn,
+          myRecordBtn, part10, part11, part12, part13, part8, part9, rank, rootLayout, settingBtn,
+          userExp, userId, userImg, userName1, userRank, userSignature1);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

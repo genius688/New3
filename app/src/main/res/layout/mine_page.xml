@@ -374,12 +374,19 @@
                     android:layout_marginTop="15dp"
                     android:adjustViewBounds="true"
                     android:src="@drawable/my_like" />
-
+                <ImageView
+                    android:id="@+id/my_peo_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/my_like_btn"
+                    android:layout_marginTop="5dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/my_peo_manage" />
                 <ImageView
                     android:id="@+id/my_feedback_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/my_like_btn"
+                    android:layout_below="@+id/my_peo_btn"
                     android:layout_marginTop="5dp"
                     android:adjustViewBounds="true"
                     android:src="@drawable/my_feedback" />
@@ -396,7 +403,7 @@
                     android:id="@+id/my_feedback_btn1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/my_like_btn"
+                    android:layout_below="@+id/my_peo_btn"
                     android:layout_marginTop="5dp"
                     android:text=" "
                     android:textSize="32sp" />

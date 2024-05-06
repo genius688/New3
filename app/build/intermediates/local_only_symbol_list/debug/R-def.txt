@@ -31,6 +31,10 @@ drawable delete_item_btn
 drawable discription_input
 drawable dummy
 drawable dummy_2
+drawable dummy_3
+drawable dummy_4
+drawable dummy_5
+drawable dummy_6
 drawable edit_btn
 drawable edit_card
 drawable edit_card_bottom
@@ -52,6 +56,7 @@ drawable ic_launcher_foreground
 drawable icon
 drawable id
 drawable in
+drawable item_background
 drawable light_btn
 drawable line
 drawable line_under_task
@@ -227,8 +232,10 @@ id container_2
 id content
 id cur_l
 id cur_layout
+id current_task_container
 id custom_image
 id date
+id date2
 id dateEdit
 id dateEdit_Content
 id date_index
@@ -262,6 +269,9 @@ id goto_change_layout
 id goto_sign_in
 id goto_sign_up
 id gridLayout
+id guideline
+id guideline2
+id guideline3
 id guizi
 id help
 id help1
@@ -361,6 +371,7 @@ id my_feedback_btn1
 id my_layout_single
 id my_layouts
 id my_like_btn
+id my_peo_btn
 id my_record_btn
 id nav_graph
 id nav_graph2
@@ -374,6 +385,8 @@ id others
 id page
 id pages
 id parent_layout
+id part1
+id part2
 id part28
 id part29
 id part30
@@ -388,6 +401,7 @@ id part44
 id part45
 id part46
 id part47
+id part5
 id part_10
 id part_11
 id part_12
@@ -444,10 +458,12 @@ id rcmd_rson
 id rcmd_rson_content
 id record_btn
 id recyclerView
+id recycler_current_task
 id register_confirm_password_edit_text
 id register_password_edit_text
 id register_userTel_edit_text
 id rest
+id return1
 id returnB
 id room_name
 id room_title
@@ -504,7 +520,10 @@ id sub_interface_container
 id sumbit_btn
 id task_date
 id task_op
+id task_title
 id test
+id text1
+id text2
 id textView
 id textView1
 id textView11
@@ -533,6 +552,7 @@ id unsee_3
 id urgent_task
 id urgn
 id userID
+id user_container
 id user_exp
 id user_id
 id user_img
@@ -542,6 +562,12 @@ id user_name1
 id user_rank
 id user_signature
 id user_signature1
+id user_title
+id users
+id view1
+id view2
+id view3
+id view4
 id view_sign_in1
 id view_sign_in2
 id view_sign_up
@@ -566,9 +592,11 @@ layout activity_self_edit_layout
 layout add_dialog
 layout attention_dialog
 layout chatting_my_content
+layout current_tasks_recyclerview
 layout data_item1
 layout date_item
 layout dialog
+layout dialog_user_list
 layout discription_dialog
 layout edit_item_card
 layout family
@@ -584,6 +612,7 @@ layout item_layout_card
 layout item_list
 layout mine_page
 layout mylayoutlistitem
+layout recyclerview_item
 layout room_item
 layout search
 layout search_dialog

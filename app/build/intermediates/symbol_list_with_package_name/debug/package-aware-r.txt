@@ -3056,6 +3056,10 @@ drawable design_snackbar_background
 drawable discription_input
 drawable dummy
 drawable dummy_2
+drawable dummy_3
+drawable dummy_4
+drawable dummy_5
+drawable dummy_6
 drawable edit_btn
 drawable edit_card
 drawable edit_card_bottom
@@ -3095,6 +3099,7 @@ drawable ic_search_black_24
 drawable icon
 drawable id
 drawable in
+drawable item_background
 drawable light_btn
 drawable line
 drawable line_under_task
@@ -3538,11 +3543,13 @@ id cradle
 id cur_l
 id cur_layout
 id currentState
+id current_task_container
 id custom
 id customPanel
 id custom_image
 id cut
 id date
+id date2
 id dateEdit
 id dateEdit_Content
 id date_index
@@ -3652,6 +3659,9 @@ id gridLayout
 id group_divider
 id grouping
 id groups
+id guideline
+id guideline2
+id guideline3
 id guizi
 id gv_avator
 id header_title
@@ -3861,6 +3871,7 @@ id my_feedback_btn1
 id my_layout_single
 id my_layouts
 id my_like_btn
+id my_peo_btn
 id my_record_btn
 id nav_controller_view_tag
 id nav_graph
@@ -3906,6 +3917,8 @@ id parentPanel
 id parentRelative
 id parent_layout
 id parent_matrix
+id part1
+id part2
 id part28
 id part29
 id part30
@@ -3920,6 +3933,7 @@ id part44
 id part45
 id part46
 id part47
+id part5
 id part_10
 id part_11
 id part_12
@@ -3991,10 +4005,12 @@ id rcmd_rson_content
 id record_btn
 id rectangles
 id recyclerView
+id recycler_current_task
 id register_confirm_password_edit_text
 id register_password_edit_text
 id register_userTel_edit_text
 id rest
+id return1
 id returnB
 id reverseSawtooth
 id right
@@ -4156,8 +4172,10 @@ id tag_unhandled_key_listeners
 id tag_window_insets_animation_callback
 id task_date
 id task_op
+id task_title
 id test
 id text
+id text1
 id text2
 id textEnd
 id textSpacerNoButtons
@@ -4245,6 +4263,7 @@ id urgent_task
 id urgn
 id useLogo
 id userID
+id user_container
 id user_exp
 id user_id
 id user_img
@@ -4254,7 +4273,13 @@ id user_name1
 id user_rank
 id user_signature
 id user_signature1
+id user_title
+id users
 id vertical_only
+id view1
+id view2
+id view3
+id view4
 id view_offset_helper
 id view_sign_in1
 id view_sign_in2
@@ -4411,6 +4436,7 @@ layout activity_self_edit_layout
 layout add_dialog
 layout attention_dialog
 layout chatting_my_content
+layout current_tasks_recyclerview
 layout custom_dialog
 layout data_item1
 layout date_item
@@ -4430,6 +4456,7 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout dialog
+layout dialog_user_list
 layout discription_dialog
 layout edit_item_card
 layout family
@@ -4504,6 +4531,7 @@ layout notification_template_custom_big
 layout notification_template_icon_group
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout recyclerview_item
 layout room_item
 layout search
 layout search_dialog

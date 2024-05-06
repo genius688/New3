@@ -32,13 +32,18 @@ public final class DialogBinding implements ViewBinding {
   @NonNull
   public final TextView selectDate;
 
+  @NonNull
+  public final LinearLayout users;
+
   private DialogBinding(@NonNull LinearLayout rootView, @NonNull EditText editText1,
-      @NonNull EditText editText2, @NonNull EditText editText3, @NonNull TextView selectDate) {
+      @NonNull EditText editText2, @NonNull EditText editText3, @NonNull TextView selectDate,
+      @NonNull LinearLayout users) {
     this.rootView = rootView;
     this.editText1 = editText1;
     this.editText2 = editText2;
     this.editText3 = editText3;
     this.selectDate = selectDate;
+    this.users = users;
   }
 
   @Override
@@ -92,8 +97,14 @@ public final class DialogBinding implements ViewBinding {
         break missingId;
       }
 
-      return new DialogBinding((LinearLayout) rootView, editText1, editText2, editText3,
-          selectDate);
+      id = R.id.users;
+      LinearLayout users = ViewBindings.findChildViewById(rootView, id);
+      if (users == null) {
+        break missingId;
+      }
+
+      return new DialogBinding((LinearLayout) rootView, editText1, editText2, editText3, selectDate,
+          users);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
